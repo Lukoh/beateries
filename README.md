@@ -87,7 +87,7 @@ This app leverages third-party libraries:
  * [PhotoView](https://github.com/chrisbanes/PhotoView) - For viewing a image
  * [SwipyRefreshLayout](https://github.com/OrangeGangsters/SwipyRefreshLayout) - For swiping in both direction
 
-## To-Do functionalities
+## To-Do Functionalities
 
 A couple of functionalities were not currently implmented into the BEatery App.
 
