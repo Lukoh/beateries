@@ -93,7 +93,7 @@ Some functionalities have to be implemented:
 
  * [Sharing] - For sharing the eatery information to Facebook, Google+, Gmail, Twitter
  * [Find the eatery] - For finding the eatery on Google map
- * [ButterKnife] - For field and method binding for Android views
+ * [Request the review] - For requesting a review of the eatery
 
 ## License
 
