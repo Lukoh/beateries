@@ -88,3 +88,5 @@ This app leverages third-party libraries:
  * [Picasso](http://square.github.io/picasso/) - For remote image loading
 
 ## License
+
+BEatery binaries and source code can be used according to the [Apache License, Version 2.0] ().
