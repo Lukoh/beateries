@@ -22,7 +22,7 @@ Once you've setup the key and imported the project into Eclipse, you should be a
 
 The app does the following:
 
-1. Fetch all eateries around a user from the [EateryInfo List API](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) in JSON format
+1. Fetch all eateries around a user from the [EateryInfo List API](https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf) in JSON format
 2. Deserialize the JSON data for each of the eateries into `EateryInfo` objects
 3. Build an array of `EateryInfo` objects and create an `EateryInfoAdapter` for those eateries
 4. Define `getView` to define how to inflate a layout for each eatery row and display each eatery's data.
