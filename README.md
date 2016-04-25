@@ -1,6 +1,6 @@
 # BEatery
 
-This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O20 service on Android vai the BEatery source code. Because the BEatery Server does not set up, so the BEatery App does not run now. But I bet the BEatery App will runs well if the BEatery Server would be devleped. (I made a test with dummy json data)
+This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O20 service on Android vai the BEatery source code. Because the BEatery Server does not set up, so the BEatery App does not run now. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I made a test with dummy json data)
 
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350" />
 &nbsp;
