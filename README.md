@@ -89,4 +89,4 @@ This app leverages third-party libraries:
 
 ## License
 
-BEatery binaries and source code can be used according to the [Apache License, Version 2.0] ().
+BEatery binaries and source code can be used according to the [Apache License, Version 2.0] (https://github.com/Lukoh/beateries/blob/master/LICENSE).
