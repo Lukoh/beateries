@@ -13,7 +13,6 @@ Quick note is that you must **provide Facebook & Google+ access token** for the 
 [Google Sign-in](https://developers.google.com/identity/sign-in/android/)
 [Facebook](https://developers.facebook.com/docs/facebook-login/android) 
 
-Once you've setup the key and imported the project into Eclipse, you should be all set.
 
 ## Overview
 
