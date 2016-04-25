@@ -60,7 +60,7 @@ The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/b
       		"description": "riverside's main logo-the 50-year-old tradition of making…"
     	},
     	"preference": 4,
-   "information": "A Brooklyn Heights favorite, this sleepy American tavern is a…...",
+   	"information": "A Brooklyn Heights favorite, this sleepy American tavern is a…...",
     	"detail_information": "Exposed brick walls covered with old-fashioned clocks…...",
     	"has_event": true,
     	"has_gallery": true,
