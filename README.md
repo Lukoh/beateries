@@ -87,6 +87,8 @@ This app leverages third-party libraries:
  * [PhotoView](https://github.com/chrisbanes/PhotoView) - For viewing a image
  * [SwipyRefreshLayout](https://github.com/OrangeGangsters/SwipyRefreshLayout) - For swiping in both direction
 
+## To-Do functionalities
+
 ## License
 
 Copyright (C) 2015-2016 Lukoh Nam
