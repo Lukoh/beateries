@@ -7,14 +7,10 @@ This is an Android application for finding the best eateries around the user usi
 
 ## Installation
 
-Quick note is that you must **provide your own API key** for RottenTomatoes in order to use this demo. To get an API key, you need to [register for an account](http://developer.rottentomatoes.com/member/register) (or [sign in](https://secure.mashery.com/login/developer.rottentomatoes.com/)). Once you have the key, put the key into the `API_KEY` constant in the `src/com/codepath/example/rottentomatoes/RottenTomatoesClient.java` file: 
-
-```java
-public class RottenTomatoesClient {
-  private final String API_KEY = "ENTER-KEY-HERE";
-  // ...
-}
-```
+Quick note is that you must **provide Facebook & Google+ access token** for the BEatery App in order to use this App. To get an token, you need to refer below linkg :
+[Google+](https://developers.google.com/+/mobile/android/sign-in?hl=en) 
+[Google Sign-in](https://developers.google.com/identity/sign-in/android/)
+[Facebook](https://developers.facebook.com/docs/facebook-login/android) 
 
 Once you've setup the key and imported the project into Eclipse, you should be all set.
 
