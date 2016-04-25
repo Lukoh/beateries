@@ -89,4 +89,6 @@ This app leverages third-party libraries:
 
 ## License
 
+Copyright (C) 2015-2016 Lukoh Nam
+
 BEatery binaries and source code can be used according to the [Apache License, Version 2.0] (https://github.com/Lukoh/beateries/blob/master/LICENSE).
