@@ -89,6 +89,12 @@ This app leverages third-party libraries:
 
 ## To-Do functionalities
 
+Some functionalities have to be implemented:
+
+ * [Sharing] - For sharing the eatery information to Facebook, Google+, Gmail, Twitter
+ * [Find the eatery] - For finding the eatery on Google map
+ * [ButterKnife] - For field and method binding for Android views
+
 ## License
 
 Copyright (C) 2015-2016 Lukoh Nam
