@@ -8,6 +8,7 @@ This is an Android application for finding the best eateries around the user usi
 ## Installation
 
 Quick note is that you must **provide Facebook & Google+ access token** for the BEatery App in order to use this App. To get an token, you need to refer below linkg :
+
 [Google+](https://developers.google.com/+/mobile/android/sign-in?hl=en) 
 [Google Sign-in](https://developers.google.com/identity/sign-in/android/)
 [Facebook](https://developers.facebook.com/docs/facebook-login/android) 
