@@ -89,7 +89,8 @@ This app leverages third-party libraries:
 
 ## To-Do functionalities
 
-Some functionalities have to be implemented:
+A couple of functionalities were not currently implmented into the BEatery App.
+So Some functionalities as listed below have to be implemented:
 
  * [Sharing] - For sharing the eatery information to Facebook, Google+, Gmail, Twitter
  * [Find the eatery] - For finding the eatery on Google map
