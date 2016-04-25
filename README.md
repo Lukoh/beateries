@@ -1,6 +1,6 @@
 # BEatery
 
-This is an Android application for finding the best eateries using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). A Android App developer can see how to make some SNS or O20 service on Android vai the BEatery source code.
+This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O20 service on Android vai the BEatery source code. 
 
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350" />
 &nbsp;
