@@ -81,8 +81,10 @@ See the [BEatery REST APIs](http://guides.thecodepath.com/android/Rotten-Tomatoe
 
 ## Libraries
 
-This app leverages two third-party libraries:
+This app leverages third-party libraries:
 
  * [Retrofit](http://square.github.io/retrofit/) - For asynchronous network requests
+ * [EventBus](http://greenrobot.org/eventbus/) - For asynchronous network requests
  * [Picasso](http://square.github.io/picasso/) - For remote image loading
 
+## License
