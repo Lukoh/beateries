@@ -1,6 +1,6 @@
 # BEatery
 
-This is an Android application for finding the best eateries using the [BEatery REST APIs](http://www.rottentomatoes.com/). See the [RottenTomatoes Networking Tutorial](http://guides.thecodepath.com/android/Rotten-Tomatoes-Networking-Tutorial) on our cliffnotes for a step-by-step tutorial.
+This is an Android application for finding the best eateries using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). See the [BEatery REST APIs document](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf) on our cliffnotes for a step-by-step tutorial.
 
 <img src="http://i.imgur.com/zQPzAxD.png" alt="Screen Demo" width="350" />
 &nbsp;
