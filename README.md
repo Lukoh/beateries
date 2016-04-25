@@ -71,8 +71,8 @@ The app leverages the [EateryInfo List API](http://developer.rottentomatoes.com/
     },
     {
       "id": "7706879",
-     	  …..
-  },
+      ...
+    },
   ...
   ]
 }
