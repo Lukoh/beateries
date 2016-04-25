@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#1010FF</color>
+    <color name="swipeBar">#E43231</color>
+    <color name="swipyrefreshlayout_bg">#F2F2F2</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_light">#F0F0F0</color>
+    <color name="white_dark">#BFC0BF</color>
+    <color name="black">#000000</color>
+    <color name="black_alpha_20">#33000000</color>
+    <color name="black_alpha_40">#77000000</color>
+    <color name="gray">#868686</color>
+    <color name="gray_dark_alpha">#337A7C84</color>
+    <color name="gray_light">#A1A6A6</color>
+    <color name="red">#FF0000</color>
+    <color name="red_light">#F43231</color>
+    <color name="red_dark">#8B0000</color>
+    <color name="login_dark">#AF0600</color>
+    <!-- Custom Dialog -->
+    <color name="custom_dialog_title">#E33630</color>
+    <color name="custom_dialog_text">#666666</color>
+    <color name="custom_dialog_button_red">#E33630</color>
+
+    <color name="bg_common">#303F9F</color>
+    <color name="default_list_bg">#f6f6f6</color>
+    <color name="list_divider">#EE0011</color>
+    <color name="login_divider">#b03b2d</color>
+    <color name="login_label">#353535</color>
+    <color name="text_input_comment">#353535</color>
+    <color name="text_hint_input_comment">#C0C0C0</color>
+    <color name="login_text">#FFFFFF</color>
+    <color name="bg_signup_picture">#305FAF</color>
+    <color name="bg_signup_no_picture">#ABABAB</color>
+    <color name="bg_signup_nickname_">#303F9F</color>
+    <color name="bg_terms_btn_dark">#AF0600</color>
+    <color name="bg_terms_btn">#E33630</color>
+    <color name="post_button">#205FAF</color>
+    <color name="comment_bar_divider">#969696</color>
+    <color name="comment_bar_line">#B6B6B6</color>
+    <color name="comment_older">#E33630</color>
+    <color name="black_alpha_35">#000000</color>
+    <color name="text_website_address">#1010FF</color>
+    <color name="divider_bar">#919191</color>
+    <color name="text_eatery_description">#402020</color>
+    <color name="text_comment">#172525</color>
+    <color name="shareto">#696777</color>
+    <color name="tab_title_enabled">#337A7C84</color>
+    <color name="tab_title_selected">#303F9F</color>
+    <color name="tab_title_normal">#7A7C84</color>
+    <color name="tab_bg">#EEF0F5</color>
+    <color name="tab_title">#111111</color>
+    <color name="fab_color_normal">#1565C0</color>
+    <color name="fab_color_pressed">#2272CD</color>
+    <color name="fab_color_ripple">#62B2FF</color>
+</resources>

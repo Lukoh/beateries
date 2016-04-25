@@ -1,0 +1,133 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- CustomDialog -->
+    <style name="CustomDialog">
+        <item name="android:textSize">@dimen/custom_dialog_textSize_sp_16</item>
+        <item name="android:textColor">@color/custom_dialog_text</item>
+    </style>
+
+    <style name="CustomDialog.Title">
+        <item name="android:textSize">@dimen/custom_dialog_textSize_sp_16</item>
+        <item name="android:textColor">@color/custom_dialog_title</item>
+    </style>
+
+    <style name="CustomDialog.Button">
+        <item name="android:textColor">@color/custom_dialog_button</item>
+        <item name="android:background">@drawable/custom_dialog_button</item>
+    </style>
+
+    <style name="Base.TextAppearance.BEatery" parent="android:TextAppearance">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Base.TextAppearance.BEatery.Singleline" parent="Base.TextAppearance.BEatery">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextAppearance.BEatery.comment.input" parent="Base.TextAppearance.BEatery">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_input_comment</item>
+        <item name="android:textColorHint">@color/text_hint_input_comment</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:maxLines">9</item>
+    </style>
+
+    <style name="TextAppearance.BEatery.MenuTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.BEatery.comment.view.older" parent="Base.TextAppearance.BEatery.Singleline">
+        <item name="android:textSize">11sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:drawableLeft">@drawable/ic_older_comment_view</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/bg_comments_older</item>
+    </style>
+
+    <style name="Widget.BEatery.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.BEatery" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.BEatery.MenuTextStyle</item>
+        <item name="selectableItemBackground">@drawable/default_selectable</item>
+        <item name="android:windowBackground">@color/white_light</item>
+        <item name="searchViewStyle">@style/Widget.BEatery.SearchView</item>
+    </style>
+
+    <style name="Theme.BEatery.NoShadow" parent="Theme.BEatery">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.BEatery.Transparent" parent="AppTheme.NoActionBar">
+        <item name="colorPrimaryDark">@color/black_alpha_35</item>
+        <item name="colorAccent">@color/black_alpha_35</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
+    <style name="Widget.BEatery.Tab" parent="Base.TextAppearance.BEatery.Singleline">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/custom_tab_title</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:shadowColor">@android:color/white</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="MenuLabelsStyle">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">#FF888888</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MenuButtonsSmall">
+        <item name="fab_size">mini</item>
+        <item name="fab_colorNormal">#1565C0</item>
+        <item name="fab_colorPressed">#2272CD</item>
+        <item name="fab_colorRipple">#62B2FF</item>
+    </style>
+
+    <style name="MenuButtonsSmall.EateryList">
+        <item name="fab_size">mini</item>
+        <item name="fab_colorNormal">#4565C0</item>
+        <item name="fab_colorPressed">#5272CD</item>
+        <item name="fab_colorRipple">#92B2FF</item>
+    </style>
+</resources>

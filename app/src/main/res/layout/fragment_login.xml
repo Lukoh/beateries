@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/bg_common" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp"
+        android:layout_gravity="center_vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_logo"
+            android:src="@drawable/ic_beatery"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="false"
+            android:layout_marginBottom="2dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_sns"
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/iv_logo" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/login_fragment_title"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="18dp"
+                android:textColor="@color/login_text"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:id="@+id/google_signup_bar"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:background="@drawable/bg_google_login_bar"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="18dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_login_google_logo" >
+                </ImageView>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/login_divider"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="9dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:text="@string/google_login_fragment_button"
+                    android:textColor="@color/login_label"
+                    android:textSize="16dp"
+                    >
+                </TextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <LinearLayout
+                android:id="@+id/facebook_signup_bar"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:background="@drawable/bg_facebook_login_bar"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="18dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_weight="1.50">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_login_facebook_logo" >
+                </ImageView>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#2f477a"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="9dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:text="@string/facebook_login_fragment_button"
+                    android:textColor="#ffffff"
+                    android:textSize="16dp" >
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_post_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/layout_eatery_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="10dp" >
+
+        <com.goforer.base.ui.view.SquircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/iv_logo"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="#000000"
+            android:layout_alignParentStart="true"
+            app:riv_border_color="@color/list_divider"
+            app:riv_border_width="1dp"
+            app:riv_corner_radius="15dp"
+            app:riv_mutate_background="true"
+            app:riv_oval="false"
+            app:riv_tile_mode="clamp"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_info"
+            android:layout_toRightOf="@+id/iv_logo"
+            android:layout_marginLeft="9dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lukoh's Baker"
+                android:id="@+id/tv_name"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Italian Bakery"
+                android:id="@+id/tv_type"
+                android:layout_marginBottom="14dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/container_menu"
+                android:layout_toRightOf="@+id/iv_logo" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_menu"
+                    android:id="@+id/tv_menu_phase"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/custom_dialog_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_menu_phase"
+                    android:text="Black rye bread"
+                    android:id="@+id/tv_menu"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/custom_dialog_text" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_description"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/container_info"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pizza Hut® is a world-recognized leader of the pizza industry with the most popular pizza, pasta and wing choices. As a Pizza Hut franchisee, you have the ability to bring a familiar brand of pizza to your surrounding community at an affordable price."
+                android:id="@+id/tv_detail_info"
+                android:inputType="textMultiLine"
+                android:maxHeight="90dp"
+                android:maxLines="6"
+                android:textColor="@color/text_eatery_description"
+                android:textSize="17dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 2931 Market St, San Diego, CA 92102"
+                android:id="@+id/tv_address"
+                android:drawableLeft="@drawable/ic_info_address"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" (619) 230-0088"
+                android:id="@+id/tv_tel"
+                android:drawableLeft="@drawable/ic_tele"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" https://order.pizzahut.com/home"
+                android:drawableLeft="@drawable/ic_website"
+                android:id="@+id/tv_website_address"
+                android:textColor="@color/text_website_address"
+                android:textSize="17dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="6dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/divider_bar"
+            android:background="@color/divider_bar"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_below="@+id/container_description" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/container_bar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/divider_bar"
+            android:layout_marginTop="18dp" >
+
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:scaleType="centerInside"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_like" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:id="@+id/tv_like_count"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/like_phase"
+                android:id="@+id/tv_like_phase"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="4dp" />
+
+            <ImageView
+                android:id="@+id/iv_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:scaleType="centerInside"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_comment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:id="@+id/tv_comment_count"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comment_phase"
+                android:id="@+id/tv_comment_phase"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="4dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_comment_phase"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/layout_eatery_detail" >
+
+        <TextView
+            android:id="@+id/tv_comment_older"
+            style="@style/TextAppearance.BEatery.comment.view.older"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/view_older_comments" />
+
+    </LinearLayout>
+
+</RelativeLayout>

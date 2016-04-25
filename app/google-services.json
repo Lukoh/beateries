@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "beatery-23d54",
+    "project_number": "207048112010",
+    "name": "BEatery"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207048112010:android:b3aa2c043337e149",
+        "client_id": "android:com.goforer.beatery",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.goforer.beatery",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207048112010-iu4mgl9cokk8v54bpejp0o1kmjmc4mj9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.goforer.beatery",
+            "certificate_hash": "8682918F2A144DD40DC0DD69225D41CA383C127F"
+          }
+        },
+        {
+          "client_id": "207048112010-cihcc827juu4qih4du35lke7ckr8bvpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

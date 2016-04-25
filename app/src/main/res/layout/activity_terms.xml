@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="11dp"
+    android:paddingTop="18dp"
+    android:paddingRight="11dp"
+    android:paddingBottom="16dp"
+    android:background="@color/bg_common" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/btn_agree" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_keyword_agree_terms"
+            android:textSize="16dp"
+            android:textColor="#FFF"
+            android:layout_marginBottom="9dp"
+            android:singleLine="true" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_terms_round"
+            android:paddingLeft="11dp"
+            android:paddingTop="14dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="14dp">
+
+            <WebView
+                android:id="@+id/wv_agree_terms"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_keyword_agree_policy"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="9dp"
+            android:textSize="16dp"
+            android:textColor="#FFF"
+            android:singleLine="true" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_terms_round"
+            android:paddingLeft="11dp"
+            android:paddingTop="14dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="14dp">
+
+            <WebView
+                android:id="@+id/wv_agree_policy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_agree"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="16dp"
+        android:layout_alignParentBottom="true"
+        android:checkMark="@drawable/btn_terms_check"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/bg_terms_button"
+        android:text="@string/terms_agree_phase"
+        android:visibility="gone" />
+
+</RelativeLayout>

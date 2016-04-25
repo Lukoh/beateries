@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout_signup_header"
+        android:layout_width="match_parent"
+        android:layout_height="223dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/bg_common"
+        android:weightSum="1">
+
+        <com.goforer.base.ui.view.SquircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/iv_picture"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="38dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_default_picture"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="1dp"
+            app:riv_corner_radius="16dp"
+            app:riv_mutate_background="true"
+            app:riv_oval="false"
+            app:riv_tile_mode="clamp" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:textColor="@color/gray_light"
+            android:text="@string/signup_picture_desc"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/et_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:textColor="#ffffff"
+            android:hint="@string/toast_signup_nickname_required"
+            android:background="@drawable/bg_signup_nickname"
+            android:gravity="center"
+            android:textColorHint="#fff"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:textSize="13dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLength="40"
+            android:cursorVisible="false"
+            android:textCursorDrawable="@drawable/text_cursor_signup_nickname" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:layout_below="@+id/layout_signup_header" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/spiner_signup_birth"
+                android:textColor="@color/black_alpha_40"
+                android:textSize="15dp" />
+            <Spinner
+                android:id="@+id/spin_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_signup_select_arrow"
+                android:spinnerMode="dialog"
+                android:dropDownVerticalOffset="45dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:gravity="center"
+            android:layout_marginTop="6dp" >
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_sex"
+                android:textSize="15dp"
+                android:textColor="@color/black_alpha_40" />
+            <Spinner
+                android:id="@+id/spin_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_signup_select_arrow"
+                android:spinnerMode="dropdown"
+                android:prompt="@string/spiner_signup_hint_sex" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_agree"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/cb_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/btn_signup_check_agree"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:id="@+id/tv_agree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#111111" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Custom Dialog -->
+    <dimen name="custom_dialog_width">318dip</dimen>
+    <dimen name="custom_dialog_min_height">100dip</dimen>
+    <dimen name="custom_dialog_radius">6dip</dimen>
+    <dimen name="custom_dialog_paddingTop">20dip</dimen>
+    <dimen name="custom_dialog_dip_14">14dip</dimen>
+
+    <dimen name="custom_dialog_button_minWidth">66dip</dimen>
+    <dimen name="custom_dialog_button_height">40dip</dimen>
+    <dimen name="custom_dialog_button_padding">10dip</dimen>
+
+    <dimen name="custom_dialog_textSize_sp_16">16sp</dimen>
+    <dimen name="custom_dialog_textSize_sp_14">14sp</dimen>
+</resources>

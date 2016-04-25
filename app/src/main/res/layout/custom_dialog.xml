@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/custom_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/custom_dialog"
+    android:minHeight="@dimen/custom_dialog_min_height"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/custom_dialog_dip_14"
+    android:paddingLeft="@dimen/custom_dialog_dip_14"
+    android:paddingRight="@dimen/custom_dialog_dip_14"
+    android:paddingTop="@dimen/custom_dialog_paddingTop" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/CustomDialog.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/custom_dialog_dip_14"
+            android:text="TITLE"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            style="@style/CustomDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/custom_dialog_dip_14"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/negativeButton"
+                style="@style/CustomDialog.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/custom_dialog_button_height"
+                android:minWidth="@dimen/custom_dialog_button_minWidth"
+                android:paddingLeft="@dimen/custom_dialog_button_padding"
+                android:paddingRight="@dimen/custom_dialog_button_padding"
+                android:text="@string/custom_dialog_button_cancel"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/positiveButton"
+                style="@style/CustomDialog.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/custom_dialog_button_height"
+                android:minWidth="@dimen/custom_dialog_button_minWidth"
+                android:paddingLeft="@dimen/custom_dialog_button_padding"
+                android:paddingRight="@dimen/custom_dialog_button_padding"
+                android:text="@string/custom_dialog_button_ok"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

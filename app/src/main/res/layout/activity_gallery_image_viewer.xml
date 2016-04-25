@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <com.goforer.base.ui.view.SwipeViewPager
+        android:id="@+id/pager_flip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:maxLines="3"
+        android:background="@color/black_alpha_40"
+        android:layout_gravity="bottom"
+        android:clickable="false"
+        android:ellipsize="end"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:gravity="center_vertical|start" />
+
+</FrameLayout>
