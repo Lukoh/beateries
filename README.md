@@ -84,8 +84,12 @@ See the [BEatery REST APIs](http://guides.thecodepath.com/android/Rotten-Tomatoe
 This app leverages third-party libraries:
 
  * [Retrofit](http://square.github.io/retrofit/) - For asynchronous network requests
- * [EventBus](http://greenrobot.org/eventbus/) - For asynchronous network requests
- * [Picasso](http://square.github.io/picasso/) - For remote image loading
+ * [EventBus](http://greenrobot.org/eventbus/) - For communication between Activiteis, Fragments, Servcie, etc
+ * [ButterKnife](http://jakewharton.github.io/butterknife/) - For field and method binding for Android views
+ * [Glide]https://github.com/bumptech/glide) - For an image loading and caching library for Android focused on smooth scrolling
+ * [image-chooser-library](https://github.com/coomar2841/image-chooser-library) - For choosing a imgage from gallery
+ * [PhotoView](https://github.com/chrisbanes/PhotoView) - For viewing a image
+ * [SwipyRefreshLayout](https://github.com/OrangeGangsters/SwipyRefreshLayout) - For swiping in both direction
 
 ## License
 
