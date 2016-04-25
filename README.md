@@ -60,7 +60,7 @@ The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/b
       		"description": "riverside's main logo-the 50-year-old tradition of making…"
     	},
     	"preference": 4,
-   	     "information": "A Brooklyn Heights favorite, this sleepy American tavern is a…",
+   	    "information": "A Brooklyn Heights favorite, this sleepy American tavern is a…",
     	"detail_information": "Exposed brick walls covered with old-fashioned clocks…",
     	"has_event": true,
     	"has_gallery": true,
@@ -83,6 +83,6 @@ See the [BEatery REST APIs](http://guides.thecodepath.com/android/Rotten-Tomatoe
 
 This app leverages two third-party libraries:
 
- * [Android AsyncHTTPClient](http://loopj.com/android-async-http/) - For asynchronous network requests
+ * [Retrofit](http://square.github.io/retrofit/) - For asynchronous network requests
  * [Picasso](http://square.github.io/picasso/) - For remote image loading
 
