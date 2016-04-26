@@ -17,7 +17,6 @@
 package com.goforer.beatery.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
@@ -37,13 +36,13 @@ import com.goforer.beatery.helper.AccountHelper;
 import com.goforer.beatery.model.data.response.EateryInfo;
 import com.goforer.beatery.model.event.BestEateryListEvent;
 import com.goforer.beatery.model.event.EateryListEvent;
-import com.goforer.beatery.model.event.MyHangoutsList;
-import com.goforer.beatery.model.event.OptimalEateryList;
+import com.goforer.beatery.model.event.MyHangoutsEvent;
+import com.goforer.beatery.model.event.OptimalEateriesEvent;
 import com.goforer.beatery.model.event.action.EateryEventAction;
 import com.goforer.beatery.model.event.action.EateryGalleryAction;
 import com.goforer.beatery.model.event.action.EaterySelectAction;
-import com.goforer.beatery.model.event.action.SearchEnableAction;
 import com.goforer.beatery.model.event.action.RequestDoneAction;
+import com.goforer.beatery.model.event.action.SearchEnableAction;
 import com.goforer.beatery.ui.activity.SignUpActivity;
 import com.goforer.beatery.ui.adapter.EateryListAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
@@ -53,6 +52,7 @@ import com.google.gson.JsonElement;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -193,14 +193,14 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
     private void requestMyHangoutsList(boolean isNew) {
         searchEnabled(false);
 
-        MyHangoutsList event = new MyHangoutsList(isNew);
+        MyHangoutsEvent event = new MyHangoutsEvent(isNew);
         Intermediary.INSTANCE.getMyHangoutsList(mContext, mCurrentPage, REQUEST_ITEM_COUNT, event);
     }
 
     private void requestOptimalEateryList(boolean isNew, int byWhat) {
         searchEnabled(false);
 
-        OptimalEateryList event = new OptimalEateryList(isNew);
+        OptimalEateriesEvent event = new OptimalEateriesEvent(isNew);
         if (byWhat == OPTIMAL_EATERY_LIST_BY_ADDRESS) {
             Intermediary.INSTANCE.getOptimalEateryListByAddress(mContext, mCurrentPage,
                     REQUEST_ITEM_COUNT, event);
@@ -251,13 +251,13 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(MyHangoutsList event) {
+    public void onEvent(MyHangoutsEvent event) {
         handleEvent(event);
     }
 
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(OptimalEateryList event) {
+    public void onEvent(OptimalEateriesEvent event) {
         handleEvent(event);
     }
 

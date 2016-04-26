@@ -19,7 +19,7 @@ package com.goforer.beatery.model.event;
 import com.goforer.base.event.ResponseListEvent;
 
 /**
- * Define event to handle getting the optimal eatery-list.
+ * Define event to handle getting the user's hangout-list.
  *
  * <p>
  * Please refer to EventBus.
@@ -31,8 +31,8 @@ import com.goforer.base.event.ResponseListEvent;
  * </p>
  *
  */
-public class OptimalEateryList extends ResponseListEvent {
-    public OptimalEateryList(boolean isNew) {
+public class MyHangoutsEvent extends ResponseListEvent {
+    public MyHangoutsEvent(boolean isNew) {
         super(isNew);
     }
 }
