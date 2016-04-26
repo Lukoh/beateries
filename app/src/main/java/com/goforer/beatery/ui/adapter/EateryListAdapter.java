@@ -55,7 +55,7 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class EateryListAdapter extends BaseListAdapter<EateryInfo, RecyclerView.ViewHolder> {
+public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
     private static final int FIRST_EATERY_GRADE = 1;
     private static final int SECOND_EATERY_GRADE = 2;
     private static final int THIRD_EATERY_GRADE = 3;

@@ -17,6 +17,7 @@
 package com.goforer.base.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 
 import java.util.List;
 
@@ -26,16 +27,12 @@ import java.util.List;
  * but that is not required. The ListView can display any data provided that it is wrapped in a
  * BaseListAdapter.
  */
-public abstract class BaseListAdapter<T, VH extends RecyclerView.ViewHolder> extends BaseAdapter<VH> {
+public abstract class BaseListAdapter<T> extends BaseAdapter {
     private boolean mIsReachToLast = false;
     private boolean mIsEmptyItems = false;
     private boolean mIsLoadingItems = false;
 
     protected List<T> mItems;
-
-    public BaseListAdapter(List<T> items) {
-        this(items, 0);
-    }
 
     public BaseListAdapter(List<T> items, int layoutResId) {
         super(layoutResId);
@@ -52,12 +49,13 @@ public abstract class BaseListAdapter<T, VH extends RecyclerView.ViewHolder> ext
         return 0;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public void onBindViewHolder(VH vh, int position) {
-        if (vh instanceof ItemBindable) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        if (holder instanceof ItemBindable) {
             T item = mItems.get(position);
             if (item != null) {
-                ((ItemBindable<T>) vh).bindItem(item);
+                ((ItemBindable<T>) holder).bindItem(item);
             }
         }
     }

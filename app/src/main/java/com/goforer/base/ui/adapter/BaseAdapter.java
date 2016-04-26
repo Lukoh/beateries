@@ -21,6 +21,7 @@ import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.view.ViewPropertyAnimatorCompatSet;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ import android.view.animation.DecelerateInterpolator;
  * within a {@link RecyclerView}.
  * </p>
  */
-public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
     private static final float VIEW_VERTICAL_POSITION = 100;
     private static final float ANIMATED_VALUE = 0;
     private static final long ANIMATION_DURATION = 250;
@@ -59,7 +60,7 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends Re
     }
 
     @Override
-    public VH onCreateViewHolder(ViewGroup viewGroup, int type) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(mLayoutResId, viewGroup, false);
         return createViewHolder(view, type);
     }
@@ -77,7 +78,7 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends Re
      * @param type The view type of the new View.
      * @return A new ViewHolder that holds a View of the given view type
      */
-    protected abstract VH createViewHolder(View view, int type);
+    protected abstract ViewHolder createViewHolder(View view, int type);
 
     public void resetAnimation(){
         mLastAnimatedPosition = -1;
@@ -88,8 +89,8 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder> extends Re
      *
      * @param viewHolder the ViewHolder to set animation ViewHolder's item
      */
-    public void setAnimateViewIfNecessary(final VH viewHolder) {
-        final int position = viewHolder.getPosition();
+    public void setAnimateViewIfNecessary(final ViewHolder viewHolder) {
+        final int position = viewHolder.getAdapterPosition ();
 
         if (position <= mLastAnimatedPosition) return;
 

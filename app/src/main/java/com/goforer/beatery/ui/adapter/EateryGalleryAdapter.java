@@ -37,8 +37,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 
-public class EateryGalleryAdapter extends
-        BaseListAdapter<EateryGalleryContent, RecyclerView.ViewHolder> {
+public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> {
 
     public EateryGalleryAdapter(List<EateryGalleryContent> items, int layoutResId) {
         super(items, layoutResId);

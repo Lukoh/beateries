@@ -48,7 +48,7 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class EateryInfoAdapter extends BaseListAdapter<Comment, RecyclerView.ViewHolder> {
+public class EateryInfoAdapter extends BaseListAdapter<Comment> {
     private static final int HEADER_ITEM_COUNT = 1;
 
     private EateryInfo mEateryInfo;
