@@ -145,7 +145,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     }
 
     @Override
-    protected void initActionBar() {
+    protected void setActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO);
@@ -193,7 +193,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_base);
     }
 

@@ -176,13 +176,13 @@ public class SignUpActivity extends BaseActivity {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_signup);
     }
 
     @Override
-    protected void initViews() {
-        super.initViews();
+    protected void setViews() {
+        super.setViews();
         InputFilter lengthFilter = new InputFilter.LengthFilter(MAX_NICKNAME_LENGTH);
         InputFilter charFilter = new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
@@ -244,8 +244,8 @@ public class SignUpActivity extends BaseActivity {
     }
 
     @Override
-    protected void initActionBar() {
-        super.initActionBar();
+    protected void setActionBar() {
+        super.setActionBar();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

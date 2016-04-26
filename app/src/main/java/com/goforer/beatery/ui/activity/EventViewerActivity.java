@@ -77,20 +77,20 @@ public class EventViewerActivity extends BaseActivity {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_event_viewer);
         Log.d(TAG, "Set the activity content from a layout resource");
     }
 
     @Override
-    protected void initViews() {
+    protected void setViews() {
         ViewCompat.setTransitionName(mPager, TRANSITION_IMAGE);
         mPager.setPageMargin(PAGE_MARGIN_VALUE);
     }
 
     @Override
-    protected void initActionBar() {
-        super.initActionBar();
+    protected void setActionBar() {
+        super.setActionBar();
         mActionBar = getSupportActionBar();
         if (mActionBar != null) {
             mActionBar.setHomeAsUpIndicator(R.drawable.bar_back_mtrl_alpha_90);

@@ -89,13 +89,13 @@ public class EaterySearchActivity extends BaseActivity {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_search);
     }
 
     @Override
-    protected void initViews() {
-        super.initViews();
+    protected void setViews() {
+        super.setViews();
         mAdapter = new BaseFragmentPagerAdapter(getSupportFragmentManager());
         BaseFragmentPagerAdapter.Page name =
                 new BaseFragmentPagerAdapter.Page(R.drawable.ic_name,

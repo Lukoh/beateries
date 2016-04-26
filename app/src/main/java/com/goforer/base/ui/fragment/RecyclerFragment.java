@@ -81,7 +81,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViews();
+        setViews();
     }
 
     @Override
@@ -109,7 +109,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         super.onDetach();
     }
 
-    private void initViews() {
+    private void setViews() {
         Adapter adapter;
 
         if (mSwipeLayout != null) {

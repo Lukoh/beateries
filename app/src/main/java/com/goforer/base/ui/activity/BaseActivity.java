@@ -57,10 +57,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             setEffectIn();
         }
 
-        initActionBar();
-        setContent();
+        setActionBar();
+        setContentView();
         injectViews();
-        initViews();
+        setViews();
     }
 
     @Override
@@ -110,7 +110,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @see ActionBar
      */
-    protected void initActionBar() {
+    protected void setActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
@@ -125,14 +125,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * Example :
      * @@Override
-     * public void setContent() {
+     * public void setContentView() {
      * setContentView(R.layout.activity_gallery);
      * }
      * </p>
      *
      * @see #setContentView(android.view.View, android.view.ViewGroup.LayoutParams)
      */
-    protected abstract void setContent();
+    protected abstract void setContentView();
 
     /**
      * Inject annotated fields and methods in the specified target {@link Activity} for field
@@ -152,7 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * </p>
      *
      */
-    protected void initViews() {
+    protected void setViews() {
     }
 
     /**

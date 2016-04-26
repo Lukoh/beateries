@@ -54,7 +54,7 @@ public class SplashActivity extends BaseActivity implements GoogleApiClient.Conn
     private Intent mRegistrationIntent;
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_splash);
     }
 

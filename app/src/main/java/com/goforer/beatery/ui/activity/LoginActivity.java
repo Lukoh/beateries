@@ -70,16 +70,16 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_login);
     }
 
     @Override
-    protected void initActionBar() {
+    protected void setActionBar() {
     }
 
     @Override
-    protected void initViews() {
+    protected void setViews() {
         transactFragment(LoginFragment.class, R.id.content_holder, null);
     }
 

@@ -87,16 +87,16 @@ public class PictureEditActivity extends BaseActivity {
     }
 
     @Override
-    protected void initActionBar() {
+    protected void setActionBar() {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_picture_edit);
     }
 
     @Override
-    protected void initViews() {
+    protected void setViews() {
         if (mFilePath == null || mFilePath.isEmpty()) {
             finish();
             return;

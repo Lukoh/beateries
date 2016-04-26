@@ -124,7 +124,7 @@ public class EateryGalleryAdapter extends
                 @Override
                 public void onClick(View view) {
                     GallerySelectImageAction action = new GallerySelectImageAction();
-                    action.setContentImage(mContent.getContentImage());
+                    action.setContentViewImage(mContent.getContentImage());
                     action.setItemIndex(mContent.getContentIndex());
                     EventBus.getDefault().post(action);
                 }

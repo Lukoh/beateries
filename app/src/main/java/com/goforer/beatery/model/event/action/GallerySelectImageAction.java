@@ -67,7 +67,7 @@ public class GallerySelectImageAction {
         return mImageDescription;
     }
 
-    public void setContentImage(Image contentImage) {
+    public void setContentViewImage(Image contentImage) {
         mContentImage = contentImage;
     }
 

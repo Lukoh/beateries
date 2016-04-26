@@ -46,13 +46,13 @@ public class TermsActivity extends BaseActivity {
     WebView mAgreePolicy;
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_terms);
     }
 
     @Override
-    protected void initViews() {
-        super.initViews();
+    protected void setViews() {
+        super.setViews();
 
         requestTerms(TERMS_USE_TYPE);
         requestTerms(TERMS_POLICY_TYPE);

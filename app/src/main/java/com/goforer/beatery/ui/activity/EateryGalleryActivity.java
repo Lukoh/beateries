@@ -38,18 +38,18 @@ public class EateryGalleryActivity extends BaseActivity {
     }
 
     @Override
-    public void setContent() {
+    public void setContentView() {
         setContentView(R.layout.activity_gallery);
     }
 
     @Override
-    public void initViews() {
+    public void setViews() {
         transactFragment(EateryGalleryFragment.class, R.id.content_holder, null);
     }
 
     @Override
-    protected void initActionBar() {
-        super.initActionBar();
+    protected void setActionBar() {
+        super.setActionBar();
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.drawable.bar_back_mtrl_alpha_90);

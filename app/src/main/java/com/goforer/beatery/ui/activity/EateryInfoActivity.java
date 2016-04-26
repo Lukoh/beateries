@@ -185,13 +185,13 @@ public class EateryInfoActivity extends BaseActivity {
     }
 
     @Override
-    protected void setContent() {
+    protected void setContentView() {
         setContentView(R.layout.activity_eatery_detail_view);
     }
 
     @Override
-    protected void initViews() {
-        super.initViews();
+    protected void setViews() {
+        super.setViews();
 
         mMenu.showMenuButton(true);
         mMenu.setClosedOnTouchOutside(true);
@@ -247,8 +247,8 @@ public class EateryInfoActivity extends BaseActivity {
     }
 
     @Override
-    protected void initActionBar() {
-        super.initActionBar();
+    protected void setActionBar() {
+        super.setActionBar();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

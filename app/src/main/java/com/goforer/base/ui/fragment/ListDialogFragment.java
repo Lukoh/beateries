@@ -60,7 +60,7 @@ public abstract class ListDialogFragment<T> extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViews();
+        setViews();
     }
 
     @Override
@@ -75,7 +75,7 @@ public abstract class ListDialogFragment<T> extends DialogFragment {
         super.onDetach();
     }
 
-    private void initViews() {
+    private void setViews() {
         mListView.setAdapter(createAdapter());
 
         mItems = addItems();
