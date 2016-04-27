@@ -4,6 +4,8 @@ This is an Android application for finding the best eateries around the user usi
 
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350" />
 &nbsp;
+<img src="https://github.com/Lukoh/beateries/blob/master/BEatery_Login.jpg" alt="Log-in Demo" width="350" />
+
 
 ## Installation
 
