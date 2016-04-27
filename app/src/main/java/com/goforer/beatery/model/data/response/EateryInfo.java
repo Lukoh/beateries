@@ -65,6 +65,10 @@ public class EateryInfo extends BaseModel {
     private long mCommentCount;
     @SerializedName("like_count")
     private long mLikeCount;
+    @SerializedName("latitude")
+    private double mLatitude;
+    @SerializedName("longitude")
+    private double mLongitude;
 
     public long getId() {
         return mId;
@@ -120,6 +124,14 @@ public class EateryInfo extends BaseModel {
 
     public long getLikeCount() {
         return mLikeCount;
+    }
+
+    public double getLatitude() {
+        return mLatitude;
+    }
+
+    public double getLongitude() {
+        return mLongitude;
     }
 
     public boolean hasEvent() {
@@ -190,6 +202,14 @@ public class EateryInfo extends BaseModel {
 
     public void setLikeCount(long likeCount) {
         mLikeCount = likeCount;
+    }
+
+    public void setLatitude(double latitude) {
+        mLatitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        mLongitude = longitude;
     }
 
     @Override
