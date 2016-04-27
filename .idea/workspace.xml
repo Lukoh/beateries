@@ -15,10 +15,7 @@
     </layouts>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="a9e646b7-149b-41d7-815c-1c567fcf0c6c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Eatery's information.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BEatery REST APIs.pdf" afterPath="$PROJECT_DIR$/BEatery REST APIs.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EateryList API.pdf" afterPath="$PROJECT_DIR$/EateryList API.pdf" />
+    <list default="true" readonly="true" id="a9e646b7-149b-41d7-815c-1c567fcf0c6c" name="Default" comment="Latitude &amp; Longitude coordinates are added to BEatery REST APIs.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="beateries.iws" />
@@ -115,8 +112,8 @@
       <file leaf-file-name="EateryInfo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/data/response/EateryInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.7559524">
-              <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
+            <state vertical-scroll-proportion="-0.08928572">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="e#3276#3277#0" expanded="true" />
                 <element signature="e#3308#3309#0" expanded="true" />
@@ -3165,7 +3162,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461718296234</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Latitude &amp; Longitude coordinates are added to BEatery REST APIs.">
+      <created>1461741868609</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1461741868609</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3210,7 +3213,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="BEatery REST APIs has new little bit change." />
-    <option name="LAST_COMMIT_MESSAGE" value="BEatery REST APIs has new little bit change." />
+    <MESSAGE value="Latitude &amp; Longitude coordinates are added to BEatery REST APIs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Latitude &amp; Longitude coordinates are added to BEatery REST APIs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3880,14 +3884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-57.5">
-          <caret line="157" column="68" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/data/GPSData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3904,10 +3900,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-57.5">
+          <caret line="157" column="68" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/data/response/EateryInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7559524">
-          <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
+        <state vertical-scroll-proportion="-0.08928572">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding>
             <element signature="e#3276#3277#0" expanded="true" />
             <element signature="e#3308#3309#0" expanded="true" />
