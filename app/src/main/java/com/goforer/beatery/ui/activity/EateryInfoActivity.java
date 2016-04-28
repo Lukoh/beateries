@@ -77,7 +77,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -105,19 +105,19 @@ public class EateryInfoActivity extends BaseActivity {
     private boolean mIsShownCommentScroll = false;
     private boolean mPostEnabled = true;
 
-    @InjectView(R.id.swipyrefreshlayout)
+    @BindView(R.id.swipyrefreshlayout)
     SwipyRefreshLayout mSwipeLayout;
-    @InjectView(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-    @InjectView(R.id.comment_bar)
+    @BindView(R.id.comment_bar)
     View mCommentBar;
-    @InjectView(R.id.comment_holder)
+    @BindView(R.id.comment_holder)
     View mCommentHolder;
-    @InjectView(R.id.et_comment)
+    @BindView(R.id.et_comment)
     EditText mCommentText;
-    @InjectView(R.id.tv_post)
+    @BindView(R.id.tv_post)
     TextView mPostView;
-    @InjectView(R.id.fam_menu)
+    @BindView(R.id.fam_menu)
     FloatingActionMenu mMenu;
 
     @Override

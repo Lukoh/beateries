@@ -45,7 +45,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class EateryInfoAdapter extends BaseListAdapter<Comment> {
@@ -169,27 +169,27 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
     static class DetailInfoHolder extends BaseViewHolder<EateryInfo> {
         private EateryInfo mEateryInfo;
 
-        @InjectView(R.id.iv_logo)
+        @BindView(R.id.iv_logo)
         SquircleImageView mLogoImageView;
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView mNameView;
-        @InjectView(R.id.tv_type)
+        @BindView(R.id.tv_type)
         TextView mTypeView;
-        @InjectView(R.id.tv_menu)
+        @BindView(R.id.tv_menu)
         TextView mMenuView;
-        @InjectView(R.id.tv_detail_info)
+        @BindView(R.id.tv_detail_info)
         TextView mDetailInfoView;
-        @InjectView(R.id.tv_address)
+        @BindView(R.id.tv_address)
         TextView mAddressView;
-        @InjectView(R.id.tv_tel)
+        @BindView(R.id.tv_tel)
         TextView mTelephoneView;
-        @InjectView(R.id.tv_website_address)
+        @BindView(R.id.tv_website_address)
         TextView mWebAddressView;
-        @InjectView(R.id.tv_like_count)
+        @BindView(R.id.tv_like_count)
         TextView mLikeCountView;
-        @InjectView(R.id.tv_comment_count)
+        @BindView(R.id.tv_comment_count)
         TextView mCommentCountView;
-        @InjectView(R.id.container_comment_phase)
+        @BindView(R.id.container_comment_phase)
         LinearLayout mCommentPhaseContainer;
 
         public DetailInfoHolder(View itemView) {
@@ -281,15 +281,15 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
     static class CommentHolder extends BaseViewHolder<Comment> {
         private Comment mComment;
 
-        @InjectView(R.id.iv_picture)
+        @BindView(R.id.iv_picture)
         SquircleImageView mPictureImageView;
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView mNameView;
-        @InjectView(R.id.tv_comment)
+        @BindView(R.id.tv_comment)
         TextView mCommentView;
-        @InjectView(R.id.tv_date)
+        @BindView(R.id.tv_date)
         TextView mDateView;
-        @InjectView(R.id.tv_like_count)
+        @BindView(R.id.tv_like_count)
         TextView mLikeCountView;
 
         public CommentHolder(View itemView) {

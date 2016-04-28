@@ -33,16 +33,16 @@ import org.greenrobot.eventbus.EventBus;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class TermsActivity extends BaseActivity {
     private static final int TERMS_USE_TYPE = 0;
     private static final int TERMS_POLICY_TYPE = 1;
 
-    @InjectView(R.id.wv_agree_terms)
+    @BindView(R.id.wv_agree_terms)
     WebView mAgreeTerms;
-    @InjectView(R.id.wv_agree_policy)
+    @BindView(R.id.wv_agree_policy)
     WebView mAgreePolicy;
 
     @Override

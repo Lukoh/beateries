@@ -31,7 +31,7 @@ import com.goforer.beatery.ui.adapter.GalleryViewerAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.R;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * The reason for using SwipeDetectViewPager derived from ViewPager is to extend this class
@@ -62,9 +62,9 @@ public class GalleryViewerActivity extends BaseActivity {
 
     private String mJsonString;
 
-    @InjectView(R.id.pager_flip)
+    @BindView(R.id.pager_flip)
     SwipeViewPager mPager;
-    @InjectView(R.id.tv_description)
+    @BindView(R.id.tv_description)
     TextView mDescriptionView;
 
     @Override

@@ -56,7 +56,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class EateryListFragment extends RecyclerFragment<EateryInfo> {
@@ -67,7 +67,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     private EateryListAdapter mAdapter;
 
-    @InjectView(R.id.fam_menu)
+    @BindView(R.id.fam_menu)
     FloatingActionMenu mMenu;
 
     @Override

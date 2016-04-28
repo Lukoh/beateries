@@ -44,7 +44,7 @@ import com.goforer.beatery.R;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class EaterySearchActivity extends BaseActivity {
     private static final String TAG = "EaterySearchActivity";
@@ -63,8 +63,8 @@ public class EaterySearchActivity extends BaseActivity {
     @IntDef({TAB_NAME, TAB_ADDRESS})
     public @interface SearchTab{}
 
-    @InjectView(R.id.pager) ViewPager mPager;
-    @InjectView(R.id.pager_strip)
+    @BindView(R.id.pager) ViewPager mPager;
+    @BindView(R.id.pager_strip)
     SlidingTabLayout mPagerStrip;
 
     @Override

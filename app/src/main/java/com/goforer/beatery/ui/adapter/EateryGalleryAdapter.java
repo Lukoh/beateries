@@ -35,7 +35,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> {
 
@@ -103,9 +103,9 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
     static class GalleryContentViewHolder extends BaseViewHolder<EateryGalleryContent> {
         private EateryGalleryContent mContent;
 
-        @InjectView(R.id.iv_content)
+        @BindView(R.id.iv_content)
         ContentImageView mContentImageView;
-        @InjectView(R.id.tv_title)
+        @BindView(R.id.tv_title)
         TextView mTitleView;
 
         public GalleryContentViewHolder(View itemView) {

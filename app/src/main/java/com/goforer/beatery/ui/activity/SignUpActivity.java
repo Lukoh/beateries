@@ -88,7 +88,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -123,21 +123,21 @@ public class SignUpActivity extends BaseActivity {
 
     private TextView mHintCopyText;
 
-    @InjectView(R.id.tv_email)
+    @BindView(R.id.tv_email)
     TextView mEmailText;
-    @InjectView(R.id.et_nickname)
+    @BindView(R.id.et_nickname)
     EditText mNickNameText;
-    @InjectView(R.id.iv_picture)
+    @BindView(R.id.iv_picture)
     SquircleImageView mPicture;
-    @InjectView(R.id.container_agree)
+    @BindView(R.id.container_agree)
     LinearLayout mAgreeContainer;
-    @InjectView(R.id.cb_agree)
+    @BindView(R.id.cb_agree)
     CheckBox mAgreeCBox;
-    @InjectView(R.id.tv_agree)
+    @BindView(R.id.tv_agree)
     TextView mAgreeText;
-    @InjectView(R.id.spin_birth)
+    @BindView(R.id.spin_birth)
     Spinner mBirthSpinner;
-    @InjectView(R.id.spin_gender)
+    @BindView(R.id.spin_gender)
     Spinner mGenderSpinner;
 
     @Override
@@ -764,11 +764,11 @@ public class SignUpActivity extends BaseActivity {
         private List<String> mItems;
         private final int mFromWhat;
 
-        @InjectView(R.id.tv_hint)
+        @BindView(R.id.tv_hint)
         TextView mHintText;
-        @InjectView(R.id.tv_spin)
+        @BindView(R.id.tv_spin)
         TextView mSpinText;
-        @InjectView(R.id.tv_selected)
+        @BindView(R.id.tv_selected)
         TextView mSelectedText;
 
         public SpinDummyAdapter(Context context, int txtViewResourceId, List<String> items,

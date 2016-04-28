@@ -39,7 +39,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PictureEditActivity extends BaseActivity {
@@ -67,7 +67,7 @@ public class PictureEditActivity extends BaseActivity {
     private int mWidth = 0;
     private int mHeight = 0;
 
-    @InjectView(R.id.iv_crop_picture)
+    @BindView(R.id.iv_crop_picture)
     CropImageView mCropPicture;
 
     @Override

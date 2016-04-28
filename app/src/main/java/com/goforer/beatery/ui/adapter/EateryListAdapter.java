@@ -52,7 +52,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
@@ -132,27 +132,27 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
     static class EateryListViewHolder extends BaseViewHolder<EateryInfo> {
         private EateryInfo mEateryInfo;
 
-        @InjectView(R.id.iv_logo)
+        @BindView(R.id.iv_logo)
         SquircleImageView mLogoImageView;
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView mNameView;
-        @InjectView(R.id.tv_type)
+        @BindView(R.id.tv_type)
         TextView mTypeView;
-        @InjectView(R.id.tv_info)
+        @BindView(R.id.tv_info)
         TextView mInfoView;
-        @InjectView(R.id.tv_like_count)
+        @BindView(R.id.tv_like_count)
         TextView mLikeCountView;
-        @InjectView(R.id.tv_comment_count)
+        @BindView(R.id.tv_comment_count)
         TextView mCommentCountView;
-        @InjectView(R.id.iv_preference)
+        @BindView(R.id.iv_preference)
         ImageView mPreferenceView;
-        @InjectView(R.id.iv_event)
+        @BindView(R.id.iv_event)
         ImageView mEventView;
-        @InjectView(R.id.iv_viewer)
+        @BindView(R.id.iv_viewer)
         ImageView mGalleryView;
-        @InjectView(R.id.et_comment)
+        @BindView(R.id.et_comment)
         EditText mCommentText;
-        @InjectView(R.id.tv_post)
+        @BindView(R.id.tv_post)
         TextView mPostView;
 
         public EateryListViewHolder(View itemView) {

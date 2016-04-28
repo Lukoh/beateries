@@ -45,7 +45,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class EventViewerActivity extends BaseActivity {
     private static final String TAG = "EventViewerActivity";
@@ -61,9 +61,9 @@ public class EventViewerActivity extends BaseActivity {
     private List<EventInfo> mEvents = new ArrayList<>();
     private ActionBar mActionBar;
 
-    @InjectView(R.id.pager_flip)
+    @BindView(R.id.pager_flip)
     SwipeViewPager mPager;
-    @InjectView(R.id.tv_description)
+    @BindView(R.id.tv_description)
     TextView mDescriptionView;
 
     @Override

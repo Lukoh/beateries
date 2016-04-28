@@ -208,6 +208,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     @Override
     public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
         final Status status = locationSettingsResult.getStatus();
+
         switch (status.getStatusCode()) {
             case LocationSettingsStatusCodes.SUCCESS:
                 startLocationUpdates();
@@ -438,6 +439,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
                         mGoogleApiClient,
                         mLocationSettingsRequest
                 );
+
         result.setResultCallback(this);
     }
 
