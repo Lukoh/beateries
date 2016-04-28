@@ -36,6 +36,6 @@ public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder implemen
     public BaseViewHolder(View itemView) {
         super(itemView);
         mContext = itemView.getContext();
-        ButterKnife.inject(this, itemView);
+        ButterKnife.bind(this, itemView);
     }
 }

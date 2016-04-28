@@ -34,7 +34,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.Optional;
 
 /**
@@ -48,8 +48,7 @@ public abstract class ListDialogFragment<T> extends DialogFragment {
 
     protected List<T> mItems = new ArrayList<>();
 
-    @Optional
-    @InjectView(R.id.list_view)
+    @BindView(R.id.list_view)
     protected ListView mListView;
 
     @Override

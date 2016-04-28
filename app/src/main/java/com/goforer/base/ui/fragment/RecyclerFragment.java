@@ -47,8 +47,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
-import butterknife.Optional;
+import butterknife.BindView;
 
 /**
  * A {@link BaseFragment}'s subclass with {@link SwipyRefreshLayout} and {@link RecyclerView}.
@@ -68,9 +67,10 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     protected int mCurrentPage = 0;
 
-    @Optional
-    @InjectView(R.id.swipe_layout) protected SwipyRefreshLayout mSwipeLayout;
-    @InjectView(R.id.recycler_view) protected RecyclerView mRecyclerView;
+    @BindView(R.id.swipe_layout)
+    protected SwipyRefreshLayout mSwipeLayout;
+    @BindView(R.id.recycler_view)
+    protected RecyclerView mRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

@@ -59,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setActionBar();
         setContentView();
-        injectViews();
+        bindViews();
         setViews();
     }
 
@@ -138,10 +138,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      * Inject annotated fields and methods in the specified target {@link Activity} for field
      * injection. The current content view is used as the view root.
      *
-     * @see ButterKnife#inject(Activity target)
+     * @see ButterKnife#bind(Activity target)
      */
-    protected void injectViews() {
-        ButterKnife.inject(this);
+    protected void bindViews() {
+        ButterKnife.bind(this);
     }
 
     /**
