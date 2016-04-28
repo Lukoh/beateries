@@ -174,7 +174,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
         /*
          * In case of ordering by the eatery's address ....
-         * Just use the below code if the server can't handles the operation like below:
+         * Just use the below code if the server can't handles the operation like above:
          *
          * EateryListEvent event = new EateryListEvent(isNew);
          * Intermediary.INSTANCE.getAllEateryListOrderByAddress(mContext, mCurrentPage,
