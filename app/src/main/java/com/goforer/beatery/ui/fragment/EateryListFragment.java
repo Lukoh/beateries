@@ -169,15 +169,15 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
         searchEnabled(false);
 
         EateryListEvent event = new EateryListEvent(isNew);
-        Intermediary.INSTANCE.getAllEateryListOrderByAddress(mContext, mCurrentPage,
+        Intermediary.INSTANCE.getAllEateryListOrderByCoordinates(mContext, mCurrentPage,
                 REQUEST_ITEM_COUNT, event);
 
         /*
-         * In case of ordering by GPS information with latitude and longitude ....
-         * Just use the below code if the server can't handles the operation like above
+         * In case of ordering by the eatery's address ....
+         * Just use the below code if the server can't handles the operation like below:
          *
          * EateryListEvent event = new EateryListEvent(isNew);
-         * Intermediary.INSTANCE.getEateryAllListOrderByCoordinates(mContext, mCurrentPage,
+         * Intermediary.INSTANCE.getAllEateryListOrderByAddress(mContext, mCurrentPage,
          *       REQUEST_ITEM_COUNT, event);
          */
     }
@@ -229,7 +229,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
                 requestMyHangoutsList(isNew);
                 break;
             case Facility.FAB_OPTIMAL_EATERY_INDEX:
-                requestOptimalEateryList(isNew, OPTIMAL_EATERY_LIST_BY_ADDRESS);
+                requestOptimalEateryList(isNew, OPTIMAL_EATERY_LIST_BY_COORDINATES);
                 break;
             default:
                 requestEateryList(isNew);
