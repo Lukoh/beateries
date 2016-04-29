@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -481,19 +482,33 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
         if (mCurrentLocation != null) {
             mLatitude = mCurrentLocation.getLatitude();
             mLongitude = mCurrentLocation.getLongitude();
+            setGPSCoordiante();
 
-            Geocoder gcd = new Geocoder(getBaseContext(),
-                    Locale.getDefault());
-            List<Address> addresses;
-            try {
-                addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
-                if (addresses.size() > 0) {
-                    setGPSInfo(addresses);
+            new AsyncTask<Void, Void, List<Address>>() {
+                @Override
+                protected List<Address> doInBackground(Void... params) {
+                    Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
+                    List<Address> addresses = null;
+                    try {
+                        addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
+                        while (addresses.size() == 0) {
+                            addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    return addresses;
                 }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                @Override
+                protected void onPostExecute(List<Address> addresses) {
+                    if (addresses.size() > 0) {
+                        setAddress(addresses);
+                    }
+                }
+            }.execute();
 
             if (mDialog != null) {
                 mDialog.dismiss();
@@ -501,6 +516,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
 
             if (!isUpdated) {
                 transactFragment(EateryListFragment.class, R.id.content_holder, null);
+
                 if (mGoogleApiClient.isConnected()) {
                     stopLocationUpdates();
                 }
@@ -510,15 +526,18 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
         }
     }
 
-    private void setGPSInfo(List<Address> addresses) {
+    private void setGPSCoordiante() {
+        GPSData.INSTANCE.setLatitude(mLatitude);
+        GPSData.INSTANCE.setLongitude(mLongitude);
+    }
+
+    private void setAddress(List<Address> addresses) {
         GPSData.INSTANCE.setCountry(addresses.get(0).getCountryName());
         GPSData.INSTANCE.setCountryCode(addresses.get(0).getCountryCode());
         GPSData.INSTANCE.setCity(addresses.get(0).getLocality());
         GPSData.INSTANCE.setAminArea(addresses.get(0).getAdminArea());
         GPSData.INSTANCE.setThoroughfare(addresses.get(0).getThoroughfare());
         GPSData.INSTANCE.setSubThoroughfare(addresses.get(0).getSubThoroughfare());
-        GPSData.INSTANCE.setLatitude(mLatitude);
-        GPSData.INSTANCE.setLongitude(mLongitude);
     }
 
     protected void stopLocationUpdates() {
