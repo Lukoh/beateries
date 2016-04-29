@@ -34,6 +34,7 @@ import com.goforer.beatery.ui.activity.EventViewerActivity;
 import com.goforer.beatery.ui.activity.GalleryViewerActivity;
 import com.goforer.beatery.ui.activity.PictureEditActivity;
 import com.goforer.beatery.ui.activity.SignUpActivity;
+import com.goforer.beatery.ui.activity.ViewEateryMapActivity;
 
 public enum  ActivityCaller {
     INSTANCE;
@@ -51,6 +52,10 @@ public enum  ActivityCaller {
     public static final String EXTRA_EMAIL = "beatery:email";
     public static final String EXTRA_ACCOUNT_TYPE = "beatery:account_type";
     public static final String EXTRA_PICTURE_PATH = "beatery:picture_path";
+
+    public static final String EXTRA_LATITUDE = "beatery:latitude";
+    public static final String EXTRA_LONGITUDE = "beatery:longitude";
+    public static final String EXTRA_EATERY_MENU = "beatery:eatery_menu";
 
     public static final String BUNDLE_EATERY_ID = "beatery:eatery_id";
     public static final String BUNDLE_EATERY_NAME = "beatery:eatery_name";
@@ -180,5 +185,16 @@ public enum  ActivityCaller {
         intent.setData(Uri.parse(url));
 
         context.startActivity(intent);
+    }
+
+    public void callGoogleMap(Context context, EateryInfo eateryInfo) {
+        Intent intent = createIntent(context, ViewEateryMapActivity.class, false);
+        intent.putExtra(EXTRA_LATITUDE, eateryInfo.getLatitude());
+        intent.putExtra(EXTRA_LONGITUDE, eateryInfo.getLongitude());
+        intent.putExtra(EXTRA_EATERY_NAME, eateryInfo.getName());
+        intent.putExtra(EXTRA_EATERY_MENU, eateryInfo.getBestMenu());
+
+        context.startActivity(intent);
+
     }
 }

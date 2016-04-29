@@ -71,7 +71,7 @@
     <string name="toast_select_hangout_failure">The hangout hasn’t registered in your hangout-list.</string>
     <string name="Thumbnail">Thumbnail</string>
     <string name="connected_fail_finish">Exit the app.</string>
-    <string name="progress_dialog_phase">Checking your location...</string>
+    <string name="progress_dialog_phase">Checking your location&#8230;</string>
     <string name="eatery_information">information</string>
     <string name="eatery_gallery">Gallery</string>
     <string name="eatery_search_by_name">Name</string>
@@ -79,7 +79,8 @@
     <string name="hint_search">Please enter a keyword.</string>
     <string name="do_search">Search</string>
     <string name="toast_search_result_none">No results.</string>
-    <string name="toast_process_error">This app is going to exit due to an error of data processing.</string>.
+    <string name="toast_process_error">This app is going to exit due to an error of data processing.</string>
+    .
     <string name="fab_menu_best_eatery">Best Eatery</string>
     <string name="fab_menu_closest_eatery">Closest Eatery</string>
     <string name="fab_menu_optimal_eatery">Optimal Eatery</string>
@@ -91,4 +92,6 @@
     <string name="fab_menu_view_event">View event</string>
     <string name="fab_menu_share_eatery">Share</string>
     <string name="event_actionbar_more">More</string>
+    <string name="title_activity_view_eatery_map">Map</string>
+    <string name="best_menu_phase">The best menu is </string>
 </resources>

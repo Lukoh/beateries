@@ -276,6 +276,12 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         void onGoToWebsite() {
             ActivityCaller.INSTANCE.callWebsite(mContext, mWebAddressView.getText().toString());
         }
+
+        @SuppressWarnings("")
+        @OnClick(R.id.tv_address)
+        void onViewEateryMap() {
+            ActivityCaller.INSTANCE.callGoogleMap(mContext, mEateryInfo);
+        }
     }
 
     static class CommentHolder extends BaseViewHolder<Comment> {

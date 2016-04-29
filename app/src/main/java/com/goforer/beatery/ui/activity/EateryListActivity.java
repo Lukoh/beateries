@@ -19,12 +19,14 @@ package com.goforer.beatery.ui.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -484,31 +486,33 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
             mLongitude = mCurrentLocation.getLongitude();
             setGPSCoordiante();
 
-            new AsyncTask<Void, Void, List<Address>>() {
-                @Override
-                protected List<Address> doInBackground(Void... params) {
-                    Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-                    List<Address> addresses = null;
-                    try {
-                        addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
-                        while (addresses.size() == 0) {
+            if (isNetworkAvailable(this)) {
+                new AsyncTask<Void, Void, List<Address>>() {
+                    @Override
+                    protected List<Address> doInBackground(Void... params) {
+                        Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
+                        List<Address> addresses = null;
+                        try {
                             addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
+                            while (addresses.size() == 0) {
+                                addresses = gcd.getFromLocation(mLatitude, mLongitude, 1);
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        return addresses;
                     }
 
-                    return addresses;
-                }
-
-                @Override
-                protected void onPostExecute(List<Address> addresses) {
-                    if (addresses.size() > 0) {
-                        setAddress(addresses);
+                    @Override
+                    protected void onPostExecute(List<Address> addresses) {
+                        if (addresses.size() > 0) {
+                            setAddress(addresses);
+                        }
                     }
-                }
-            }.execute();
+                }.execute();
+            }
 
             if (mDialog != null) {
                 mDialog.dismiss();
@@ -524,6 +528,11 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
                 mGoogleApiClient.disconnect();
             }
         }
+    }
+
+    private boolean isNetworkAvailable(final Context context) {
+        final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 
     private void setGPSCoordiante() {

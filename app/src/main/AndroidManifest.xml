@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.goforer.beatery" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.goforer.beatery">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -16,10 +18,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
@@ -29,10 +29,10 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup">
         <activity
-            android:name="com.goforer.beatery.ui.activity.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:protectionLevel="signature"
@@ -40,58 +40,60 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.goforer.beatery.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-            android:screenOrientation="portrait" >
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.SignUpActivity"
+            android:name=".ui.activity.SignUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="adjustResize">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.TermsActivity"
+            android:name=".ui.activity.TermsActivity"
             android:label="@string/title_terms"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.PictureEditActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".ui.activity.PictureEditActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_profile"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.EateryListActivity"
+            android:name=".ui.activity.EateryListActivity"
+            android:configChanges="screenSize|orientation"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:configChanges="screenSize|orientation"
-            android:theme="@style/Theme.BEatery.NoShadow" >
+            android:theme="@style/Theme.BEatery.NoShadow">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.EateryInfoActivity"
+            android:name=".ui.activity.EateryInfoActivity"
             android:label="@string/title_eatery_detail_information"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" >
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="@string/url_eatery_information"
                     android:pathPrefix="@string/url_path_eatery"
@@ -99,31 +101,32 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="www.beatery.com"
                     android:pathPrefix="/eatery/view"
                     android:scheme="https" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.goforer.beatery.ui.activity.EateryGalleryActivity"
+            android:name=".ui.activity.EateryGalleryActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BEatery.Transparent">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.GalleryViewerActivity"
+            android:name=".ui.activity.GalleryViewerActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BEatery.Transparent">
         </activity>
 
         <activity
-            android:name="com.goforer.beatery.ui.activity.EaterySearchActivity"
+            android:name=".ui.activity.EaterySearchActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysVisible">
@@ -142,6 +145,7 @@
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="com.goforer.beatery" />
             </intent-filter>
         </receiver>
@@ -153,34 +157,31 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.gcm.GCMInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.gcm.RegistrationIntentService"
             android:exported="false">
         </service>
 
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="VERSION"
             android:value="2.5" />
-
         <meta-data
             android:name="com.goforer.base.module.BaseGlideModule"
             android:value="GlideModule" />
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -189,7 +190,24 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".ui.activity.ViewEateryMapActivity"
+            android:label="@string/title_activity_view_eatery_map">
         </activity>
 
     </application>
