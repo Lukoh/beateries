@@ -44,7 +44,6 @@ import com.goforer.beatery.model.event.action.EateryGalleryAction;
 import com.goforer.beatery.model.event.action.EaterySelectAction;
 import com.goforer.beatery.model.event.action.MapCallAction;
 import com.goforer.beatery.ui.fragment.ShareDialogFragment;
-import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.utillity.DisplayUtils;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
 
