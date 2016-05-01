@@ -16,14 +16,16 @@
 
 package com.goforer.beatery.model.event.action;
 
-public class WebCallAction {
-    private String mWebstieAddress;
+import com.goforer.beatery.model.data.response.EateryInfo;
 
-    public String getWebsiteAddress() {
-        return mWebstieAddress;
+public class ViewMapAction {
+    private EateryInfo mEateryInfo;
+
+    public EateryInfo getEateryInfo() {
+        return mEateryInfo;
     }
 
-    public void setWebsiteAddress(String websiteAddress) {
-        mWebstieAddress = websiteAddress;
+    public void setEateryInfo(EateryInfo eateryInfo) {
+        mEateryInfo = eateryInfo;
     }
 }

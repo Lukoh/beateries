@@ -35,10 +35,9 @@ import com.goforer.beatery.model.event.LikeCommentEvent;
 import com.goforer.beatery.model.event.DetailLikeEateryEvent;
 import com.goforer.beatery.model.event.action.EateryLikeAction;
 import com.goforer.beatery.model.event.action.MakeCallAction;
-import com.goforer.beatery.model.event.action.MapCallAction;
+import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.model.event.action.OlderCommentLoadAction;
-import com.goforer.beatery.model.event.action.WebCallAction;
-import com.goforer.beatery.utillity.ActivityCaller;
+import com.goforer.beatery.model.event.action.ViewWebAction;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
 
 import org.greenrobot.eventbus.EventBus;
@@ -276,7 +275,7 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         @SuppressWarnings("")
         @OnClick(R.id.tv_website_address)
         void onGoToWebsite() {
-            WebCallAction action = new WebCallAction();
+            ViewWebAction action = new ViewWebAction();
             action.setWebsiteAddress(mWebAddressView.getText().toString());
             EventBus.getDefault().post(action);
         }
@@ -284,7 +283,7 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         @SuppressWarnings("")
         @OnClick(R.id.tv_address)
         void onViewEateryMap() {
-            MapCallAction action = new MapCallAction();
+            ViewMapAction action = new ViewMapAction();
             action.setEateryInfo(mEateryInfo);
             EventBus.getDefault().post(action);
         }

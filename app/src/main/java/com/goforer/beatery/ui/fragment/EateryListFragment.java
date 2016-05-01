@@ -41,7 +41,7 @@ import com.goforer.beatery.model.event.OptimalEateriesEvent;
 import com.goforer.beatery.model.event.action.EateryEventAction;
 import com.goforer.beatery.model.event.action.EateryGalleryAction;
 import com.goforer.beatery.model.event.action.EaterySelectAction;
-import com.goforer.beatery.model.event.action.MapCallAction;
+import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.model.event.action.RequestDoneAction;
 import com.goforer.beatery.model.event.action.SearchEnableAction;
 import com.goforer.beatery.ui.activity.SignUpActivity;
@@ -294,7 +294,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.ASYNC)
-    public void onAction(MapCallAction action) {
+    public void onAction(ViewMapAction action) {
         ActivityCaller.INSTANCE.callGoogleMap(mContext, action.getEateryInfo());
     }
 
