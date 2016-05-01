@@ -41,6 +41,7 @@ import com.goforer.beatery.model.event.OptimalEateriesEvent;
 import com.goforer.beatery.model.event.action.EateryEventAction;
 import com.goforer.beatery.model.event.action.EateryGalleryAction;
 import com.goforer.beatery.model.event.action.EaterySelectAction;
+import com.goforer.beatery.model.event.action.MapCallAction;
 import com.goforer.beatery.model.event.action.RequestDoneAction;
 import com.goforer.beatery.model.event.action.SearchEnableAction;
 import com.goforer.beatery.ui.activity.SignUpActivity;
@@ -289,6 +290,12 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
             ActivityCaller.INSTANCE.callEateryGallery(mContext, action.getEateryId(),
                     action.getEateryName());
         }
+    }
+
+    @SuppressWarnings("")
+    @Subscribe(threadMode = ThreadMode.ASYNC)
+    public void onAction(MapCallAction action) {
+        ActivityCaller.INSTANCE.callGoogleMap(mContext, action.getEateryInfo());
     }
 
     @SuppressWarnings("")

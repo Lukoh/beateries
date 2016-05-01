@@ -57,7 +57,9 @@ import com.goforer.beatery.model.event.SelectHangoutEvent;
 import com.goforer.beatery.model.event.action.EateryInfoUpdatedAction;
 import com.goforer.beatery.model.event.action.EateryLikeAction;
 import com.goforer.beatery.model.event.action.MakeCallAction;
+import com.goforer.beatery.model.event.action.MapCallAction;
 import com.goforer.beatery.model.event.action.OlderCommentLoadAction;
+import com.goforer.beatery.model.event.action.WebCallAction;
 import com.goforer.beatery.model.updater.EateryInfoUpdater;
 import com.goforer.beatery.ui.adapter.EateryInfoAdapter;
 import com.goforer.beatery.ui.fragment.ShareDialogFragment;
@@ -593,6 +595,18 @@ public class EateryInfoActivity extends BaseActivity {
         telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
 
         ActivityCaller.INSTANCE.callDial(this, action.getPhoneNumber());
+    }
+
+    @SuppressWarnings("")
+    @Subscribe(threadMode = ThreadMode.ASYNC)
+    public void onAction(MapCallAction action) {
+        ActivityCaller.INSTANCE.callGoogleMap(this, action.getEateryInfo());
+    }
+
+    @SuppressWarnings("")
+    @Subscribe(threadMode = ThreadMode.ASYNC)
+    public void onAction(WebCallAction action) {
+        ActivityCaller.INSTANCE.callWebsite(this, action.getWebsiteAddress());
     }
 
     @SuppressWarnings("")

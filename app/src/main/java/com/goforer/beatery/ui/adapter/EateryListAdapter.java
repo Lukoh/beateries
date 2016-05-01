@@ -42,7 +42,9 @@ import com.goforer.beatery.model.event.ListLikeEateryEvent;
 import com.goforer.beatery.model.event.action.EateryEventAction;
 import com.goforer.beatery.model.event.action.EateryGalleryAction;
 import com.goforer.beatery.model.event.action.EaterySelectAction;
+import com.goforer.beatery.model.event.action.MapCallAction;
 import com.goforer.beatery.ui.fragment.ShareDialogFragment;
+import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.utillity.DisplayUtils;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
 
@@ -308,6 +310,14 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
                 mPostView.setEnabled(false);
                 return false;
             }
+        }
+
+        @SuppressWarnings("")
+        @OnClick(R.id.container_info)
+        void onViewEateryMap() {
+            MapCallAction action = new MapCallAction();
+            action.setEateryInfo(mEateryInfo);
+            EventBus.getDefault().post(action);
         }
 
         @SuppressWarnings("")

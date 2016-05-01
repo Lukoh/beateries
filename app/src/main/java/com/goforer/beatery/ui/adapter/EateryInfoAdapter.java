@@ -35,7 +35,9 @@ import com.goforer.beatery.model.event.LikeCommentEvent;
 import com.goforer.beatery.model.event.DetailLikeEateryEvent;
 import com.goforer.beatery.model.event.action.EateryLikeAction;
 import com.goforer.beatery.model.event.action.MakeCallAction;
+import com.goforer.beatery.model.event.action.MapCallAction;
 import com.goforer.beatery.model.event.action.OlderCommentLoadAction;
+import com.goforer.beatery.model.event.action.WebCallAction;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
 
@@ -274,13 +276,17 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         @SuppressWarnings("")
         @OnClick(R.id.tv_website_address)
         void onGoToWebsite() {
-            ActivityCaller.INSTANCE.callWebsite(mContext, mWebAddressView.getText().toString());
+            WebCallAction action = new WebCallAction();
+            action.setWebsiteAddress(mWebAddressView.getText().toString());
+            EventBus.getDefault().post(action);
         }
 
         @SuppressWarnings("")
         @OnClick(R.id.tv_address)
         void onViewEateryMap() {
-            ActivityCaller.INSTANCE.callGoogleMap(mContext, mEateryInfo);
+            MapCallAction action = new MapCallAction();
+            action.setEateryInfo(mEateryInfo);
+            EventBus.getDefault().post(action);
         }
     }
 
