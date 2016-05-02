@@ -18,7 +18,7 @@ package com.goforer.beatery.web.wire.connecter;
 
 import android.content.Context;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.base.model.data.GPSData;
 import com.goforer.beatery.BEatery;
 import com.goforer.beatery.helper.AccountHelper;

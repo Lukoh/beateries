@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.helper.model.data;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
 
 public class UpdateInfo {

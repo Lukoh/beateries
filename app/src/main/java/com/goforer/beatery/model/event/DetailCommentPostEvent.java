@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.model.event;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.beatery.model.data.response.EateryInfo;
 import com.google.gson.JsonElement;
 
@@ -39,7 +39,7 @@ public class DetailCommentPostEvent extends ResponseEvent {
     private boolean mIsSucceeded;
 
     @Override
-    public void doAfterResponse() {
+    public void doInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             mIsSucceeded = true;
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);

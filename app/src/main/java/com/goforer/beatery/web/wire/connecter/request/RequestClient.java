@@ -23,7 +23,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.beatery.BEatery;
 import com.goforer.beatery.BuildConfig;
 import com.goforer.beatery.helper.AccountHelper;
@@ -271,7 +271,7 @@ public enum RequestClient {
                     BEatery.showServerUpdate(serverUpdateInfo);
                 } else {
                     mEvent.setResponse(response.body());
-                    mEvent.doAfterResponse();
+                    mEvent.doInResponse();
                     EventBus.getDefault().post(mEvent);
                 }
             }

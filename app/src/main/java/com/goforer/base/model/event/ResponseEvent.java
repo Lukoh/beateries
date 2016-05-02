@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-package com.goforer.base.event;
+package com.goforer.base.model.event;
 
-public class ResponseListEvent extends ResponseEvent {
-    private boolean mIsNew = true;
+import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
 
-    public ResponseListEvent() {
-        this(false);
+public class ResponseEvent {
+    protected ResponseClient mResponseClient;
+    protected String mTag;
+
+    public boolean isMine(String tag){
+        return tag == null || tag.equals(mTag);
     }
 
-    public ResponseListEvent(boolean isNew) {
-        mIsNew = isNew;
+    public void doInResponse() {
+
     }
 
-    public boolean isNew() {
-        return mIsNew;
-    }
+    public ResponseClient getResponse() { return mResponseClient; }
+
+    public String getTag() { return mTag; }
+
+    public void setResponse(ResponseClient responseClient) { mResponseClient = responseClient; }
+
+    public void setTag(String tag) { mTag = tag; }
 }

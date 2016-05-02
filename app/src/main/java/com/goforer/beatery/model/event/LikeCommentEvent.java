@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.model.event;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.beatery.model.data.response.Comment;
 import com.google.gson.JsonElement;
 
@@ -37,7 +37,7 @@ public class LikeCommentEvent extends ResponseEvent {
     private Comment mComment;
 
     @Override
-    public void doAfterResponse() {
+    public void doInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);
             setComment(Comment.gson().fromJson(result, Comment.class));

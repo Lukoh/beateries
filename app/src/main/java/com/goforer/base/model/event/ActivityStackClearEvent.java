@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.goforer.base.event;
+package com.goforer.base.model.event;
 
 public class ActivityStackClearEvent {
 }

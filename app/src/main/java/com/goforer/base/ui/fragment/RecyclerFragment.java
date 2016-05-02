@@ -32,7 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.goforer.base.event.ResponseListEvent;
+import com.goforer.base.model.event.ResponseListEvent;
 import com.goforer.base.ui.adapter.BaseListAdapter;
 import com.goforer.base.ui.adapter.DividerItemDecoration;
 import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;

@@ -30,7 +30,7 @@ import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.goforer.base.event.ActivityStackClearEvent;
+import com.goforer.base.model.event.ActivityStackClearEvent;
 import com.goforer.beatery.R;
 import com.goforer.beatery.model.event.action.LogoutAction;
 

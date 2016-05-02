@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.model.event;
 
-import com.goforer.base.event.ResponseListEvent;
+import com.goforer.base.model.event.ResponseListEvent;
 
 /**
  * Define event to handle showing the Login softKey Board.

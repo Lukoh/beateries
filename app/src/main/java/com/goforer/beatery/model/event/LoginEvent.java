@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.model.event;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 
 /**
  * Define event to handle login.

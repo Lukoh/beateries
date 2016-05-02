@@ -16,7 +16,7 @@
 
 package com.goforer.beatery.model.data.response;
 
-import com.goforer.base.event.ResponseEvent;
+import com.goforer.base.model.event.ResponseEvent;
 import com.goforer.base.model.BaseModel;
 import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
 import com.google.gson.annotations.SerializedName;
