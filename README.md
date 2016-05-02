@@ -1,6 +1,6 @@
-# BEatery(It means Best+Eatery)
+# BEatery(means Best+Eatery)
 
-This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O20 service on Android vai the BEatery source code. The BEatery App does not currently work because the BEatery Server does not set up yet. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I have repeated the tests with some json data several times.)
+This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O2O service on Android via the BEatery source code. The BEatery App does not currently work because the BEatery Server does not set up yet. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I have repeated the tests with some json data several times.)
 
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery_Login.jpg" alt="Log-in Demo" width="350" />
 &nbsp;
@@ -14,8 +14,25 @@ Quick note is that you must provide **Facebook & Google+ access token** for the 
 [Google Sign-in](https://developers.google.com/identity/sign-in/android/start)
 [Facebook](https://developers.facebook.com/docs/facebook-login/android) 
 
+You also have to register BEatery project on the Google Developers Console and get a Google API key which you can add to BEatery. Note: There are various types of API keys. You need an Android key not a browser key.
+
+If you're using the standard API, you need an Android key set up in BEatery project.
+
+To get a Google API key, you need to refer below link :
+
+[Google Map-Android Key](https://developers.google.com/maps/documentation/android-api/signup) 
 
 ## Overview
+
+BEatery App consists of Model, UI, Web Controller, and so on.
+
+* `Model`- Responsible for storing data that is retrieved according to commands from the controller and displayed in the 
+	view
+* `UI` - Responsible for generating new output to the user based on changes in the model
+* `Web Controller` - Responsible for communicating between BEatery App and Web Server
+* `Service` - Responsible for handling all aspects of queueing of messages and delivery to client applications running on 	target devices(Google Cloud Messaging-GCM) 
+* `Utility` - Responsible for optimizing, maintaining and supporting some task for BEatery App
+* `Helper` - Responsible for being used to assist in providing some functionality in BEarery App
 
 The app does the following:
 
@@ -25,14 +42,14 @@ The app does the following:
 4. Define `getView` to define how to inflate a layout for each eatery row and display each eatery's data.
 5. Attach the adapter for the eateries to a RecyclerView to display the data on screen
 
-To achieve this, there are four different components in this app:
+To achieve this, there are four different components to bring the list of eatery's information in this app:
 
 1. `RequestClient & ResponseClient` - Responsible for executing the API requests and retrieving the JSON
 2. `EateryInfo` - Model object responsible for encapsulating the attributes for each individual eatery
 3. `EateryListAdapter` - Responsible for mapping each `EateryInfo` to a particular view layout
 4. `EateryListActivity` - Responsible for fetching and deserializing the data and configuring the adapter
 
-The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf) which returns the following JSON response:
+The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf) which returns the following JSON response:
 
 ```json
 {
@@ -74,7 +91,7 @@ The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/b
 }
 ```
 
-See the [BEatery REST APIs](http://guides.thecodepath.com/android/Rotten-Tomatoes-Networking-Tutorial) on our cliffnotes for a step-by-step tutorial.
+See the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf) on my cliffnotes for a step-by-step tutorial.
 
 ## Libraries
 
@@ -93,10 +110,9 @@ This app leverages third-party libraries:
 
 A couple of functionalities were not currently implmented into the BEatery App.
 
-So Some functionalities as listed below have to be implemented:
+So some functionalities as listed below have to be implemented:
 
  * [Sharing] - For sharing the eatery's information to Facebook, Google+, Gmail, Twitter
- * [View the eatery's location] - For viewing the eatery's location on Google map
  * [Request the review] - For requesting a review of the eatery
 
 # License
