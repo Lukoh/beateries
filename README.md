@@ -24,6 +24,15 @@ To get a Google API key, you need to refer below link :
 
 ## Overview
 
+BEatery App consists of Model, UI, Web Controller, and so on.
+
+1. `Model` - Responsible for storing data that is retrieved according to commands from the controller and displayed in the view
+2. `UI` - Responsible for generating new output to the user based on changes in the model
+3. `Web Controller` - Responsible for communicating between BEatery App and Web Server
+4. `Service` - Responsible for handling all aspects of queueing of messages and delivery to client applications running on target devices(Google Cloud Messaging-GCM) 
+5. `Utility` - Responsible for optimizing, maintaining and supporting some task for BEatery App
+6. `Helper` - Responsible for being used to assist in providing some functionality in BEarery App
+
 The app does the following:
 
 1. Fetch all eateries around a user from the [EateryInfo List API](https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf) in JSON format
@@ -32,7 +41,7 @@ The app does the following:
 4. Define `getView` to define how to inflate a layout for each eatery row and display each eatery's data.
 5. Attach the adapter for the eateries to a RecyclerView to display the data on screen
 
-To achieve this, there are four different components in this app:
+To achieve this, there are four different components to bring the list of eatery's information in this app:
 
 1. `RequestClient & ResponseClient` - Responsible for executing the API requests and retrieving the JSON
 2. `EateryInfo` - Model object responsible for encapsulating the attributes for each individual eatery
