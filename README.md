@@ -16,8 +16,7 @@ Quick note is that you must provide **Facebook & Google+ access token** for the 
 
 You also have to register BEatery project on the Google Developers Console and get a Google API key which you can add to BEatery. Note: There are various types of API keys. You need an Android key not a browser key.
 
-If you're using the standard API, you need an Android key set up in a project of your choice.
-Google Maps APIs Premium Plan customers need an Android key set up in the Google Maps Premium project (the project created for you when you purchased the Premium Plan). If you would like to purchase a Premium Plan license, please contact sales. 
+If you're using the standard API, you need an Android key set up in BEatery project.
 
 To get a Google API key, you need to refer below link :
 
