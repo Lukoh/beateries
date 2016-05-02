@@ -20,29 +20,170 @@
 
     <section class="main-content">
       <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a id="beaterymeans-besteatery" class="anchor" href="#beaterymeans-besteatery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BEatery(means Best+Eatery)</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<p>This is an Android application for finding the best eateries around the user using the <a href="https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf">BEatery REST APIs</a>. An Android App developer can see how to make some SNS or O2O service on Android via the BEatery source code. The BEatery App does not currently work because the BEatery Server does not set up yet. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I have repeated the tests with some json data several times.)</p>
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p><img src="https://github.com/Lukoh/beateries/blob/master/BEatery_Login.jpg" alt="Log-in Demo" width="350">
+ 
+<img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350"></p>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Quick note is that you must provide <strong>Facebook &amp; Google+ access token</strong> for the BEatery App in order to use this App. To get an token, you need to refer below link :</p>
+
+<p><a href="https://developers.google.com/+/mobile/android/sign-in?hl=en">Google+</a> 
+<a href="https://developers.google.com/identity/sign-in/android/start">Google Sign-in</a>
+<a href="https://developers.facebook.com/docs/facebook-login/android">Facebook</a> </p>
+
+<p>You also have to register BEatery project on the Google Developers Console and get a Google API key which you can add to BEatery. Note: There are various types of API keys. You need an Android key not a browser key.</p>
+
+<p>If you're using the standard API, you need an Android key set up in BEatery project.</p>
+
+<p>To get a Google API key, you need to refer below link :</p>
+
+<p><a href="https://developers.google.com/maps/documentation/android-api/signup">Google Map-Android Key</a> </p>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h3>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<p>BEatery App consists of Model, UI, Web Controller, and so on.</p>
+
+<ul>
+<li>
+<code>Model</code>- Responsible for storing data that is retrieved according to commands from the controller and displayed in the 
+view</li>
+<li>
+<code>UI</code> - Responsible for generating new output to the user based on changes in the model</li>
+<li>
+<code>Web Controller</code> - Responsible for communicating between BEatery App and Web Server</li>
+<li>
+<code>Service</code> - Responsible for handling all aspects of queueing of messages and delivery to client applications running on   target devices(Google Cloud Messaging-GCM) </li>
+<li>
+<code>Utility</code> - Responsible for optimizing, maintaining and supporting some task for BEatery App</li>
+<li>
+<code>Helper</code> - Responsible for being used to assist in providing some functionality in BEarery App</li>
+</ul>
+
+<p>The app does the following:</p>
+
+<ol>
+<li>Fetch all eateries around a user from the <a href="https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf">EateryInfo List API</a> in JSON format</li>
+<li>Deserialize the JSON data for each of the eateries into <code>EateryInfo</code> objects</li>
+<li>Build an array of <code>EateryInfo</code> objects and create an <code>EateryInfoAdapter</code> for those eateries</li>
+<li>Define <code>getView</code> to define how to inflate a layout for each eatery row and display each eatery's data.</li>
+<li>Attach the adapter for the eateries to a RecyclerView to display the data on screen</li>
+</ol>
+
+<p>To achieve this, there are four different components to bring the list of eatery's information in this app:</p>
+
+<ol>
+<li>
+<code>RequestClient &amp; ResponseClient</code> - Responsible for executing the API requests and retrieving the JSON</li>
+<li>
+<code>EateryInfo</code> - Model object responsible for encapsulating the attributes for each individual eatery</li>
+<li>
+<code>EateryListAdapter</code> - Responsible for mapping each <code>EateryInfo</code> to a particular view layout</li>
+<li>
+<code>EateryListActivity</code> - Responsible for fetching and deserializing the data and configuring the adapter</li>
+</ol>
+
+<p>The app leverages the <a href="https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf">EateryInfo List API</a> which returns the following JSON response:</p>
+
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>entity<span class="pl-pds">"</span></span>: [
+    {
+    <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-c1">4324343</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>country_code<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>KR<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>RiverSide Honey<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>best_menu<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Fish Soup, BBQ, Pork stew<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Riverside 11th road, Hansin 3 dong, Seocho-Gu, Seoul<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>telephone<span class="pl-pds">"</span></span>: <span class="pl-ii">+</span><span class="pl-c1">82</span> <span class="pl-c1">02</span> <span class="pl-c1">521</span> <span class="pl-c1">4432</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>website<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.riverside.com<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Korean Traditional Restaurant<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>logo<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-c1">156043543</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>http://www.riverside.com/logo/156043543_logo.png<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>width<span class="pl-pds">"</span></span>: <span class="pl-c1">64</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>height<span class="pl-pds">"</span></span>: <span class="pl-c1">64</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>mime_type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>image/png<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>eatery_logo<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>riverside_logo<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>riverside's main logo-the 50-year-old tradition of making…<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-s"><span class="pl-pds">"</span>preference<span class="pl-pds">"</span></span>: <span class="pl-c1">4</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>information<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>A Brooklyn Heights favorite, this sleepy American tavern is a…<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>detail_information<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Exposed brick walls covered with old-fashioned clocks…<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>has_event<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>has_gallery<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>comment_count<span class="pl-pds">"</span></span>: <span class="pl-c1">304</span>,
+        <span class="pl-s"><span class="pl-pds">"</span>like_count<span class="pl-pds">"</span></span>: <span class="pl-c1">107</span>
+
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>7706879<span class="pl-pds">"</span></span>,
+      <span class="pl-ii">...</span>
+    },
+  <span class="pl-ii">...</span>
+  ]
+}</pre></div>
+
+<p>See the <a href="https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf">BEatery REST APIs</a> on my cliffnotes for a step-by-step tutorial.</p>
+
+<h3>
+<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Libraries</h3>
+
+<p>This app leverages third-party libraries:</p>
+
+<ul>
+<li>
+<a href="http://square.github.io/retrofit/">Retrofit</a> - For asynchronous network requests</li>
+<li>
+<a href="http://greenrobot.org/eventbus/">EventBus</a> - For communication between Activiteis, Fragments, Servcie, etc</li>
+<li>
+<a href="http://jakewharton.github.io/butterknife/">ButterKnife</a> - For field and method binding for Android views</li>
+<li>
+<a href="https://github.com/bumptech/glide">Glide</a> - For an image loading and caching library for Android focused on smooth scrolling</li>
+<li>
+<a href="https://github.com/coomar2841/image-chooser-library">image-chooser-library</a> - For choosing a imgage from gallery</li>
+<li>
+<a href="https://github.com/chrisbanes/PhotoView">PhotoView</a> - For viewing a image</li>
+<li>
+<a href="https://github.com/OrangeGangsters/SwipyRefreshLayout">SwipyRefreshLayout</a> - For swiping in both direction</li>
+<li>
+<a href="https://github.com/Clans/FloatingActionButton">FloatingActionButton</a> - For using floating action button</li>
+</ul>
+
+<h3>
+<a id="to-do-functionalities" class="anchor" href="#to-do-functionalities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To-Do Functionalities</h3>
+
+<p>A couple of functionalities were not currently implmented into the BEatery App.</p>
+
+<p>So some functionalities as listed below have to be implemented:</p>
+
+<ul>
+<li>[Sharing] - For sharing the eatery's information to Facebook, Google+, Gmail, Twitter</li>
+<li>[Request the review] - For requesting a review of the eatery</li>
+</ul>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<pre><code>Copyright 2015-2016 Lukoh Nam
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Lukoh/beateries">Beateries</a> is maintained by <a href="https://github.com/Lukoh">Lukoh</a>.</span>
