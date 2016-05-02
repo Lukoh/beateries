@@ -91,7 +91,7 @@ The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/b
 }
 ```
 
-See the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf) on our cliffnotes for a step-by-step tutorial.
+See the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf) on my cliffnotes for a step-by-step tutorial.
 
 ## Libraries
 
