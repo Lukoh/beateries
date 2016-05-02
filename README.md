@@ -96,7 +96,6 @@ A couple of functionalities were not currently implmented into the BEatery App.
 So Some functionalities as listed below have to be implemented:
 
  * [Sharing] - For sharing the eatery's information to Facebook, Google+, Gmail, Twitter
- * [View the eatery's location] - For viewing the eatery's location on Google map
  * [Request the review] - For requesting a review of the eatery
 
 # License
