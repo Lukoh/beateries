@@ -91,7 +91,7 @@ The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/b
 }
 ```
 
-See the [BEatery REST APIs](http://guides.thecodepath.com/android/Rotten-Tomatoes-Networking-Tutorial) on our cliffnotes for a step-by-step tutorial.
+See the [BEatery REST APIs]() on our cliffnotes for a step-by-step tutorial.
 
 ## Libraries
 
