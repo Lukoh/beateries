@@ -21,40 +21,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d08cac-7bcc-41a3-a7e0-b2259919d862" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/event/ActivityStackClearEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/event/ActivityStackClearEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/event/ResponseEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/event/ResponseEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/event/ResponseListEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/event/ResponseListEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/test/java/com/goforer/beatery/ExampleUnitTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/test/java/com/goforer/eaterybook/ExampleUnitTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/ui/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/ui/activity/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/ui/fragment/RecyclerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/base/ui/fragment/RecyclerFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/helper/model/data/UpdateInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/helper/model/data/UpdateInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/data/response/ServerUpdateInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/data/response/ServerUpdateInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/BestEateryListEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/BestEateryListEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/CommentsEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/CommentsEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/DetailCommentPostEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/DetailCommentPostEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/DetailLikeEateryEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/DetailLikeEateryEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryGalleryEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryGalleryEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryInfoEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryInfoEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryListEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryListEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryOccasionEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/EateryOccasionEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LikeCommentEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LikeCommentEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ListCommentPostEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ListCommentPostEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ListLikeEateryEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ListLikeEateryEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LoginEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LoginEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LoginSoftKeyBoardEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LoginSoftKeyBoardEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LogoutEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/LogoutEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/MyHangoutsEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/MyHangoutsEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/OptimalEateriesEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/OptimalEateriesEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ProfileEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/ProfileEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SearchEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SearchEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SelectHangoutEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SelectHangoutEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SignUpEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/SignUpEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/TermsEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/TermsEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/UserPictureEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/model/event/UserPictureEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/web/wire/connecter/Intermediary.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/web/wire/connecter/Intermediary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/web/wire/connecter/request/RequestClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/web/wire/connecter/request/RequestClient.java" />
     </list>
     <ignored path="beateries.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,11 +97,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseEvent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResponseEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/event/ResponseEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3338633">
+            <state vertical-scroll-proportion="0.0">
               <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExampleUnitTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/com/goforer/beatery/ExampleUnitTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16693164">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -164,21 +143,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="424" column="44" selection-start-line="424" selection-start-column="31" selection-end-line="424" selection-end-column="44" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImagePickerHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/beatery/helper/ImagePickerHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#3181#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#1736#1737#0" expanded="false" />
-                <element signature="e#1772#1773#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -2546,6 +2510,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beatery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beateries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -2865,7 +2901,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462101854356</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="The structure of BEatery is changed.">
+      <created>1462175522096</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1462175522096</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -2900,7 +2942,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33764136" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33764136" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2955,24 +2997,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="The functionality of viewing the eatery's map is added." />
     <MESSAGE value="Viewing the eatery's map is changed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Viewing the eatery's map is changed." />
+    <MESSAGE value="The structure of BEatery is changed." />
+    <option name="LAST_COMMIT_MESSAGE" value="The structure of BEatery is changed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2987,6 +3024,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2994,6 +3032,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="282" column="47" selection-start-line="282" selection-start-column="47" selection-end-line="282" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3001,6 +3040,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="51" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3032,6 +3072,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3039,6 +3080,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="33" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3081,6 +3123,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="51" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3091,6 +3134,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3098,6 +3142,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3112,6 +3157,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3129,6 +3175,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="596" column="72" selection-start-line="596" selection-start-column="72" selection-end-line="596" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3136,6 +3183,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="288" column="9" selection-start-line="288" selection-start-column="9" selection-end-line="288" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3178,6 +3226,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="39" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3188,6 +3237,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="285" column="25" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3195,6 +3245,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -3212,6 +3263,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.981132">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3222,6 +3274,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="97.291664">
           <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3350,8 +3403,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/goforer/base/model/event/ResponseEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3338633">
+        <state vertical-scroll-proportion="0.0">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/goforer/beatery/ExampleUnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16693164">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
