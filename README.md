@@ -26,13 +26,13 @@ To get a Google API key, you need to refer below link :
 
 BEatery App consists of Model, UI, Web Controller, and so on.
 
-1. `Model`- Responsible for storing data that is retrieved according to commands from the controller and displayed in the 
+* `Model`- Responsible for storing data that is retrieved according to commands from the controller and displayed in the 
 	view
-2. `UI` - Responsible for generating new output to the user based on changes in the model
-3. `Web Controller` - Responsible for communicating between BEatery App and Web Server
-4. `Service` - Responsible for handling all aspects of queueing of messages and delivery to client applications running on 	target devices(Google Cloud Messaging-GCM) 
-5. `Utility` - Responsible for optimizing, maintaining and supporting some task for BEatery App
-6. `Helper` - Responsible for being used to assist in providing some functionality in BEarery App
+* `UI` - Responsible for generating new output to the user based on changes in the model
+* `Web Controller` - Responsible for communicating between BEatery App and Web Server
+* `Service` - Responsible for handling all aspects of queueing of messages and delivery to client applications running on 	target devices(Google Cloud Messaging-GCM) 
+* `Utility` - Responsible for optimizing, maintaining and supporting some task for BEatery App
+* `Helper` - Responsible for being used to assist in providing some functionality in BEarery App
 
 The app does the following:
 
