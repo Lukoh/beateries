@@ -49,7 +49,7 @@ To achieve this, there are four different components to bring the list of eatery
 3. `EateryListAdapter` - Responsible for mapping each `EateryInfo` to a particular view layout
 4. `EateryListActivity` - Responsible for fetching and deserializing the data and configuring the adapter
 
-The app leverages the [EateryInfo List API]((https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf) which returns the following JSON response:
+The app leverages the [EateryInfo List API](https://github.com/Lukoh/beateries/blob/master/EateryList%20API.pdf) which returns the following JSON response:
 
 ```json
 {
