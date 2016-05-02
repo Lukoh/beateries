@@ -110,7 +110,7 @@ This app leverages third-party libraries:
 
 A couple of functionalities were not currently implmented into the BEatery App.
 
-So Some functionalities as listed below have to be implemented:
+So some functionalities as listed below have to be implemented:
 
  * [Sharing] - For sharing the eatery's information to Facebook, Google+, Gmail, Twitter
  * [Request the review] - For requesting a review of the eatery
