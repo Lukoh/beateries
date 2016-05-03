@@ -37,7 +37,7 @@ public class LikeCommentEvent extends ResponseEvent {
     private Comment mComment;
 
     @Override
-    public void doInResponse() {
+    public void parseInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);
             setComment(Comment.gson().fromJson(result, Comment.class));

@@ -39,7 +39,7 @@ public class DetailCommentPostEvent extends ResponseEvent {
     private boolean mIsSucceeded;
 
     @Override
-    public void doInResponse() {
+    public void parseInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             mIsSucceeded = true;
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);

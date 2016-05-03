@@ -414,11 +414,11 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     protected void handleEvent(final ResponseListEvent event) {
         Log.i(TAG, "handleEvent");
 
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             new AsyncTask<Void, Void, List<T>>() {
                 @Override
                 protected List<T> doInBackground(Void... params) {
-                    return parseItems(event.getResponse().getResponseEntity());
+                    return parseItems(event.getResponseClient().getResponseEntity());
                 }
 
                 @Override
@@ -429,7 +429,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                             clear();
                         }
 
-                        setReachedToLastPage(event.getResponse().getResponseOption());
+                        setReachedToLastPage(event.getResponseClient().getResponseOption());
                         setReachedToLastItem(items.size());
                         addItems(items);
                         setRefreshing();

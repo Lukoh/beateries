@@ -42,7 +42,7 @@ public class SelectHangoutEvent extends ResponseEvent {
     private int mResult;
 
     @Override
-    public void doInResponse() {
+    public void parseInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);
             setEateryInfo(EateryInfo.gson().fromJson(result, EateryInfo.class));

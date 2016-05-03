@@ -623,9 +623,9 @@ public class SignUpActivity extends BaseActivity {
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(UserPictureEvent event) {
-        if(event.getResponse() != null && event.getResponse().isSuccessful()){
+        if(event.getResponseClient() != null && event.getResponseClient().isSuccessful()){
             List<Image> userPicture = new ListModel<>(Image.class).fromJson(
-                    event.getResponse().getResponseEntity());
+                    event.getResponseClient().getResponseEntity());
             if(userPicture != null && userPicture.size() > 0){
                 mPicture.setImage(userPicture.get(0));
             }
@@ -636,8 +636,8 @@ public class SignUpActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(ProfileEvent event) {
         if (event.isMine(String.valueOf(mMyProfile.getUserIdx()))) {
-            if (event.getResponse() != null && event.getResponse().isSuccessful()) {
-                JsonElement jsonElement = event.getResponse().getResponseEntity().
+            if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
+                JsonElement jsonElement = event.getResponseClient().getResponseEntity().
                         getAsJsonArray().get(0);
                 mMyProfile = User.gson().fromJson(jsonElement, User.class);
                 if (mMyProfile != null) {
@@ -653,19 +653,19 @@ public class SignUpActivity extends BaseActivity {
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(SignUpEvent event) {
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
-            signUpSuccess(event.getResponse());
-        } else if (event.getResponse() != null &&
-                (event.getResponse().getResponseCode() != ResponseClient.CODE_SUCCESS &&
-                        !event.getResponse().getResponseMessage().equals("fail"))) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
+            signUpSuccess(event.getResponseClient());
+        } else if (event.getResponseClient() != null &&
+                (event.getResponseClient().getResponseCode() != ResponseClient.CODE_SUCCESS &&
+                        !event.getResponseClient().getResponseMessage().equals("fail"))) {
             dismissProgress();
             blockEdit(false);
 
             CustomDialog.Builder builder = new CustomDialog.Builder(this);
             builder.setTitle(R.string.custom_dialog_notification_title);
-            if (event.getResponse().getResponseMessage() != null &&
-                    event.getResponse().getResponseMessage().length() > 0) {
-                builder.setMessage(event.getResponse().getResponseMessage());
+            if (event.getResponseClient().getResponseMessage() != null &&
+                    event.getResponseClient().getResponseMessage().length() > 0) {
+                builder.setMessage(event.getResponseClient().getResponseMessage());
             } else {
                 builder.setMessage(R.string.cutom_dialog_signup_message_nickname_warning);
             }

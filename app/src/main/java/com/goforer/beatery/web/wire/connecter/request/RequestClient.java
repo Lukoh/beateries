@@ -270,8 +270,8 @@ public enum RequestClient {
                             response.body().getResponseEntity(), ServerUpdateInfo.class);
                     BEatery.showServerUpdate(serverUpdateInfo);
                 } else {
-                    mEvent.setResponse(response.body());
-                    mEvent.doInResponse();
+                    mEvent.setResponseClient(response.body());
+                    mEvent.parseInResponse();
                     EventBus.getDefault().post(mEvent);
                 }
             }
@@ -286,11 +286,11 @@ public enum RequestClient {
             }
 
             if (mEvent != null) {
-                mEvent.setResponse(new ResponseClient());
+                mEvent.setResponseClient(new ResponseClient());
                 if (!isDeviceEnabled) {
-                    mEvent.getResponse().setResponseStatus(ResponseClient.CODE_NETWORK_ERROR);
+                    mEvent.getResponseClient().setResponseStatus(ResponseClient.CODE_NETWORK_ERROR);
                 } else {
-                    mEvent.getResponse().setResponseStatus(ResponseClient.CODE_GENERAL_ERROR);
+                    mEvent.getResponseClient().setResponseStatus(ResponseClient.CODE_GENERAL_ERROR);
                 }
 
                 EventBus.getDefault().post(mEvent);

@@ -66,7 +66,7 @@ public class EateryInfoUpdater {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ListLikeEateryEvent event) {
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             if (mListener != null) {
                 mListener.onChanged(event.getEateryInfo(), false);
             }
@@ -75,7 +75,7 @@ public class EateryInfoUpdater {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ListCommentPostEvent event) {
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             if (mListener != null) {
                 mListener.onChanged(event.getEateryInfo(), false);
             }

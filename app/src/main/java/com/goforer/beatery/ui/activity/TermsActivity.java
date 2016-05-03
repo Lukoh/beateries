@@ -64,9 +64,9 @@ public class TermsActivity extends BaseActivity {
     }
 
     public void onEvent(TermsEvent event) {
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             Type listType = new TypeToken<List<Clause>>(){}.getType();
-            List<Clause> clauses = new Gson().fromJson(event.getResponse().getResponseEntity(),
+            List<Clause> clauses = new Gson().fromJson(event.getResponseClient().getResponseEntity(),
                     listType);
 
             for (Clause clause : clauses) {

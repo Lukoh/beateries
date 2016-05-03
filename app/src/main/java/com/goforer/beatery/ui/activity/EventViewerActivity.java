@@ -204,11 +204,11 @@ public class EventViewerActivity extends BaseActivity {
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(final EateryOccasionEvent event) {
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             new AsyncTask<Void, Void, List<EventInfo>>() {
                 @Override
                 protected List<EventInfo> doInBackground(Void... params) {
-                    return parseItems(event.getResponse().getResponseEntity());
+                    return parseItems(event.getResponseClient().getResponseEntity());
                 }
 
                 @Override

@@ -37,7 +37,7 @@ public class ListLikeEateryEvent extends ResponseEvent {
     private EateryInfo mEateryInfo;
 
     @Override
-    public void doInResponse() {
+    public void parseInResponse() {
         if (mResponseClient != null && mResponseClient.isSuccessful()) {
             JsonElement result = mResponseClient.getResponseEntity().getAsJsonArray().get(0);
             setEateryInfo(EateryInfo.gson().fromJson(result, EateryInfo.class));

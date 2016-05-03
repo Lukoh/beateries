@@ -322,7 +322,7 @@ public class EateryInfoActivity extends BaseActivity {
     public void onEvent(DetailCommentPostEvent event) {
         dismissProgress();
         mPostEnabled = true;
-        if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+        if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
             mCommentText.setText(null);
             setCommentCount(event.getEateryInfo().getCommentCount());
             requestCommentAndScroll();
@@ -483,8 +483,8 @@ public class EateryInfoActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(EateryInfoEvent event) {
         if (event.getEateryId() == mEateryInfo.getId()) {
-            if (event.getResponse() != null && event.getResponse().isSuccessful()) {
-                JsonArray jsonArray = event.getResponse().getResponseEntity().getAsJsonArray();
+            if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
+                JsonArray jsonArray = event.getResponseClient().getResponseEntity().getAsJsonArray();
                 if (jsonArray.size() > 0) {
                     JsonElement element = jsonArray.get(0);
                     mEateryInfo = EateryInfo.gson().fromJson(element, EateryInfo.class);
@@ -552,7 +552,7 @@ public class EateryInfoActivity extends BaseActivity {
         }
 
         if (event.isRefreshed()) {
-            mAdapter.setMoreData(event.getResponse().getResponseOption()
+            mAdapter.setMoreData(event.getResponseClient().getResponseOption()
                     .getRemainingRows());
             mAdapter.notifyDataSetChanged();
         } else {
@@ -613,11 +613,11 @@ public class EateryInfoActivity extends BaseActivity {
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onEvent(final CommentsEvent event) {
         if (event.getEateryId() == mEateryInfo.getId()) {
-            if (event.getResponse() != null && event.getResponse().isSuccessful()) {
+            if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
                 new AsyncTask<Void, Void, List<Comment>>() {
                     @Override
                     protected List<Comment> doInBackground(Void... params) {
-                        return parseItems(event.getResponse().getResponseEntity());
+                        return parseItems(event.getResponseClient().getResponseEntity());
                     }
 
                     @Override

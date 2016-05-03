@@ -380,14 +380,14 @@ public class LoginFragment extends BaseFragment {
         }
 
         mConnectionProgressDialog.dismiss();
-        if(event.getResponse() != null &&
-                event.getResponse().getResponseCode() == ResponseClient.CODE_NONE_USER) {
+        if(event.getResponseClient() != null &&
+                event.getResponseClient().getResponseCode() == ResponseClient.CODE_NONE_USER) {
             if (mActivity instanceof LoginActivity) {
                 ActivityCaller.INSTANCE.callSignUp(mContext, mSnsId, mToken, mEmail, mAccountType,
                         SignUpActivity.CALL_SIGN_UP_TYPE);
             }
-        } else if (event.getResponse() != null && event.getResponse().isSuccessful()) {
-            JsonElement jsonElement = event.getResponse().getResponseEntity().getAsJsonArray().get(0);
+        } else if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
+            JsonElement jsonElement = event.getResponseClient().getResponseEntity().getAsJsonArray().get(0);
             User me = User.gson().fromJson(jsonElement, User.class);
             AccountHelper.putMe(mContext, me);
             if(mActivity instanceof LoginActivity) {
@@ -396,7 +396,7 @@ public class LoginFragment extends BaseFragment {
         } else {
             CustomDialog builder = new CustomDialog.Builder(mActivity)
             .setTitle(R.string.custom_dialog_login_title)
-            .setMessage(event.getResponse().getResponseMessage())
+            .setMessage(event.getResponseClient().getResponseMessage())
             .setPositiveButton(R.string.custom_dialog_login_button, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

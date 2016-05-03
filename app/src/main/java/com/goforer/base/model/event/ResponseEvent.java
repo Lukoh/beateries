@@ -26,15 +26,15 @@ public class ResponseEvent {
         return tag == null || tag.equals(mTag);
     }
 
-    public void doInResponse() {
+    public void parseInResponse() {
 
     }
 
-    public ResponseClient getResponse() { return mResponseClient; }
+    public ResponseClient getResponseClient() { return mResponseClient; }
 
     public String getTag() { return mTag; }
 
-    public void setResponse(ResponseClient responseClient) { mResponseClient = responseClient; }
+    public void setResponseClient(ResponseClient responseClient) { mResponseClient = responseClient; }
 
     public void setTag(String tag) { mTag = tag; }
 }
