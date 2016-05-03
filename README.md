@@ -6,6 +6,14 @@ This is an Android application for finding the best eateries around the user usi
 &nbsp;
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350" />
 
+## Note
+
+Build configuration is currently set to run on buildToolsVersion "24.0.0 rc3" and compileSdkVersion "android-N" in build.gradle file().
+If you want BEatery source would be run on Android 5.x version, please set buildToolsVersion and compileSdkVersion in build.gradle file() as below:
+
+compileSdkVersion 23
+buildToolsVersion "23.0.2"
+
 ## Installation
 
 Quick note is that you must provide **Facebook & Google+ access token** for the BEatery App in order to use this App. To get an token, you need to refer below link :
