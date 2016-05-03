@@ -11,7 +11,9 @@ This is an Android application for finding the best eateries around the user usi
 Build configuration is currently set to run on buildToolsVersion "24.0.0 rc3" and compileSdkVersion "android-N" in [build.gradle file](https://github.com/Lukoh/beateries/blob/master/app/build.gradle).
 If you want BEatery source would be run on Android 5.x version, please set buildToolsVersion and compileSdkVersion in [build.gradle file](https://github.com/Lukoh/beateries/blob/master/app/build.gradle) as below:
 
+```
 apply plugin: 'com.android.application'
+
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
@@ -27,6 +29,7 @@ android {
     }
     .....
 }
+```
 
 ## Installation
 
