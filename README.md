@@ -6,6 +6,47 @@ This is an Android application for finding the best eateries around the user usi
 &nbsp;
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery.jpg" alt="Screen Demo" width="350" />
 
+## Note
+
+Build configuration is currently set to run on buildToolsVersion "24.0.0 rc3" and compileSdkVersion "android-N" in [build.gradle file](https://github.com/Lukoh/beateries/blob/master/app/build.gradle).
+If you want BEatery source would be run on Android 5.x version, please set buildToolsVersion, compileSdkVersion and dependencies in [build.gradle file](https://github.com/Lukoh/beateries/blob/master/app/build.gradle) as below:
+
+```
+apply plugin: 'com.android.application'
+
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.goforer.beatery"
+        minSdkVersion 18
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+    .....
+    
+    dependencies {
+    	compile fileTree(dir: 'libs', include: ['*.jar'])
+    	testCompile 'junit:junit:4.12'
+    	apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    	compile 'com.android.support:multidex:1.0.1'
+    	compile 'com.android.support:support-v4:23.3'
+    	compile 'com.android.support:appcompat-v7:23.3'
+    	compile 'com.android.support:design:23.3'
+    	compile 'com.android.support:support-annotations:23.3'
+    	compile 'com.android.support:recyclerview-v7:23.3'
+    	compile 'com.android.support:gridlayout-v7:23.3'
+    	....
+    }	
+}
+```
+
 ## Installation
 
 Quick note is that you must provide **Facebook & Google+ access token** for the BEatery App in order to use this App. To get an token, you need to refer below link :
