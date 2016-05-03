@@ -18,16 +18,32 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.goforer.mylocationsetting"
+        applicationId "com.goforer.beatery"
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     .....
+    
+    dependencies {
+    	compile fileTree(dir: 'libs', include: ['*.jar'])
+    	testCompile 'junit:junit:4.12'
+    	apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    	compile 'com.android.support:multidex:1.0.1'
+    	compile 'com.android.support:support-v4:23.3'
+    	compile 'com.android.support:appcompat-v7:23.3'
+    	compile 'com.android.support:design:23.3'
+    	compile 'com.android.support:support-annotations:23.3'
+    	compile 'com.android.support:recyclerview-v7:23.3'
+    	compile 'com.android.support:gridlayout-v7:23.3'
+    	....
+    }	
 }
 ```
 
