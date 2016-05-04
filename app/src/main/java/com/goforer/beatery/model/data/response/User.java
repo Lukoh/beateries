@@ -68,10 +68,6 @@ public class User extends BaseModel {
         return mName;
     }
 
-    public ImageMap getPicture() {
-        return mPicture;
-    }
-
     public String getGender() {
         return mGender;
     }
@@ -85,12 +81,9 @@ public class User extends BaseModel {
     }
 
     public Image getPictureImage(){
-        Image image = null;
-        if (image != null){
-            image =  mPicture.get(PICTURE_KEY);
-            if (image == null){
-                image = mPicture.get(PICTURE_THUMBNAIL_KEY);
-            }
+        Image image =  mPicture.get(PICTURE_KEY);
+        if (image == null){
+            image = mPicture.get(PICTURE_THUMBNAIL_KEY);
         }
 
         return image;

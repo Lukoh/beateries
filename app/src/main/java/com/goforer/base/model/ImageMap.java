@@ -34,7 +34,8 @@ import java.util.Iterator;
 public class ImageMap extends HashMap<String, Image> {
     static class ImageMapDeserializer implements JsonDeserializer<ImageMap> {
         @Override
-        public ImageMap deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        public ImageMap deserialize(JsonElement json, Type typeOfT,
+                                    JsonDeserializationContext context) throws JsonParseException {
             JsonArray array = json.getAsJsonArray();
             Iterator<JsonElement> iterator = array.iterator();
             ImageMap imageMap = new ImageMap();
@@ -54,7 +55,8 @@ public class ImageMap extends HashMap<String, Image> {
 
     static class ImageMapSerializer implements JsonSerializer<ImageMap> {
         @Override
-        public JsonElement serialize(ImageMap src, Type typeOfSrc, JsonSerializationContext context) {
+        public JsonElement serialize(ImageMap src, Type typeOfSrc,
+                                     JsonSerializationContext context) {
             JsonArray array = new JsonArray();
             for (String key : src.keySet()) {
                 Image image = src.get(key);
