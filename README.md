@@ -1,6 +1,6 @@
 # BEatery(means Best+Eatery)
 
-This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O2O service on Android via the BEatery source code. The BEatery App does not currently work because the BEatery Server does not set up yet. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I have repeated the tests with some json data several times.)
+This is an Android application for finding the best eateries around the user using the [BEatery REST APIs](https://github.com/Lukoh/beateries/blob/master/BEatery%20REST%20APIs.pdf). An Android App developer can see how to make some SNS or O2O service on Android via the BEatery source code. The BEatery App does not currently work because the BEatery Server does not set up yet. But I bet the BEatery App will runs well if the BEatery Server would be developed. (I have repeated the tests with some json data several times.) I'd welcome all server engineer who is so interested in BEatery open source project. 
 
 <img src="https://github.com/Lukoh/beateries/blob/master/BEatery_Login.jpg" alt="Log-in Demo" width="350" />
 &nbsp;
