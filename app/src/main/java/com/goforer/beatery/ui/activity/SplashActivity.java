@@ -30,6 +30,7 @@ import com.goforer.beatery.helper.model.data.UpdateInfo;
 import com.goforer.beatery.model.event.LogoutEvent;
 import com.goforer.beatery.model.event.action.LogoutAction;
 import com.goforer.beatery.service.gcm.RegistrationIntentService;
+import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.web.storage.PreferenceStorage;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
 import com.goforer.beatery.web.wire.connecter.request.RequestClient;
@@ -143,18 +144,13 @@ public class SplashActivity extends BaseActivity implements GoogleApiClient.Conn
     }
 
     private void moveToLogin() {
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(LoginActivity.EXTRA_LOGIN_MODE, LoginActivity.LOGIN_MODE_GOOGLE_ID);
-        startActivity(intent);
+        ActivityCaller.INSTANCE.callLogIn(this);
         stopService(mRegistrationIntent);
         finish();
     }
 
     private void moveToMain() {
-        Intent intent = new Intent(getApplicationContext(), EateryListActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        ActivityCaller.INSTANCE.callEateryList(this);
         stopService(mRegistrationIntent);
         finish();
     }

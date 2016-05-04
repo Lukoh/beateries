@@ -19,14 +19,12 @@ package com.goforer.beatery.ui.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,6 +33,8 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goforer.base.model.data.GPSData;
@@ -44,6 +44,7 @@ import com.goforer.beatery.model.event.action.RequestDoneAction;
 import com.goforer.beatery.ui.fragment.EateryListFragment;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.R;
+import com.goforer.beatery.utillity.ConnectionUtils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
@@ -66,6 +67,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import butterknife.BindView;
 
 /**
  * To get GPS-DATA, used the {@link com.google.android.gms.location.SettingsApi}
@@ -107,27 +110,44 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     private double mLatitude;
     private double mLongitude;
 
+    private boolean mIsConnectedInternet;
+
+    @BindView(R.id.tv_notice)
+    TextView mNoticeText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        updateValuesFromBundle(savedInstanceState);
-        buildGoogleApiClient();
-        createLocationRequest();
-        buildLocationSettingsRequest();
-        checkLocationSettings();
+
+        if (ConnectionUtils.INSTANCE.isNetworkAvailable(this)) {
+            setInternetStatus(true);
+            mNoticeText.setVisibility(View.GONE);
+            updateValuesFromBundle(savedInstanceState);
+            buildGoogleApiClient();
+            createLocationRequest();
+            buildLocationSettingsRequest();
+            checkLocationSettings();
+        } else {
+            setInternetStatus(false);
+            mNoticeText.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
+
+        if (isConnectedInternet()) {
+            mGoogleApiClient.connect();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        if (mGoogleApiClient.isConnected() && mRequestingLocationUpdates) {
+        if (isConnectedInternet() && mGoogleApiClient.isConnected() && mRequestingLocationUpdates) {
             startLocationUpdates();
         }
     }
@@ -135,8 +155,9 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     @Override
     protected void onPause() {
         super.onPause();
+
         // Stop location updates to save battery, but don't disconnect the GoogleApiClient object.
-        if (mGoogleApiClient.isConnected()) {
+        if (isConnectedInternet() && mGoogleApiClient.isConnected()) {
             stopLocationUpdates();
         }
     }
@@ -144,7 +165,10 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
     @Override
     protected void onStop() {
         super.onStop();
-        mGoogleApiClient.disconnect();
+
+        if (isConnectedInternet()) {
+            mGoogleApiClient.disconnect();
+        }
     }
 
     @Override
@@ -486,7 +510,9 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
             mLongitude = mCurrentLocation.getLongitude();
             setGPSCoordiante();
 
-            if (isNetworkAvailable(this)) {
+            if (ConnectionUtils.INSTANCE.isNetworkAvailable(this)) {
+                mNoticeText.setVisibility(View.VISIBLE);
+
                 new AsyncTask<Void, Void, List<Address>>() {
                     @Override
                     protected List<Address> doInBackground(Void... params) {
@@ -512,6 +538,8 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
                         }
                     }
                 }.execute();
+            } else {
+                mNoticeText.setVisibility(View.GONE);
             }
 
             if (mDialog != null) {
@@ -530,10 +558,7 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
         }
     }
 
-    private boolean isNetworkAvailable(final Context context) {
-        final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
-        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
-    }
+
 
     private void setGPSCoordiante() {
         GPSData.INSTANCE.setLatitude(mLatitude);
@@ -547,6 +572,14 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
         GPSData.INSTANCE.setAminArea(addresses.get(0).getAdminArea());
         GPSData.INSTANCE.setThoroughfare(addresses.get(0).getThoroughfare());
         GPSData.INSTANCE.setSubThoroughfare(addresses.get(0).getSubThoroughfare());
+    }
+
+    private boolean isConnectedInternet() {
+        return mIsConnectedInternet;
+    }
+
+    private void setInternetStatus(boolean isConntected) {
+        mIsConnectedInternet = isConntected;
     }
 
     protected void stopLocationUpdates() {

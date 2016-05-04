@@ -25,6 +25,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goforer.beatery.model.event.action.LoginAction;
@@ -34,25 +35,31 @@ import com.goforer.beatery.model.event.LoginSoftKeyBoardEvent;
 import com.goforer.beatery.model.event.action.LogoutAction;
 import com.goforer.beatery.ui.fragment.LoginFragment;
 import com.goforer.beatery.utillity.ActivityCaller;
+import com.goforer.beatery.utillity.ConnectionUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import butterknife.BindView;
+
 public class LoginActivity extends BaseActivity {
-    public static final String EXTRA_LOGIN_MODE = "extra_login_mode";
+    public static final String EXTRA_LOGIN_MODE = "beatery:login_mode";
 
     public static final int LOGIN_MODE_GOOGLE_ID = 100;
 
     private int mLoginMode = LOGIN_MODE_GOOGLE_ID;
 
+    @BindView(R.id.tv_notice)
+    TextView mNoticeText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle bundle = null;
 
-        if(savedInstanceState != null){
+        if(savedInstanceState != null) {
             bundle = savedInstanceState;
-        }else if(getIntent() != null){
+        } else if(getIntent() != null) {
             bundle = getIntent().getExtras();
         }
 
@@ -61,6 +68,12 @@ public class LoginActivity extends BaseActivity {
         }
 
         super.onCreate(savedInstanceState);
+
+        if (ConnectionUtils.INSTANCE.isNetworkAvailable(this)) {
+            mNoticeText.setVisibility(View.VISIBLE);
+        } else {
+            mNoticeText.setVisibility(View.GONE);
+        }
     }
 
     @Override

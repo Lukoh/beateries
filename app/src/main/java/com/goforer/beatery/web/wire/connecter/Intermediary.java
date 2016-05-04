@@ -30,6 +30,7 @@ import com.goforer.beatery.web.wire.connecter.request.RequestClient.*;
 
 import java.io.IOException;
 
+import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -95,9 +96,18 @@ public enum  Intermediary {
     public void signUp(Context context, String snsType, String token, String sndId,
                               String email, String nickname, String birth, String gender,
                               RequestBody picture, ResponseEvent event) {
+        RequestBody providerBody = RequestBody.create(MediaType.parse("text/plain"), snsType);
+        RequestBody tokenBody = RequestBody.create(MediaType.parse("text/plain"), token);
+        RequestBody idBody = RequestBody.create(MediaType.parse("text/plain"), token);
+        RequestBody emailBody = RequestBody.create(MediaType.parse("text/plain"), email);
+        RequestBody nameBody = RequestBody.create(MediaType.parse("text/plain"), nickname);
+        RequestBody birthBody = RequestBody.create(MediaType.parse("text/plain"), birth);
+        RequestBody genderBody = RequestBody.create(MediaType.parse("text/plain"), gender);
+        RequestBody agreeBody = RequestBody.create(MediaType.parse("text/plain"), "Y");
+
         Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
-                .signUp(snsType, token, sndId, email, nickname,
-                        birth, gender, "Y", picture);
+                .signUp(providerBody, tokenBody, idBody, emailBody, nameBody, birthBody, genderBody,
+                        agreeBody, picture);
         callEnqueue(context, call, event);
     }
 

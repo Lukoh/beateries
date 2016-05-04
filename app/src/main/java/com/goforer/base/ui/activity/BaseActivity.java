@@ -33,6 +33,7 @@ import android.view.View;
 import com.goforer.base.model.event.ActivityStackClearEvent;
 import com.goforer.beatery.R;
 import com.goforer.beatery.model.event.action.LogoutAction;
+import com.goforer.beatery.utillity.ConnectionUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -60,7 +61,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setActionBar();
         setContentView();
         bindViews();
-        setViews();
+
+        if (ConnectionUtils.INSTANCE.isNetworkAvailable(this)) {
+            setViews();
+        }
     }
 
     @Override

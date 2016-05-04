@@ -374,14 +374,14 @@ public enum RequestClient {
         @Multipart
         @POST("user/join")
         Call<ResponseClient> signUp(
-                @Part("sns_provider") String sns_type,
-                @Part("access_token") String access_token,
-                @Part("sns_id") String sns_id,
-                @Part("email") String email,
-                @Part("nickname") String nickname,
-                @Part("birth_year") String birth_year,
-                @Part("gender") String gender,
-                @Part("clause_agree_yn") String clause_agree_yn,
+                @Part("sns_provider") RequestBody sns_type,
+                @Part("access_token") RequestBody access_token,
+                @Part("sns_id") RequestBody sns_id,
+                @Part("email") RequestBody email,
+                @Part("nickname") RequestBody nickname,
+                @Part("birth_year") RequestBody birth_year,
+                @Part("gender") RequestBody gender,
+                @Part("clause_agree_yn") RequestBody clause_agree_yn,
                 @Part("picture") RequestBody picture
         );
 
@@ -480,9 +480,9 @@ public enum RequestClient {
         );
 
         @FormUrlEncoded
-        @POST("device/register")
+        @POST("device/{my_idx}/register")
         Call<ResponseClient> setDeviceInfo(
-                @Field("my_idx") long my_idx,
+                @Path("my_idx") long my_idx,
                 @Body Device device
         );
 

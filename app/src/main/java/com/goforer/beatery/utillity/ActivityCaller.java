@@ -32,6 +32,7 @@ import com.goforer.beatery.ui.activity.EateryListActivity;
 import com.goforer.beatery.ui.activity.EaterySearchActivity;
 import com.goforer.beatery.ui.activity.EventViewerActivity;
 import com.goforer.beatery.ui.activity.GalleryViewerActivity;
+import com.goforer.beatery.ui.activity.LoginActivity;
 import com.goforer.beatery.ui.activity.PictureEditActivity;
 import com.goforer.beatery.ui.activity.SignUpActivity;
 import com.goforer.beatery.ui.activity.ViewEateryMapActivity;
@@ -69,11 +70,15 @@ public enum  ActivityCaller {
     public Intent createIntent(Context context, Class<?> cls, boolean isNewTask) {
         Intent intent = new Intent(context, cls);
 
-        if (isNewTask && !(context instanceof Activity)) {
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
+        if (cls.equals(LoginActivity.class) || cls.equals(EateryListActivity.class)) {
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        } else {
+            if (isNewTask && !(context instanceof Activity)) {
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
 
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        }
 
         return intent;
     }
@@ -94,6 +99,12 @@ public enum  ActivityCaller {
         Intent intent = createIntent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(uri));
 
+        context.startActivity(intent);
+    }
+
+    public void callLogIn(Context context) {
+        Intent intent = createIntent(context, LoginActivity.class, true);
+        intent.putExtra(LoginActivity.EXTRA_LOGIN_MODE, LoginActivity.LOGIN_MODE_GOOGLE_ID);
         context.startActivity(intent);
     }
 

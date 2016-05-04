@@ -33,6 +33,7 @@
     <string name="title_signup">Sign Up</string>
     <string name="title_profile">Profile</string>
     <string name="title_terms">Terms</string>
+    <string name="not_connected_internet">No Internet\n Connection.</string>
     <string name="signup_picture_desc">Select a picture.</string>
     <string name="toast_signup_nickname_required">Please input your nickname.</string>
     <string name="toast_signup_image_pick_fail">Unable to load the image.</string>
