@@ -55,8 +55,6 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
 
     private static final int SPAN_COUNT = 3;
     private static final int SPAN_NUMBER_ONE = 1;
-    private static final int SPAN_NUMBER_TWO = 2;
-    private static final int SPAN_NUMBER_THREE = 3;
 
     private EateryGalleryAdapter mAdapter;
 
@@ -102,18 +100,7 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
         GridLayoutManager.SpanSizeLookup spanSizeLookup = new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                int result = position % SPAN_COUNT;
-
-                switch (result) {
-                    case 0:
-                        return SPAN_NUMBER_ONE;
-                    case 1:
-                        return SPAN_NUMBER_TWO;
-                    case 2:
-                        return SPAN_NUMBER_THREE;
-                    default:
-                        return SPAN_NUMBER_ONE;
-                }
+                return SPAN_NUMBER_ONE;
             }
         };
 

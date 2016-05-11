@@ -58,8 +58,9 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     protected static final int REQUEST_ITEM_COUNT = 20;
 
     private BaseListAdapter mBaseArrayAdapter;
-    protected List<T> mItems = new ArrayList<>();
     private OnProcessListener mListener;
+
+    protected List<T> mItems = new ArrayList<>();
     protected RecyclerView.OnScrollListener mOnScrollListener;
 
     protected boolean mIsLoading = false;
@@ -481,8 +482,8 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         Log.i(TAG, "addItems");
 
         if (items != null && !items.isEmpty()) {
-            int startIndex = this.mItems.size();
-            this.mItems.addAll(items);
+            int startIndex = mItems.size();
+            mItems.addAll(items);
             mBaseArrayAdapter.notifyItemRangeChanged(startIndex, items.size());
         } else{
             mBaseArrayAdapter.notifyDataSetChanged();
