@@ -59,6 +59,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     private BaseListAdapter mBaseArrayAdapter;
     private OnProcessListener mListener;
+    private Adapter mAdapter;
 
     protected List<T> mItems = new ArrayList<>();
     protected RecyclerView.OnScrollListener mOnScrollListener;
@@ -87,11 +88,13 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     @Override
     public void onResume() {
+        super.onResume();
         setScrollListener();
     }
 
     @Override
     public void onPause() {
+        super.onPause();
         removeScrollListener();
     }
 
@@ -111,8 +114,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     }
 
     private void setViews() {
-        Adapter adapter;
-
         if (mSwipeLayout != null) {
             setupSwipeLayout();
         }
@@ -121,12 +122,12 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         addItemDecorations();
         addItemTouchListener();
         mRecyclerView.setItemAnimator(createItemAnimator());
-        mRecyclerView.setAdapter(adapter = createAdapter());
+        mAdapter = createAdapter();
 
         setScrollListener();
 
-        if (adapter instanceof BaseListAdapter) {
-            mBaseArrayAdapter = (BaseListAdapter)adapter;
+        if (mAdapter instanceof BaseListAdapter) {
+            mBaseArrayAdapter = (BaseListAdapter)mAdapter;
         }
 
         Log.i(TAG, "Initialize views");
@@ -432,6 +433,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
                         setReachedToLastPage(event.getResponseClient().getResponseOption());
                         setReachedToLastItem(items.size());
+                        mRecyclerView.setAdapter(mAdapter);
                         addItems(items);
                         setRefreshing();
                         mListener.onCompleted(OnProcessListener.RESULT_SUCCESS);
