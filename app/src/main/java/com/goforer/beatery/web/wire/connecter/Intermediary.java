@@ -149,10 +149,26 @@ public enum  Intermediary {
         callEnqueue(context, call, event);
     }
 
+    public void updateBestEateryList(Context context, int page, int pageRows, ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .getBestEateryList(AccountHelper.getMyIdx(context),
+                        GPSData.INSTANCE.getCountryCode(), page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
     public void getMyHangoutsList(Context context, int page,
                                              int pageRows, ResponseEvent event) {
         Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
                 .getMyHangoutsList(AccountHelper.getMyIdx(context),
+                        GPSData.INSTANCE.getCountryCode(), AccountHelper.getMyId(context),
+                        page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
+    public void updateMyHangoutsList(Context context, int page,
+                                  int pageRows, ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .updateMyHangoutsList(AccountHelper.getMyIdx(context),
                         GPSData.INSTANCE.getCountryCode(), AccountHelper.getMyId(context),
                         page, pageRows);
         callEnqueue(context, call, event);
@@ -169,10 +185,31 @@ public enum  Intermediary {
         callEnqueue(context, call, event);
     }
 
+    public void updateOptimalEateryListByAddress(Context context, int page, int pageRows,
+                                              ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .updateOptimalEateryListByAddress(
+                        AccountHelper.getMyIdx(context), GPSData.INSTANCE.getCountryCode(),
+                        GPSData.INSTANCE.getAdminArea(), GPSData.INSTANCE.getCity(),
+                        GPSData.INSTANCE.getThoroughfare(), GPSData.INSTANCE.getSubThoroughfare(),
+                        page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
     public void getOptimalEateryListByCoordinates(Context context, int page, int pageRows,
                                               ResponseEvent event) {
         Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
                 .getOptimalEateryListByCoordinates(AccountHelper.getMyIdx(context),
+                        GPSData.INSTANCE.getCountryCode(), GPSData.INSTANCE.getLatitude(),
+                        GPSData.INSTANCE.getLongitude(),
+                        page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
+    public void updateOptimalEateryListByCoordinates(Context context, int page, int pageRows,
+                                                  ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .updateOptimalEateryListByCoordinates(AccountHelper.getMyIdx(context),
                         GPSData.INSTANCE.getCountryCode(), GPSData.INSTANCE.getLatitude(),
                         GPSData.INSTANCE.getLongitude(),
                         page, pageRows);

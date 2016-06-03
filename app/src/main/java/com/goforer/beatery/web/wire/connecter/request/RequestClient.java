@@ -397,6 +397,18 @@ public enum RequestClient {
                 @Query("page_rows") int page_rows
         );
 
+        @GET("eatery/list/address/{my_idx}/{country_code}/update")
+        Call<ResponseClient> updateEateryListOrderByAddress(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Query("admin_area") String admin_area,
+                @Query("city") String city,
+                @Query("thoroughfare") String thoroughfare,
+                @Query("sub_thoroughfare") String sub_thoroughfare,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
         @GET("eatery/list/coordinates/{my_idx}/{country_code}/get")
         Call<ResponseClient> getAllEateryListOrderByCoordinates(
                 @Path("my_idx") long my_idx,
@@ -419,6 +431,14 @@ public enum RequestClient {
 
         @GET("eatery/list/best/{my_idx}/{country_code}/get")
         Call<ResponseClient> getBestEateryList(
+                        @Path("my_idx") long my_idx,
+                        @Path("country_code") String country_code,
+                        @Query("page") int page,
+                        @Query("page_rows") int page_rows
+        );
+
+        @GET("eatery/list/best/{my_idx}/{country_code}/update")
+        Call<ResponseClient> udateBestEateryList(
                 @Path("my_idx") long my_idx,
                 @Path("country_code") String country_code,
                 @Query("page") int page,
@@ -427,6 +447,15 @@ public enum RequestClient {
 
         @GET("eatery/list/hangouts/{my_idx}/{country_code}/get")
         Call<ResponseClient> getMyHangoutsList(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Query("snd_id") String sns_id,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
+        @GET("eatery/list/hangouts/{my_idx}/{country_code}/update")
+        Call<ResponseClient> updateMyHangoutsList(
                 @Path("my_idx") long my_idx,
                 @Path("country_code") String country_code,
                 @Query("snd_id") String sns_id,
@@ -446,8 +475,30 @@ public enum RequestClient {
                 @Query("page_rows") int page_rows
         );
 
+        @GET("eatery/list/optimal/address/{my_idx}/{country_code}/update")
+        Call<ResponseClient> updateOptimalEateryListByAddress(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Query("admin_area") String admin_area,
+                @Query("city") String city,
+                @Query("thoroughfare") String thoroughfare,
+                @Query("sub_thoroughfare") String sub_thoroughfare,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
         @GET("eatery/list/optimal/coordinates/{my_idx}/{country_code}/get")
         Call<ResponseClient> getOptimalEateryListByCoordinates(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Query("latitude") double latitude,
+                @Query("longitude") double longitude,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
+        @GET("eatery/list/optimal/coordinates/{my_idx}/{country_code}/update")
+        Call<ResponseClient> updateOptimalEateryListByCoordinates(
                 @Path("my_idx") long my_idx,
                 @Path("country_code") String country_code,
                 @Query("latitude") double latitude,

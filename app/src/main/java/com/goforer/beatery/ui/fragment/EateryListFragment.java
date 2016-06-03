@@ -155,7 +155,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     @Override
     protected void updateData() {
-        updateEateryList();
+        update();
 
         Log.i(TAG, "updateData");
     }
@@ -207,11 +207,25 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     }
 
+    private void updateBestEateryList() {
+        searchEnabled(false);
+
+        BestEateryListEvent event = new BestEateryListEvent(false);
+        Intermediary.INSTANCE.updateBestEateryList(mContext, mCurrentPage, REQUEST_ITEM_COUNT, event);
+    }
+
     private void requestMyHangoutsList(boolean isNew) {
         searchEnabled(false);
 
         MyHangoutsEvent event = new MyHangoutsEvent(isNew);
         Intermediary.INSTANCE.getMyHangoutsList(mContext, mCurrentPage, REQUEST_ITEM_COUNT, event);
+    }
+
+    private void updateMyHangoutsList() {
+        searchEnabled(false);
+
+        MyHangoutsEvent event = new MyHangoutsEvent(false);
+        Intermediary.INSTANCE.updateMyHangoutsList(mContext, mCurrentPage, REQUEST_ITEM_COUNT, event);
     }
 
     private void requestOptimalEateryList(boolean isNew, int byWhat) {
@@ -223,6 +237,19 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
                     REQUEST_ITEM_COUNT, event);
         } else if (byWhat == OPTIMAL_EATERY_LIST_BY_COORDINATES) {
             Intermediary.INSTANCE.getOptimalEateryListByCoordinates(mContext, mCurrentPage,
+                    REQUEST_ITEM_COUNT, event);
+        }
+    }
+
+    private void updateOptimalEateryList(int byWhat) {
+        searchEnabled(false);
+
+        OptimalEateriesEvent event = new OptimalEateriesEvent(false);
+        if (byWhat == OPTIMAL_EATERY_LIST_BY_ADDRESS) {
+            Intermediary.INSTANCE.updateOptimalEateryListByAddress(mContext, mCurrentPage,
+                    REQUEST_ITEM_COUNT, event);
+        } else if (byWhat == OPTIMAL_EATERY_LIST_BY_COORDINATES) {
+            Intermediary.INSTANCE.updateOptimalEateryListByCoordinates(mContext, mCurrentPage,
                     REQUEST_ITEM_COUNT, event);
         }
     }
@@ -255,7 +282,24 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
     }
 
     private void update() {
-
+        switch (Facility.INSTANCE.getFabIndex()) {
+            case Facility.FAB_BASE_EATERY_INFO_INDEX:
+            case Facility.FAB_CLOSEST_EATERY_INDEX:
+                updateEateryList();
+                break;
+            case Facility.FAB_BEST_EATERY_INDEX:
+                updateBestEateryList();
+                break;
+            case Facility.FAB_HANGOUT_INDEX:
+                updateMyHangoutsList();
+                break;
+            case Facility.FAB_OPTIMAL_EATERY_INDEX:
+                updateOptimalEateryList(OPTIMAL_EATERY_LIST_BY_COORDINATES);
+                break;
+            default:
+                updateEateryList();
+                break;
+        }
     }
 
     @SuppressWarnings("")
