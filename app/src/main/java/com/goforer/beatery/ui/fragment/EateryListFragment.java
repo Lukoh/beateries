@@ -66,6 +66,8 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
     private static final int OPTIMAL_EATERY_LIST_BY_ADDRESS = 0;
     private static final int OPTIMAL_EATERY_LIST_BY_COORDINATES = 1;
 
+    private static final int REQUEST_ITEM_COUNT = 30;
+
     private EateryListAdapter mAdapter;
 
     @BindView(R.id.fam_menu)
@@ -152,18 +154,15 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
     }
 
     @Override
-    protected List<EateryInfo> parseItems(JsonElement json) {
-        return new ListModel<>(EateryInfo.class).fromJson(json);
+    protected void updateData() {
+        updateEateryList();
+
+        Log.i(TAG, "updateData");
     }
 
     @Override
-    protected void setReachedToLastItem(int itemCount) {
-        if (itemCount < REQUEST_ITEM_COUNT) {
-            setReachedToLast();
-            mAdapter.setReachToLast(true);
-        } else {
-            mAdapter.setReachToLast(false);
-        }
+    protected List<EateryInfo> parseItems(JsonElement json) {
+        return new ListModel<>(EateryInfo.class).fromJson(json);
     }
 
     private void requestEateryList(boolean isNew) {
@@ -171,6 +170,23 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
         EateryListEvent event = new EateryListEvent(isNew);
         Intermediary.INSTANCE.getAllEateryListOrderByCoordinates(mContext, mCurrentPage,
+                REQUEST_ITEM_COUNT, event);
+
+        /*
+         * In case of ordering by the eatery's address ....
+         * Just use the below code if the server can't handles the operation like above:
+         *
+         * EateryListEvent event = new EateryListEvent(isNew);
+         * Intermediary.INSTANCE.getAllEateryListOrderByAddress(mContext, mCurrentPage,
+         *       REQUEST_ITEM_COUNT, event);
+         */
+    }
+
+    private void updateEateryList() {
+        searchEnabled(false);
+
+        EateryListEvent event = new EateryListEvent(false);
+        Intermediary.INSTANCE.updateEateryListOrderByCoordinates(mContext, mCurrentPage,
                 REQUEST_ITEM_COUNT, event);
 
         /*
@@ -236,6 +252,10 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
                 requestEateryList(isNew);
                 break;
         }
+    }
+
+    private void update() {
+
     }
 
     @SuppressWarnings("")

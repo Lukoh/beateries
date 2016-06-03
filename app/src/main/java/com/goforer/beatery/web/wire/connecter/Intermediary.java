@@ -132,6 +132,16 @@ public enum  Intermediary {
         callEnqueue(context, call, event);
     }
 
+    public void updateEateryListOrderByCoordinates(Context context, int page, int pageRows,
+                                                      ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .updateEateryListOrderByCoordinates(
+                        AccountHelper.getMyIdx(context), GPSData.INSTANCE.getCountryCode(),
+                        GPSData.INSTANCE.getLatitude(), GPSData.INSTANCE.getLongitude(),
+                        page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
     public void getBestEateryList(Context context, int page, int pageRows, ResponseEvent event) {
         Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
                 .getBestEateryList(AccountHelper.getMyIdx(context),
@@ -223,6 +233,14 @@ public enum  Intermediary {
                                           ResponseEvent event) {
         Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
                 .getGalleryContents(AccountHelper.getMyIdx(context),
+                        GPSData.INSTANCE.getCountryCode(), eateryId, page, pageRows);
+        callEnqueue(context, call, event);
+    }
+
+    public void updateGalleryContents(Context context, long eateryId, int page, int pageRows,
+                                   ResponseEvent event) {
+        Call<ResponseClient> call = RequestClient.INSTANCE.getRequestMethod(context)
+                .updateGalleryContents(AccountHelper.getMyIdx(context),
                         GPSData.INSTANCE.getCountryCode(), eateryId, page, pageRows);
         callEnqueue(context, call, event);
     }

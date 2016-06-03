@@ -124,6 +124,13 @@ public class EaterySearchFragment extends RecyclerFragment<EateryInfo> {
         Log.i(TAG, "requestData");
     }
 
+    @Override
+    protected void updateData() {
+        doneRefreshing();
+
+        Log.i(TAG, "updateData");
+    }
+
     @SuppressWarnings("")
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(SearchEvent event) {

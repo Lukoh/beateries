@@ -28,10 +28,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.goforer.beatery.BEatery;
 import com.goforer.base.model.ListModel;
 import com.goforer.base.ui.adapter.GapItemDecoration;
 import com.goforer.base.ui.fragment.RecyclerFragment;
+import com.goforer.beatery.BEatery;
+import com.goforer.beatery.R;
 import com.goforer.beatery.model.data.response.EateryGalleryContent;
 import com.goforer.beatery.model.event.EateryGalleryEvent;
 import com.goforer.beatery.model.event.action.GallerySelectImageAction;
@@ -40,9 +41,6 @@ import com.goforer.beatery.ui.adapter.EateryGalleryAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.utillity.DisplayUtils;
 import com.goforer.beatery.web.wire.connecter.Intermediary;
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
-import com.goforer.beatery.R;
-
 import com.google.gson.JsonElement;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -55,6 +53,8 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
 
     private static final int SPAN_COUNT = 3;
     private static final int SPAN_NUMBER_ONE = 1;
+
+    private static final int REQUEST_ITEM_COUNT = 30;
 
     private EateryGalleryAdapter mAdapter;
 
@@ -139,6 +139,13 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
                 REQUEST_ITEM_COUNT, event);
     }
 
+    private void update() {
+        EateryGalleryEvent event = new EateryGalleryEvent(false);
+        Intermediary.INSTANCE.updateGalleryContents(mContext,
+                ((EateryGalleryActivity) this.getActivity()).getEateryId(), mCurrentPage,
+                REQUEST_ITEM_COUNT, event);
+    }
+
     @Override
     protected void requestData(boolean is_new) {
         Log.i(TAG, "requestData");
@@ -146,19 +153,16 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
         request(is_new);
     }
 
+    @Override
+    protected void updateData() {
+        update();
+
+        Log.i(TAG, "updateData");
+    }
+
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(EateryGalleryEvent event) {
         handleEvent(event);
-    }
-
-    @Override
-    protected void setReachedToLastPage(ResponseClient.Option option) {
-        if (!option.hasMorePage(mCurrentPage)) {
-            setReachedToLast();
-            mAdapter.setReachToLast(true);
-        } else {
-            mAdapter.setReachToLast(false);
-        }
     }
 
     @Override

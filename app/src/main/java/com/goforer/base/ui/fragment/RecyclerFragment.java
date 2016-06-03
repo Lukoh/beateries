@@ -35,8 +35,6 @@ import android.view.ViewGroup;
 import com.goforer.base.model.event.ResponseListEvent;
 import com.goforer.base.ui.adapter.BaseListAdapter;
 import com.goforer.base.ui.adapter.DividerItemDecoration;
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
-import com.goforer.beatery.web.wire.connecter.request.RequestClient;
 import com.goforer.beatery.R;
 import com.google.gson.JsonElement;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
@@ -55,8 +53,6 @@ import butterknife.BindView;
 public abstract class RecyclerFragment<T> extends BaseFragment {
     private static final String TAG = "RecyclerFragment";
 
-    protected static final int REQUEST_ITEM_COUNT = 20;
-
     private BaseListAdapter mBaseArrayAdapter;
     private OnProcessListener mListener;
     private Adapter mAdapter;
@@ -66,6 +62,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     protected boolean mIsLoading = false;
     protected boolean mIsReachToLast = false;
+    protected boolean mIsUpdated = false;
 
     protected int mCurrentPage = 0;
 
@@ -133,7 +130,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         Log.i(TAG, "Initialize views");
     }
 
-    private void request() {
+    private void request(boolean isRefreshed) {
         if (!mIsLoading) {
             mIsLoading = true;
             if (mBaseArrayAdapter != null) {
@@ -141,7 +138,24 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
             }
 
             mCurrentPage = 1;
-            requestData(true);
+            if (isRefreshed) {
+                requestData(false);
+            } else {
+                requestData(true);
+            }
+        }
+    }
+
+    private void requestUpdate() {
+        if (!mIsLoading) {
+            mIsLoading = true;
+            if (mBaseArrayAdapter != null) {
+                mBaseArrayAdapter.setLoadingItems(true);
+            }
+
+            mIsUpdated = true;
+
+            updateData();
         }
     }
 
@@ -161,12 +175,16 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if (!mIsLoading && !mIsReachToLast && dy >= 0) {
+                if (!mIsLoading && !mBaseArrayAdapter.isReachedToLastPage() && dy >= 0) {
                     int lastVisibleItemPosition = getLastVisibleItem();
                     int totalItemCount = recyclerView.getLayoutManager().getItemCount();
                     if (lastVisibleItemPosition >= totalItemCount - 1) {
                         scrolledReachToLast();
+                        mBaseArrayAdapter.setReachedToLastItem(true);
+                        setReachedToLast(true);
                         mListener.onScrolledToLast(recyclerView, dx, dy);
+                    } else {
+                        setReachedToLast(false);
                     }
                 }
             }
@@ -237,7 +255,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         mSwipeLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                request();
+                requestUpdate();
             }
         });
     }
@@ -262,14 +280,14 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      * in your fragment as below example:
      *
      * Example
-     * @@Override
+     * @Override
      * protected RecyclerView.LayoutManager setLayoutManager() {
      *     return new GridLayoutManager(activity, 1);
      * }
      * or to use LinearLayout, you have to override this setLayoutManager method
      * in your fragment as below:
      *
-     * @@Override
+     * @Override
      * protected RecyclerView.LayoutManager setLayoutManager() {
      *     return new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
      * }
@@ -337,6 +355,16 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     protected abstract void requestData(boolean isNew);
 
     /**
+     * RequestClient to get the updated information or images from server.
+     * <p>
+     * To request information or data to Web server, you must override
+     * This method is called whenever the swipe gesture triggers a refresh.
+     * </p>
+     *
+     */
+    protected abstract void updateData();
+
+    /**
      * The information should be refreshed whenever the user refresh the contents of a view via
      * a vertical swipe gesture.
      * <p>
@@ -353,11 +381,11 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                 @Override
                 public void run() {
                     mSwipeLayout.setRefreshing(true);
-                    request();
+                    request(true);
                 }
             });
         } else {
-            request();
+            request(false);
         }
     }
 
@@ -376,13 +404,15 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         mIsReachToLast = false;
         mCurrentPage = 1;
 
-        if (mItems != null && mItems.size() > 0) mItems.clear();
+        if (mItems != null && mItems.size() > 0) {
+            mItems.clear();
+        }
     }
 
     /**
      * Notify that data-parsing processing is completed.
      */
-    public void setRefreshing() {
+    public void doneRefreshing() {
         mIsLoading = false;
 
         if (mBaseArrayAdapter != null) mBaseArrayAdapter.setLoadingItems(false);
@@ -394,9 +424,11 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     /**
      * Notify that page is reached to last page(item) in the List.
+     *
+     * @param isReachedToLast set true if the page(item) is reached to last page(item)
      */
-    protected void setReachedToLast() {
-        mIsReachToLast = true;
+    protected void setReachedToLast(boolean isReachedToLast) {
+        mIsReachToLast = isReachedToLast;
     }
 
     /**
@@ -411,7 +443,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      * @param event the event with responseClient from Web server
      * @see ResponseListEvent
      *
-     * @see RequestClient.RequestCallback
      */
     protected void handleEvent(final ResponseListEvent event) {
         Log.i(TAG, "handleEvent");
@@ -426,16 +457,15 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                 @Override
                 protected void onPostExecute(List<T> items) {
                     super.onPostExecute(items);
+
                     if (isAdded()) {
                         if (event.isNew()) {
                             clear();
                         }
 
-                        setReachedToLastPage(event.getResponseClient().getResponseOption());
-                        setReachedToLastItem(items.size());
-                        mRecyclerView.setAdapter(mAdapter);
                         addItems(items);
-                        setRefreshing();
+                        doneRefreshing();
+                        mIsUpdated = false;
                         mListener.onCompleted(OnProcessListener.RESULT_SUCCESS);
                     }
                 }
@@ -443,36 +473,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         } else {
             mListener.onCompleted(OnProcessListener.RESULT_ERROR);
         }
-    }
-
-    /**
-     * Notify that the page is the last if the page is reached to the last or
-     * there is no more page.
-     * See {@link #handleEvent(ResponseListEvent)}.
-     *
-     * @param option the option of ResponseClient
-     */
-    protected void setReachedToLastPage(ResponseClient.Option option) {
-        if (!option.hasMorePage(mCurrentPage)) {
-            setReachedToLast();
-        }
-    }
-
-    /**
-     * Notify that the item is the last to the adapter if the item is reached to the last or
-     * there is no more item.
-     * <p>
-     * If this method would be not overridden to any Fragment which is derived form RecyclerFragment,
-     * it does not carry out any work. So this method has no body.
-     * If a developer want to set the item is reached to the last, a developer must override
-     * this method and implement some code to do it.
-     * <p/>
-     * See {@link #handleEvent(ResponseListEvent)}.
-     *
-     * @param itemsSize the items size
-     */
-    protected void setReachedToLastItem(int itemsSize) {
-        // Do nothing
     }
 
     /**
@@ -485,7 +485,16 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
         if (items != null && !items.isEmpty()) {
             int startIndex = mItems.size();
-            mItems.addAll(items);
+            if (mIsUpdated) {
+                mItems.addAll(0, items);
+            } else {
+                mItems.addAll(items);
+            }
+
+            if (mCurrentPage == 1) {
+                mRecyclerView.setAdapter(mBaseArrayAdapter);
+            }
+
             mBaseArrayAdapter.notifyItemRangeChanged(startIndex, items.size());
         } else{
             mBaseArrayAdapter.notifyDataSetChanged();
@@ -559,3 +568,4 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     }
 }
+

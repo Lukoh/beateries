@@ -407,6 +407,16 @@ public enum RequestClient {
                 @Query("page_rows") int page_rows
         );
 
+        @GET("eatery/list/coordinates/{my_idx}/{country_code}/update")
+        Call<ResponseClient> updateEateryListOrderByCoordinates(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Query("latitude") double latitude,
+                @Query("longitude") double longitude,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
         @GET("eatery/list/best/{my_idx}/{country_code}/get")
         Call<ResponseClient> getBestEateryList(
                 @Path("my_idx") long my_idx,
@@ -462,6 +472,16 @@ public enum RequestClient {
 
         @GET("eatery/gallery/contents/{my_idx}/{country_code}/{id}/get")
         Call<ResponseClient> getGalleryContents(
+                @Path("my_idx") long my_idx,
+                @Path("country_code") String country_code,
+                @Path("id") long id,
+                @Query("page") int page,
+                @Query("page_rows") int page_rows
+        );
+
+
+        @GET("eatery/gallery/contents/{my_idx}/{country_code}/{id}/update")
+        Call<ResponseClient> updateGalleryContents(
                 @Path("my_idx") long my_idx,
                 @Path("country_code") String country_code,
                 @Path("id") long id,
