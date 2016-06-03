@@ -47,6 +47,8 @@ android {
 }
 ```
 
+RecyclerFragment and Adatper have been improved more great and Performance Verification of these was already tested and proved by [FyberChallenge](https://github.com/Lukoh/Fyber_challenge_android). 
+
 ## Installation
 
 Quick note is that you must provide **Facebook & Google+ access token** for the BEatery App in order to use this App. To get an token, you need to refer below link :
