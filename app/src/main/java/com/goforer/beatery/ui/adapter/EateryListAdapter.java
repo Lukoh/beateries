@@ -90,7 +90,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
 
     @Override
      public int getItemViewType(int position) {
-        if (isReachedToLastItem() && isReachedToLastPage() && position == getItemCount() - 1) {
+        if (isReachedToLastPage() && position == getItemCount() - 1) {
             return VIEW_TYPE_FOOTER;
         } else if (position > 1 && position == getItemCount() - 1) {
             return VIEW_TYPE_LOADING;
