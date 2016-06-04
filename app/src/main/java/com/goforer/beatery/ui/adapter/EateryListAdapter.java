@@ -67,9 +67,11 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
 
     private static BaseActivity mActivity;
 
-    public EateryListAdapter(BaseActivity activity, List<EateryInfo> items, int layoutResId) {
+    public EateryListAdapter(BaseActivity activity, List<EateryInfo> items, int layoutResId,
+                             boolean usedLoadingImage) {
         super(items, layoutResId);
 
+        setUsedLoadingImage(usedLoadingImage);
         mActivity = activity;
     }
 
@@ -77,7 +79,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
     public int getItemCount() {
         int count  = super.getItemCount();
 
-        if (isReachedToLastPage() && isReachedToLastItem() && count >= 0) {
+        if (isReachedToLastPage() && count >= 0) {
             count++;
         } else if (count > 1) {
             count++;

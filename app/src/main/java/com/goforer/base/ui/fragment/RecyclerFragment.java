@@ -53,9 +53,17 @@ import butterknife.BindView;
 public abstract class RecyclerFragment<T> extends BaseFragment {
     private static final String TAG = "RecyclerFragment";
 
+    private static final int INVISIBLE_LOADING_IMAGE = 1;
+    private static final int VISIBLE_LOADING_IMAGE = 2;
+
+    private static final int IS_ONLY_LAST_VISIBLE_ITEM = 1;
+    private static final int IS_LOADING_LAST_VISIBLE_ITEM = 2;
+
     private BaseListAdapter mBaseArrayAdapter;
     private OnProcessListener mListener;
     private Adapter mAdapter;
+
+    private int mListVisibleItemCount;
 
     protected List<T> mItems = new ArrayList<>();
     protected RecyclerView.OnScrollListener mOnScrollListener;
@@ -178,7 +186,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                 if (!mIsLoading && !mBaseArrayAdapter.isReachedToLastPage() && dy >= 0) {
                     int lastVisibleItemPosition = getLastVisibleItem();
                     int totalItemCount = recyclerView.getLayoutManager().getItemCount();
-                    if (lastVisibleItemPosition >= totalItemCount - 1) {
+                    if (lastVisibleItemPosition >= totalItemCount - mListVisibleItemCount) {
                         scrolledReachToLast();
                         mBaseArrayAdapter.setReachedToLastItem(true);
                         setReachedToLast(true);
@@ -487,12 +495,22 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
             int startIndex = mItems.size();
             if (mIsUpdated) {
                 mItems.addAll(0, items);
+                mRecyclerView.setAdapter(mBaseArrayAdapter);
             } else {
                 mItems.addAll(items);
-            }
+                if (mCurrentPage == 1) {
+                    /**
+                     * Please set VISIBLE_LOADING_IMAGE here if there is a loading mark on
+                     * the list, not set INVISIBLE_LOADING_IMAGE here.
+                     */
+                    if (mBaseArrayAdapter.usedLoadImage()) {
+                        mListVisibleItemCount = VISIBLE_LOADING_IMAGE;
+                    } else {
+                        mListVisibleItemCount = INVISIBLE_LOADING_IMAGE;
+                    }
 
-            if (mCurrentPage == 1) {
-                mRecyclerView.setAdapter(mBaseArrayAdapter);
+                    mRecyclerView.setAdapter(mBaseArrayAdapter);
+                }
             }
 
             mBaseArrayAdapter.notifyItemRangeChanged(startIndex, items.size());

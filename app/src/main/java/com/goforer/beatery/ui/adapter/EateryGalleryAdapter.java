@@ -39,8 +39,11 @@ import butterknife.BindView;
 
 public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> {
 
-    public EateryGalleryAdapter(List<EateryGalleryContent> items, int layoutResId) {
+    public EateryGalleryAdapter(List<EateryGalleryContent> items, int layoutResId,
+                                boolean usedLoadingImage) {
         super(items, layoutResId);
+
+        setUsedLoadingImage(usedLoadingImage);
     }
 
     @Override

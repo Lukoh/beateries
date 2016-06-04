@@ -57,9 +57,11 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
 
     private boolean hasMoreData = false;
 
-    public EateryInfoAdapter(EateryInfo eateryInfo, List<Comment> items, int layoutResId) {
+    public EateryInfoAdapter(EateryInfo eateryInfo, List<Comment> items, int layoutResId,
+                             boolean usedLoadingImage) {
         super(items, layoutResId);
 
+        setUsedLoadingImage(usedLoadingImage);
         mEateryInfo = eateryInfo;
     }
 

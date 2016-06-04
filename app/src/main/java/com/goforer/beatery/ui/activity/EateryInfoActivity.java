@@ -201,7 +201,7 @@ public class EateryInfoActivity extends BaseActivity {
         setupSwipeLayout();
         mCommentBar.setVisibility(View.VISIBLE);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new EateryInfoAdapter(mEateryInfo, mComments, R.layout.list_view_comments);
+        mAdapter = new EateryInfoAdapter(mEateryInfo, mComments, R.layout.list_view_comments, true);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL_LIST));

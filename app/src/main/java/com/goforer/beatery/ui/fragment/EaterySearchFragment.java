@@ -114,7 +114,7 @@ public class EaterySearchFragment extends RecyclerFragment<EateryInfo> {
 
     @Override
     protected RecyclerView.Adapter createAdapter() {
-        return new EateryListAdapter(mActivity, mItems, R.layout.list_eatery_item);
+        return new EateryListAdapter(mActivity, mItems, R.layout.list_eatery_item, true);
     }
 
     @Override

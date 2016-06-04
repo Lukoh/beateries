@@ -143,7 +143,7 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
 
     @Override
     protected RecyclerView.Adapter createAdapter() {
-        return mAdapter = new EateryListAdapter(mActivity, mItems, R.layout.list_eatery_item);
+        return mAdapter = new EateryListAdapter(mActivity, mItems, R.layout.list_eatery_item, true);
     }
 
     @Override

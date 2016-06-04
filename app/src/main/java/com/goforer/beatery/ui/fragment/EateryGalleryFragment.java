@@ -60,7 +60,7 @@ public class EateryGalleryFragment extends RecyclerFragment<EateryGalleryContent
 
     @Override
     protected RecyclerView.Adapter createAdapter() {
-        mAdapter = new EateryGalleryAdapter(mItems, R.layout.grid_gallery_item);
+        mAdapter = new EateryGalleryAdapter(mItems, R.layout.grid_gallery_item, true);
         return mAdapter;
     }
 
