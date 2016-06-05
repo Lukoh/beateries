@@ -81,8 +81,10 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
 
         if (isReachedToLastPage() && count >= 0) {
             count++;
-        } else if (count > 1) {
+            return count;
+        } else if (isReachedToLastItem() && count > 1) {
             count++;
+            return count;
         }
 
         return count;

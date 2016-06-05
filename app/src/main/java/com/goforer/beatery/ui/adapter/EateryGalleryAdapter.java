@@ -50,10 +50,12 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
     public int getItemCount() {
         int count  = super.getItemCount();
 
-        if (isReachedToLastPage() && isReachedToLastItem() && count >= 0) {
+        if (isReachedToLastPage() && count >= 0) {
             count++;
-        } else if (count > 1) {
+            return count;
+        } else if (isReachedToLastItem() && count > 1) {
             count++;
+            return count;
         }
 
         return count;

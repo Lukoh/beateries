@@ -56,9 +56,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     private static final int INVISIBLE_LOADING_IMAGE = 1;
     private static final int VISIBLE_LOADING_IMAGE = 2;
 
-    private static final int IS_ONLY_LAST_VISIBLE_ITEM = 1;
-    private static final int IS_LOADING_LAST_VISIBLE_ITEM = 2;
-
     private BaseListAdapter mBaseArrayAdapter;
     private OnProcessListener mListener;
     private Adapter mAdapter;
