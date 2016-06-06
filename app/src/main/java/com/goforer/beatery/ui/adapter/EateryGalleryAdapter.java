@@ -52,7 +52,8 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
 
         if (isReachedToLastPage() && count >= 0) {
             count++;
-        } else if (count > 1) {
+            return count;
+        } else if (isReachedToLastItem() && count > 1) {
             count++;
         }
 
