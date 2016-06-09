@@ -49,12 +49,11 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
     @Override
     public int getItemCount() {
         int count  = super.getItemCount();
-
-        if (isReachedToLastPage() && count >= 0) {
-            count++;
+        if (count >= 0 && isReachedToLastPage()) {
+            ++count;
             return count;
-        } else if (isReachedToLastItem() && count > 1) {
-            count++;
+        } else if (count >= 0 && isReachedToLastItem()) {
+            ++count;
         }
 
         return count;
@@ -64,7 +63,7 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
     public int getItemViewType(int position) {
         if (isReachedToLastPage() && position == getItemCount() - 1) {
             return VIEW_TYPE_FOOTER;
-        } else if (position > 1 && position == getItemCount() - 1) {
+        } else if (position >= 0 && position == getItemCount() - 1) {
             return VIEW_TYPE_LOADING;
         }
 

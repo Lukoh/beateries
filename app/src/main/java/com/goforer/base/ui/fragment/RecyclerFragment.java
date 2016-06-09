@@ -23,14 +23,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
-import android.support.v7.widget.RecyclerView.ItemAnimator;
-import android.support.v7.widget.RecyclerView.ItemDecoration;
-import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.goforer.base.model.event.ResponseListEvent;
 import com.goforer.base.ui.adapter.BaseListAdapter;
@@ -58,7 +55,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     private BaseListAdapter mBaseArrayAdapter;
     private OnProcessListener mListener;
-    private Adapter mAdapter;
 
     private int mListVisibleItemCount;
 
@@ -70,6 +66,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     protected boolean mIsUpdated = false;
 
     protected int mCurrentPage = 0;
+
 
     @BindView(R.id.swipe_layout)
     protected SwipyRefreshLayout mSwipeLayout;
@@ -116,6 +113,8 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     }
 
     private void setViews() {
+
+
         if (mSwipeLayout != null) {
             setupSwipeLayout();
         }
@@ -124,12 +123,12 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         addItemDecorations();
         addItemTouchListener();
         mRecyclerView.setItemAnimator(createItemAnimator());
-        mAdapter = createAdapter();
+        RecyclerView.Adapter adapter = createAdapter();
 
         setScrollListener();
 
-        if (mAdapter instanceof BaseListAdapter) {
-            mBaseArrayAdapter = (BaseListAdapter)mAdapter;
+        if (adapter instanceof BaseListAdapter) {
+            mBaseArrayAdapter = (BaseListAdapter)adapter;
         }
 
         Log.i(TAG, "Initialize views");
@@ -180,16 +179,16 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
                 if (!mIsLoading && !mBaseArrayAdapter.isReachedToLastPage() && dy >= 0) {
                     int lastVisibleItemPosition = getLastVisibleItem();
                     int totalItemCount = recyclerView.getLayoutManager().getItemCount();
                     if (lastVisibleItemPosition >= totalItemCount - mListVisibleItemCount) {
-                        scrolledReachToLast();
                         mBaseArrayAdapter.setReachedToLastItem(true);
-                        setReachedToLast(true);
+                        scrolledReachToLast();
                         mListener.onScrolledToLast(recyclerView, dx, dy);
                     } else {
-                        setReachedToLast(false);
+                        mBaseArrayAdapter.setReachedToLastItem(false);
                     }
                 }
             }
@@ -230,7 +229,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     }
 
     /**
-     * Add an {@link ItemDecoration} to this RecyclerView. Item decorations can
+     * Add an {@link RecyclerView.ItemDecoration} to this RecyclerView. Item decorations can
      * affect both measurement and drawing of individual item views.
      *
      * <p>Item decorations are ordered. Decorations placed earlier in the list will
@@ -266,16 +265,16 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
     }
 
     /**
-     * Create the {@link LayoutManager} that this RecyclerFragment will use.
+     * Create the {@link RecyclerView.LayoutManager} that this RecyclerFragment will use.
      *
      * <p>
-     * To set the {@link LayoutManager} to provide RecyclerFragment, you must override
+     * To set the {@link RecyclerView.LayoutManager} to provide RecyclerFragment, you must override
      * </p>
      *
      * <p>In contrast to other adapter-backed views such as {@link android.widget.ListView}
      * or {@link android.widget.GridView}, RecyclerFragment allows client code to provide custom
      * layout arrangements for child views. These arrangements are controlled by the
-     * {@link LayoutManager}. A LayoutManager must be provided for RecyclerFragment to function.</p>
+     * {@link RecyclerView.LayoutManager}. A LayoutManager must be provided for RecyclerFragment to function.</p>
      *
      * <p>Several default strategies are provided for common uses such as lists and grids.</p>
      *
@@ -285,23 +284,23 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      * in your fragment as below example:
      *
      * Example
-     * @Override
+     * @@Override
      * protected RecyclerView.LayoutManager setLayoutManager() {
      *     return new GridLayoutManager(activity, 1);
      * }
      * or to use LinearLayout, you have to override this setLayoutManager method
      * in your fragment as below:
      *
-     * @Override
+     * @@Override
      * protected RecyclerView.LayoutManager setLayoutManager() {
      *     return new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
      * }
      *
      */
-    protected abstract LayoutManager createLayoutManager();
+    protected abstract RecyclerView.LayoutManager createLayoutManager();
 
     protected int getLastVisibleItem() {
-        LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+        RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
             return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
         }
@@ -319,7 +318,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      * <p>All ItemDecorations are drawn in the order item were added. </p>
      *
      */
-    protected ItemDecoration createItemDecoration() {
+    protected RecyclerView.ItemDecoration createItemDecoration() {
         return new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL_LIST);
     }
 
@@ -330,7 +329,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      *
      * @see RecyclerView#setItemAnimator(RecyclerView.ItemAnimator)
      */
-    protected ItemAnimator createItemAnimator() {
+    protected RecyclerView.ItemAnimator createItemAnimator() {
         return new DefaultItemAnimator();
     }
 
@@ -345,7 +344,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      *
      * @return The new adapter to set, or null to set no adapter.
      */
-    protected abstract Adapter createAdapter();
+    protected abstract RecyclerView.Adapter createAdapter();
 
     /**
      * RequestClient to get the information or images from server.
@@ -399,7 +398,9 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
         if (!mIsLoading) {
             mIsLoading = true;
-            if (mBaseArrayAdapter != null) mBaseArrayAdapter.setLoadingItems(true);
+            if (mBaseArrayAdapter != null) {
+                mBaseArrayAdapter.setLoadingItems(true);
+            }
 
             mCurrentPage++;
         }
@@ -419,6 +420,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
      */
     public void doneRefreshing() {
         mIsLoading = false;
+        mIsUpdated = false;
 
         if (mBaseArrayAdapter != null) mBaseArrayAdapter.setLoadingItems(false);
 
@@ -463,6 +465,10 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                 protected void onPostExecute(List<T> items) {
                     super.onPostExecute(items);
 
+                    if (items.size() == 0) {
+                        Toast.makeText(mContext, R.string.toast_no_items, Toast.LENGTH_SHORT).show();
+                    }
+
                     if (isAdded()) {
                         if (event.isNew()) {
                             clear();
@@ -470,7 +476,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
                         addItems(items);
                         doneRefreshing();
-                        mIsUpdated = false;
                         mListener.onCompleted(OnProcessListener.RESULT_SUCCESS);
                     }
                 }
@@ -489,7 +494,6 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         Log.i(TAG, "addItems");
 
         if (items != null && !items.isEmpty()) {
-            int startIndex = mItems.size();
             if (mIsUpdated) {
                 mItems.addAll(0, items);
                 mRecyclerView.setAdapter(mBaseArrayAdapter);
@@ -509,11 +513,9 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
                     mRecyclerView.setAdapter(mBaseArrayAdapter);
                 }
             }
-
-            mBaseArrayAdapter.notifyItemRangeChanged(startIndex, items.size());
-        } else{
-            mBaseArrayAdapter.notifyDataSetChanged();
         }
+
+        mBaseArrayAdapter.notifyDataSetChanged();
     }
 
     /**

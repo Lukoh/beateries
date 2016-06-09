@@ -81,7 +81,7 @@
     <string name="do_search">Search</string>
     <string name="toast_search_result_none">No results.</string>
     <string name="toast_process_error">This app is going to exit due to an error of data processing.</string>
-    .
+    <string name="toast_no_items">No items.</string>
     <string name="fab_menu_best_eatery">Best Eatery</string>
     <string name="fab_menu_closest_eatery">Closest Eatery</string>
     <string name="fab_menu_optimal_eatery">Optimal Eatery</string>
