@@ -47,7 +47,7 @@ android {
 }
 ```
 
-RecyclerFragment and Adatper have been improved more great and Performance Verification of these was already tested and proved by [FyberChallenge](https://github.com/Lukoh/Fyber_challenge_android). 
+BaseFragment, RecyclerFragment, Adatper and other modules used in BEatery have been improved more great and Performance Verification of these was already tested and proved by [FyberChallenge](https://github.com/Lukoh/Fyber_challenge_android). 
 
 ## Installation
 
