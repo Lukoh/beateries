@@ -78,11 +78,10 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
     @Override
     public int getItemCount() {
         int count  = super.getItemCount();
-        if (count >= 0 && isReachedToLastPage()) {
-            ++count;
-            return count;
-        } else if (count >= 0 && isReachedToLastItem()) {
-            ++count;
+        if (count >= 0 && isReachedToLastItem()) {
+            count++;
+        } else if (isReachedToLastPage()) {
+            count++;
         }
 
         return count;
@@ -92,7 +91,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
      public int getItemViewType(int position) {
         if (isReachedToLastPage() && position == getItemCount() - 1) {
             return VIEW_TYPE_FOOTER;
-        } else if (position >= 0 && position == getItemCount() - 1) {
+        } else if (isReachedToLastItem() && position == getItemCount() - 1) {
             return VIEW_TYPE_LOADING;
         }
 
