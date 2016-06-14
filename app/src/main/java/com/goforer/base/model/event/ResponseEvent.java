@@ -16,7 +16,7 @@
 
 package com.goforer.base.model.event;
 
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
+import com.goforer.beatery.web.communicator.reponse.ResponseClient;
 
 public class ResponseEvent {
     protected ResponseClient mResponseClient;

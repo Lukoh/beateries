@@ -36,7 +36,7 @@ import com.goforer.beatery.model.data.response.EventInfo;
 import com.goforer.beatery.model.event.EateryOccasionEvent;
 import com.goforer.beatery.ui.adapter.EventViewerAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 import com.google.gson.JsonElement;
 
 import org.greenrobot.eventbus.Subscribe;

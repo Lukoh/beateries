@@ -23,7 +23,7 @@ import android.util.Log;
 
 import com.goforer.beatery.R;
 import com.goforer.beatery.helper.DeviceHelper;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 

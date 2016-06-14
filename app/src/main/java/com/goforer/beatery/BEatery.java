@@ -35,7 +35,7 @@ import com.goforer.beatery.model.data.response.ServerUpdateInfo;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.utillity.ExceptionHandler;
 import com.goforer.beatery.web.storage.PreferenceStorage;
-import com.goforer.beatery.web.wire.connecter.request.RequestClient;
+import com.goforer.beatery.web.communicator.request.RequestClient;
 
 /**
  * Base class for those who need to maintain global application state.

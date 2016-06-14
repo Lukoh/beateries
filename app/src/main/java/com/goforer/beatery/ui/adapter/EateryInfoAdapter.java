@@ -38,7 +38,7 @@ import com.goforer.beatery.model.event.action.MakeCallAction;
 import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.model.event.action.OlderCommentLoadAction;
 import com.goforer.beatery.model.event.action.ViewWebAction;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

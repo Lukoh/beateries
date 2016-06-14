@@ -17,7 +17,7 @@
 package com.goforer.beatery.helper.model.data;
 
 import com.goforer.base.model.event.ResponseEvent;
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
+import com.goforer.beatery.web.communicator.reponse.ResponseClient;
 
 public class UpdateInfo {
     public static String KEY_UPDATE_STORAGE = "beatery::update";

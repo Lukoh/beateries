@@ -24,7 +24,7 @@ import com.goforer.base.ui.activity.BaseActivity;
 import com.goforer.beatery.R;
 import com.goforer.beatery.model.event.TermsEvent;
 import com.goforer.beatery.model.event.action.TermsAgreeAction;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

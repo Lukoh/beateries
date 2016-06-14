@@ -45,7 +45,7 @@ import com.goforer.beatery.model.event.action.EaterySelectAction;
 import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.ui.fragment.ShareDialogFragment;
 import com.goforer.beatery.utillity.DisplayUtils;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

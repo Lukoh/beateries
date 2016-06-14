@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.goforer.beatery.web.wire.connecter.request;
+package com.goforer.beatery.web.communicator.request;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -33,7 +33,7 @@ import com.goforer.beatery.model.data.response.ServerUpdateInfo;
 import com.goforer.beatery.model.event.action.LogoutAction;
 import com.goforer.beatery.web.Cookie;
 import com.goforer.beatery.web.storage.PreferenceStorage;
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
+import com.goforer.beatery.web.communicator.reponse.ResponseClient;
 
 import org.greenrobot.eventbus.EventBus;
 

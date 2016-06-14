@@ -37,7 +37,7 @@ import com.goforer.beatery.model.event.SearchEvent;
 import com.goforer.beatery.model.event.action.SearchQueryAction;
 import com.goforer.beatery.ui.adapter.EateryListAdapter;
 import com.goforer.beatery.utillity.DisplayUtils;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 import com.goforer.beatery.R;
 
 import com.google.gson.JsonElement;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.goforer.beatery.web.wire.connecter;
+package com.goforer.beatery.web.communicator;
 
 import android.content.Context;
 
@@ -24,9 +24,9 @@ import com.goforer.beatery.BEatery;
 import com.goforer.beatery.helper.AccountHelper;
 import com.goforer.beatery.helper.DeviceHelper;
 import com.goforer.beatery.model.data.request.Device;
-import com.goforer.beatery.web.wire.connecter.reponse.ResponseClient;
-import com.goforer.beatery.web.wire.connecter.request.RequestClient;
-import com.goforer.beatery.web.wire.connecter.request.RequestClient.*;
+import com.goforer.beatery.web.communicator.reponse.ResponseClient;
+import com.goforer.beatery.web.communicator.request.RequestClient;
+import com.goforer.beatery.web.communicator.request.RequestClient.*;
 
 import java.io.IOException;
 

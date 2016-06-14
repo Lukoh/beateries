@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.goforer.beatery.web.wire.connecter.reponse;
+package com.goforer.beatery.web.communicator.reponse;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

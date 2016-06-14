@@ -40,7 +40,7 @@ import com.goforer.beatery.ui.activity.EateryGalleryActivity;
 import com.goforer.beatery.ui.adapter.EateryGalleryAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
 import com.goforer.beatery.utillity.DisplayUtils;
-import com.goforer.beatery.web.wire.connecter.Intermediary;
+import com.goforer.beatery.web.communicator.Intermediary;
 import com.google.gson.JsonElement;
 
 import org.greenrobot.eventbus.Subscribe;
