@@ -116,7 +116,7 @@ public class EateryGalleryAdapter extends BaseListAdapter<EateryGalleryContent> 
         }
 
         @Override
-        public void bindItem(@NonNull final EateryGalleryContent content) {
+        public void bindItemHolder(@NonNull final EateryGalleryContent content, int position) {
             mContent = content;
 
             mContentImageView.setImage(mContent.getContentThumbnailImage());

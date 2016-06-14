@@ -164,7 +164,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
         }
 
         @Override
-        public void bindItem(@NonNull final EateryInfo eateryInfo) {
+        public void bindItemHolder(@NonNull final EateryInfo eateryInfo, int position) {
             mEateryInfo = eateryInfo;
 
             InputFilter lengthFilter = new InputFilter.LengthFilter(COMMENTS_MAX_LENGTH);

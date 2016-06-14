@@ -53,14 +53,14 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     @SuppressWarnings("unchecked")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ItemBindable) {
+        if (holder instanceof ItemHolderBinder) {
             if (position >= mItems.size()) {
                 return;
             }
 
             T item = mItems.get(position);
             if (item != null) {
-                ((ItemBindable<T>) holder).bindItem(item);
+                ((ItemHolderBinder<T>) holder).bindItemHolder(item, position);
             }
         }
     }
@@ -84,7 +84,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         mIsReachedToLastPage = isReachedToLast;
         if (isReachedToLast) {
             setReachedToLastItem(false);
-            notifyDataSetChanged();
+            notifyItemInserted(mItems.size() + 1);
         }
     }
 

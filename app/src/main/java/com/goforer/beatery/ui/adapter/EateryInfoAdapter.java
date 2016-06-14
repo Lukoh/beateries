@@ -124,7 +124,7 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         switch (getItemViewType(position)){
             case VIEW_TYPE_HEADER:
-                ((DetailInfoHolder) viewHolder).bindItem(mEateryInfo);
+                ((DetailInfoHolder) viewHolder).bindItemHolder(mEateryInfo, position);
             case VIEW_TYPE_FOOTER:
             case VIEW_TYPE_LOADING:
                 return;
@@ -200,7 +200,7 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         }
 
         @Override
-        public void bindItem(@NonNull final EateryInfo eateryInfo) {
+        public void bindItemHolder(@NonNull final EateryInfo eateryInfo, int position) {
             mEateryInfo = eateryInfo;
 
             if (mEateryInfo.getCommentCount() > 0) {
@@ -310,7 +310,7 @@ public class EateryInfoAdapter extends BaseListAdapter<Comment> {
         }
 
         @Override
-        public void bindItem(@NonNull final Comment comment) {
+        public void bindItemHolder(@NonNull final Comment comment, int position) {
             mComment = comment;
 
             mPictureImageView.setImage(mComment.getPicture());
