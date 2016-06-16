@@ -39,6 +39,7 @@ import android.widget.Toast;
 
 import com.goforer.base.model.data.GPSData;
 import com.goforer.base.ui.activity.BaseActivity;
+import com.goforer.beatery.model.event.action.EaterySelectAction;
 import com.goforer.beatery.model.event.action.SearchEnableAction;
 import com.goforer.beatery.model.event.action.RequestDoneAction;
 import com.goforer.beatery.ui.fragment.EateryListFragment;
@@ -599,6 +600,22 @@ public class EateryListActivity extends BaseActivity implements ConnectionCallba
         savedInstanceState.putParcelable(KEY_LOCATION, mCurrentLocation);
         savedInstanceState.putString(KEY_LAST_UPDATED_TIME_STRING, mLastUpdateTime);
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @SuppressWarnings("")
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onAction(EaterySelectAction action) {
+        if (resumed()) {
+            if (action.isScrolledToComment()) {
+                ActivityCaller.INSTANCE.callEateryInfo(this, action.getEateryInfo(),
+                        action.getEateryInfoList(), action.getPosition(), true,
+                        ActivityCaller.SELECTED_ITEM_POSITION);
+            } else {
+                ActivityCaller.INSTANCE.callEateryInfo(this, action.getEateryInfo(),
+                        action.getEateryInfoList(), action.getPosition(), false,
+                        ActivityCaller.SELECTED_ITEM_POSITION);
+            }
+        }
     }
 
     @SuppressWarnings("")

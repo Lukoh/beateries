@@ -16,10 +16,16 @@
 
 package com.goforer.beatery.model.data.response;
 
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.goforer.base.model.BaseModel;
 import com.goforer.base.model.ImageMap;
 import com.goforer.base.model.data.Image;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Set;
 
 /**
  * The class for putting the eatery's gallery contents after parsing JSON formatted data that
@@ -33,7 +39,7 @@ import com.google.gson.annotations.SerializedName;
  *     BEatery REST APIs</a>
  * </p>
  */
-public class EateryGalleryContent extends BaseModel {
+public class EateryGalleryContent extends BaseModel implements Parcelable {
     private static final String IMAGE_KEY = "gallery_image";
     private static final String IMAGE_THUMBNAIL_KEY = "thumbnail_image";
 
@@ -47,6 +53,13 @@ public class EateryGalleryContent extends BaseModel {
     // The content_images contains a thumbnail-image and real-image about content.
     @SerializedName("content_images")
     private ImageMap mContentImages;
+
+    protected EateryGalleryContent(Parcel in) {
+        mEateryId = in.readLong();
+        mContentId = in.readLong();
+        mContentIndex = in.readInt();
+        mContentImages = readMap(in);
+    }
 
     public long getEateryId() {
         return mEateryId;
@@ -79,6 +92,59 @@ public class EateryGalleryContent extends BaseModel {
         }
         return image;
     }
+
+    public ImageMap readMap(Parcel in) {
+        String[] keys = in.createStringArray();
+        Bundle bundle = in.readBundle(Image.class.getClassLoader());
+
+        ImageMap imageMap = new ImageMap();
+        for(String key: keys) {
+            imageMap.put(key, (Image) bundle.getParcelable(key));
+        }
+
+        return imageMap;
+    }
+
+    public void writeMap(Parcel dest) {
+        if (mContentImages.size() > 0) {
+            Set<String> keySet = mContentImages.keySet();
+            Bundle bundle = new Bundle();
+            for(String key: keySet) {
+                bundle.putParcelable(key, mContentImages.get(key));
+            }
+
+            String[] keys = keySet.toArray(new String[keySet.size()]);
+            dest.writeStringArray(keys);
+            dest.writeBundle(bundle);
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mEateryId);
+        dest.writeLong(mContentId);
+        dest.writeInt(mContentIndex);
+        writeMap(dest);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<EateryGalleryContent> CREATOR =
+            new Parcelable.Creator<EateryGalleryContent>() {
+        @Override
+        public EateryGalleryContent createFromParcel(Parcel in) {
+            return new EateryGalleryContent(in);
+        }
+
+        @Override
+        public EateryGalleryContent[] newArray(int size) {
+            return new EateryGalleryContent[size];
+        }
+    };
 
     @Override
     public boolean equals(Object object) {

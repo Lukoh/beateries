@@ -16,6 +16,9 @@
 
 package com.goforer.beatery.model.data.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.goforer.base.model.BaseModel;
 import com.goforer.base.model.data.Image;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +35,7 @@ import com.google.gson.annotations.SerializedName;
  *     BEatery REST APIs</a>
  * </p>
  */
-public class EventInfo extends BaseModel {
+public class EventInfo extends BaseModel implements Parcelable {
     @SerializedName("id")
     private long mId;
     @SerializedName("country_code")
@@ -45,6 +48,15 @@ public class EventInfo extends BaseModel {
     private String mDescription;
     @SerializedName("image")
     private Image mImage;
+
+    protected EventInfo(Parcel in) {
+        mId = in.readLong();
+        mCountryCode = in.readString();
+        mTitle = in.readString();
+        mUrl = in.readString();
+        mDescription = in.readString();
+        mImage = in.readParcelable(Image.class.getClassLoader());
+    }
 
     public long getId() {
         return mId;
@@ -69,4 +81,33 @@ public class EventInfo extends BaseModel {
     public Image getImage() {
         return mImage;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mId);
+        dest.writeString(mCountryCode);
+        dest.writeString(mTitle);
+        dest.writeString(mUrl);
+        dest.writeString(mDescription);
+        dest.writeParcelable(mImage, flags);
+
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<EventInfo> CREATOR = new Parcelable.Creator<EventInfo>() {
+        @Override
+        public EventInfo createFromParcel(Parcel in) {
+            return new EventInfo(in);
+        }
+
+        @Override
+        public EventInfo[] newArray(int size) {
+            return new EventInfo[size];
+        }
+    };
 }

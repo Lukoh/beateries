@@ -18,6 +18,8 @@ package com.goforer.beatery.model.event.action;
 
 import com.goforer.beatery.model.data.response.EateryInfo;
 
+import java.util.List;
+
 /**
  * Define action to handle selecting the eatery
  *
@@ -33,14 +35,33 @@ import com.goforer.beatery.model.data.response.EateryInfo;
  */
 public class EaterySelectAction {
     private EateryInfo mEateryInfo;
+    private List<EateryInfo> mEateryInfoList;
+
+    private int mPosition;
 
     private boolean mIsScrolledToComment;
 
     public EateryInfo getEateryInfo() { return mEateryInfo; }
 
+    public List<EateryInfo> getEateryInfoList() {
+        return mEateryInfoList;
+    }
+
+    public int getPosition() {
+        return mPosition;
+    }
+
     public boolean isScrolledToComment() { return mIsScrolledToComment; }
 
     public void setEateryInfo(EateryInfo eateryInfo) { mEateryInfo = eateryInfo; }
+
+    public void setEateryInfoList(List<EateryInfo> eateryInfoList) {
+        mEateryInfoList = eateryInfoList;
+    }
+
+    public void setPosition(int position) {
+        mPosition = position;
+    }
 
     public void setScrolledToComment(boolean isScrolledTo) { mIsScrolledToComment = isScrolledTo; }
 }

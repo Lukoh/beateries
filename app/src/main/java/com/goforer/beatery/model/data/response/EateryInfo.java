@@ -16,6 +16,9 @@
 
 package com.goforer.beatery.model.data.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.goforer.base.model.BaseModel;
 import com.goforer.base.model.data.Image;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +35,7 @@ import com.google.gson.annotations.SerializedName;
  *     BEatery REST APIs</a>
  * </p>
  */
-public class EateryInfo extends BaseModel {
+public class EateryInfo extends BaseModel implements Parcelable {
     @SerializedName("id")
     private long mId;
     @SerializedName("country_code")
@@ -69,6 +72,30 @@ public class EateryInfo extends BaseModel {
     private double mLatitude;
     @SerializedName("longitude")
     private double mLongitude;
+
+    public EateryInfo() {
+    }
+
+    protected EateryInfo(Parcel in) {
+        mId = in.readLong();
+        mCountryCode = in.readString();
+        mName = in.readString();
+        mBestMenu = in.readString();
+        mAddress = in.readString();
+        mTelephone = in.readString();
+        mWebsite = in.readString();
+        mType = in.readString();
+        mLogo = in.readParcelable(Image.class.getClassLoader());
+        mPreference = in.readInt();
+        mInformation = in.readString();
+        mMoreInformation = in.readString();
+        mHasEvent = in.readByte() != 0;
+        mHasGallery = in.readByte() != 0;
+        mCommentCount = in.readLong();
+        mLikeCount = in.readLong();
+        mLatitude = in.readDouble();
+        mLongitude = in.readDouble();
+    }
 
     public long getId() {
         return mId;
@@ -211,6 +238,46 @@ public class EateryInfo extends BaseModel {
     public void setLongitude(double longitude) {
         mLongitude = longitude;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mId);
+        dest.writeString(mCountryCode);
+        dest.writeString(mName);
+        dest.writeString(mBestMenu);
+        dest.writeString(mAddress);
+        dest.writeString(mTelephone);
+        dest.writeString(mWebsite);
+        dest.writeString(mType);
+        dest.writeParcelable(mLogo, flags);
+        dest.writeInt(mPreference);
+        dest.writeString(mInformation);
+        dest.writeString(mMoreInformation);
+        dest.writeByte((byte) (mHasEvent ? 1 : 0));
+        dest.writeByte((byte) (mHasGallery ? 1 : 0));
+        dest.writeLong(mCommentCount);
+        dest.writeLong(mLikeCount);
+        dest.writeDouble(mLatitude);
+        dest.writeDouble(mLongitude);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<EateryInfo> CREATOR = new Parcelable.Creator<EateryInfo>() {
+        @Override
+        public EateryInfo createFromParcel(Parcel in) {
+            return new EateryInfo(in);
+        }
+
+        @Override
+        public EateryInfo[] newArray(int size) {
+            return new EateryInfo[size];
+        }
+    };
 
     @Override
     public boolean equals(Object obj) {

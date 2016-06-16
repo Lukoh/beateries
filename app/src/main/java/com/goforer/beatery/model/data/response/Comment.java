@@ -16,6 +16,9 @@
 
 package com.goforer.beatery.model.data.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.goforer.base.model.BaseModel;
 import com.goforer.base.model.data.Image;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +34,7 @@ import com.google.gson.annotations.SerializedName;
  *     BEatery REST APIs</a>
  * </p>
  */
-public class Comment extends BaseModel {
+public class Comment extends BaseModel implements Parcelable {
     @SerializedName("comment_id")
     private long mCommentId;
     @SerializedName("commenter_idx")
@@ -49,6 +52,16 @@ public class Comment extends BaseModel {
     @SerializedName("date")
     private String mDate;
 
+    protected Comment(Parcel in) {
+        mCommentId = in.readLong();
+        mCommenterId = in.readLong();
+        mEateryId = in.readLong();
+        mLikeCount = in.readLong();
+        mPicture = in.readParcelable(Image.class.getClassLoader());
+        mComment = in.readString();
+        mCommenterName = in.readString();
+        mDate = in.readString();
+    }
 
     public long getCommentId() {
         return mCommentId;
@@ -113,4 +126,34 @@ public class Comment extends BaseModel {
     public void setLikeCount(long likeCount) {
         mLikeCount = likeCount;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mCommentId);
+        dest.writeLong(mCommenterId);
+        dest.writeLong(mEateryId);
+        dest.writeLong(mLikeCount);
+        dest.writeParcelable(mPicture, flags);
+        dest.writeString(mComment);
+        dest.writeString(mCommenterName);
+        dest.writeString(mDate);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Comment> CREATOR = new Parcelable.Creator<Comment>() {
+        @Override
+        public Comment createFromParcel(Parcel in) {
+            return new Comment(in);
+        }
+
+        @Override
+        public Comment[] newArray(int size) {
+            return new Comment[size];
+        }
+    };
 }

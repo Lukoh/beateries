@@ -117,7 +117,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
 
     @Override
     protected RecyclerView.ViewHolder createViewHolder(View view, int type) {
-        return new EateryListViewHolder(view);
+        return new EateryListViewHolder(view, mItems);
     }
 
     @Override
@@ -133,6 +133,7 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
 
     static class EateryListViewHolder extends BaseViewHolder<EateryInfo> {
         private EateryInfo mEateryInfo;
+        private List<EateryInfo> mEateryInfoItems;
 
         @BindView(R.id.iv_logo)
         SquircleImageView mLogoImageView;
@@ -157,14 +158,15 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
         @BindView(R.id.tv_post)
         TextView mPostView;
 
-        public EateryListViewHolder(View itemView) {
+        public EateryListViewHolder(View itemView, List<EateryInfo> items) {
             super(itemView);
 
+            mEateryInfoItems = items;
             DisplayUtils.INSTANCE.hideSoftKeyboard(mContext, mCommentText);
         }
 
         @Override
-        public void bindItemHolder(@NonNull final EateryInfo eateryInfo, int position) {
+        public void bindItemHolder(@NonNull final EateryInfo eateryInfo, final int position) {
             mEateryInfo = eateryInfo;
 
             InputFilter lengthFilter = new InputFilter.LengthFilter(COMMENTS_MAX_LENGTH);
@@ -259,6 +261,8 @@ public class EateryListAdapter extends BaseListAdapter<EateryInfo> {
                 public void onClick(View view) {
                     EaterySelectAction action = new EaterySelectAction();
                     action.setEateryInfo(mEateryInfo);
+                    action.setEateryInfoList(mEateryInfoItems);
+                    action.setPosition(position);
                     action.setScrolledToComment(false);
                     EventBus.getDefault().post(action);
                 }

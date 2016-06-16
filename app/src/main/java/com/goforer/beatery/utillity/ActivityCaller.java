@@ -37,11 +37,17 @@ import com.goforer.beatery.ui.activity.PictureEditActivity;
 import com.goforer.beatery.ui.activity.SignUpActivity;
 import com.goforer.beatery.ui.activity.ViewEateryMapActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum  ActivityCaller {
     INSTANCE;
 
     public static final String EXTRA_SCROLL_TO_COMMENT = "beatery:scroll_to_comment";
     public static final String EXTRA_EATERY_ID = "beatery:eatery_id";
+    public static final String EXTRA_EATERY_INFO_LIST = "beatery:eatery_info_list";
+    public static final String EXTRA_EATERY_ITEM_POSITION = "beatery:eatery_item_position";
+    public static final String EXTRA_SELECTED_ITEM_POSITION = "beatery:selected_item_position";
     public static final String EXTRA_EATERY_NAME = "beatery:eatery_name";
     public static final String EXTRA_GALLERY_IMAGE_INDEX = "beatery:image_index";
     public static final String EXTRA_SELECT_TAB = "beatery:select_tab";
@@ -61,6 +67,8 @@ public enum  ActivityCaller {
     public static final String BUNDLE_EATERY_ID = "beatery:eatery_id";
     public static final String BUNDLE_EATERY_NAME = "beatery:eatery_name";
     public static final String BUNDLE_CUSTOM_DATA = "beatery:eatery_custom_data";
+
+    public static final int SELECTED_ITEM_POSITION = 1000;
 
     public Uri.Builder getBase() {
         return new Uri.Builder().scheme(BEatery.mResources.getString(R.string.url_scheme)).
@@ -140,14 +148,16 @@ public enum  ActivityCaller {
         context.startActivity(intent);
     }
 
-    public void callEateryInfo(Context context, EateryInfo eateryInfo,
-                                     boolean isScrolledToComment) {
-        Intent intent = createIntent(context, EateryInfoActivity.class, true);
+    public void callEateryInfo(Activity activity, EateryInfo eateryInfo, List<EateryInfo> items,
+                               int position, boolean isScrolledToComment, int requestCode) {
+        Intent intent = createIntent(activity, EateryInfoActivity.class, true);
         String info = EateryInfo.gson().toJson(eateryInfo);
         intent.putExtra(EateryInfo.class.getName(), info);
+        intent.putParcelableArrayListExtra(EXTRA_EATERY_INFO_LIST, (ArrayList)items);
+        intent.putExtra(EXTRA_EATERY_ITEM_POSITION, position);
         intent.putExtra(EXTRA_SCROLL_TO_COMMENT, isScrolledToComment);
 
-        context.startActivity(intent);
+        activity.startActivityForResult(intent, requestCode);
     }
 
     public void callEateryEvent(Context context, long eateryId, String eateryName) {

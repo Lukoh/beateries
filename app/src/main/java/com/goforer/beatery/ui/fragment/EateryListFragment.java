@@ -40,10 +40,9 @@ import com.goforer.beatery.model.event.MyHangoutsEvent;
 import com.goforer.beatery.model.event.OptimalEateriesEvent;
 import com.goforer.beatery.model.event.action.EateryEventAction;
 import com.goforer.beatery.model.event.action.EateryGalleryAction;
-import com.goforer.beatery.model.event.action.EaterySelectAction;
-import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.model.event.action.RequestDoneAction;
 import com.goforer.beatery.model.event.action.SearchEnableAction;
+import com.goforer.beatery.model.event.action.ViewMapAction;
 import com.goforer.beatery.ui.activity.SignUpActivity;
 import com.goforer.beatery.ui.adapter.EateryListAdapter;
 import com.goforer.beatery.utillity.ActivityCaller;
@@ -324,18 +323,6 @@ public class EateryListFragment extends RecyclerFragment<EateryInfo> {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEvent(OptimalEateriesEvent event) {
         handleEvent(event);
-    }
-
-    @SuppressWarnings("")
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onAction(EaterySelectAction action) {
-        if (mActivity.resumed()) {
-            if (action.isScrolledToComment()) {
-                ActivityCaller.INSTANCE.callEateryInfo(mContext, action.getEateryInfo(), true);
-            } else {
-                ActivityCaller.INSTANCE.callEateryInfo(mContext, action.getEateryInfo(), false);
-            }
-        }
     }
 
     @SuppressWarnings("")

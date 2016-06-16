@@ -37,6 +37,7 @@ android {
 repositories {
     jcenter()
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -69,6 +70,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.google.android.gms:play-services-auth:8.4.0'
     compile 'org.jetbrains:annotations-java5:15.0'
+    compile 'com.github.sembozdemir:ViewPagerArrowIndicator:1.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
