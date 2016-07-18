@@ -39,6 +39,7 @@ import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutD
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -450,31 +451,7 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
         Log.i(TAG, "handleEvent");
 
         if (event.getResponseClient() != null && event.getResponseClient().isSuccessful()) {
-            new AsyncTask<Void, Void, List<T>>() {
-                @Override
-                protected List<T> doInBackground(Void... params) {
-                    return parseItems(event.getResponseClient().getResponseEntity());
-                }
-
-                @Override
-                protected void onPostExecute(List<T> items) {
-                    super.onPostExecute(items);
-
-                    if (items.size() == 0) {
-                        Toast.makeText(mContext, R.string.toast_no_items, Toast.LENGTH_SHORT).show();
-                    }
-
-                    if (isAdded()) {
-                        if (event.isNew()) {
-                            clear();
-                        }
-
-                        addItems(items);
-                        doneRefreshing();
-                        mListener.onCompleted(OnProcessListener.RESULT_SUCCESS);
-                    }
-                }
-            }.execute();
+            new handleTask(this, event).execute();
         } else {
             mListener.onCompleted(OnProcessListener.RESULT_ERROR);
         }
@@ -527,6 +504,53 @@ public abstract class RecyclerFragment<T> extends BaseFragment {
 
     public RecyclerView getRecyclerView() {
         return mRecyclerView;
+    }
+
+    /**
+     * This class carry out the parsing job to put some data, which be got from the server, to the list.
+     *
+     * <p>
+     * Declared this class as inner static class to prevent the memory leak and use a
+     * WeakReference to get a hold of the parent fragment.
+     * </p>
+     *
+     */
+    private static class handleTask extends AsyncTask<Void, Void, List> {
+        private RecyclerFragment mFragment;
+        private ResponseListEvent mEvent;
+        private WeakReference<RecyclerFragment> mFragmentWeakRef;
+
+        private handleTask(RecyclerFragment fragment, ResponseListEvent event) {
+            mFragment = fragment;
+            mEvent = event;
+
+            mFragmentWeakRef = new WeakReference<>(fragment);
+        }
+
+        @Override
+        protected List doInBackground(Void... params) {
+            return mFragment.parseItems(mEvent.getResponseClient().getResponseEntity());
+        }
+
+        @Override
+        protected void onPostExecute(List items) {
+            super.onPostExecute(items);
+
+            if (items.size() == 0) {
+                Toast.makeText(mFragment.getContext(), R.string.toast_no_items,
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            if (mFragment.isAdded()) {
+                if (mEvent.isNew()) {
+                    mFragment.clear();
+                }
+
+                mFragment.addItems(items);
+                mFragment.doneRefreshing();
+                mFragment.mListener.onCompleted(OnProcessListener.RESULT_SUCCESS);
+            }
+        }
     }
 
     /**
