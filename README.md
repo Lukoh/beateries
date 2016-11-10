@@ -160,7 +160,7 @@ So some functionalities as listed below have to be implemented:
 
 # License
 ```
-Copyright 2015-2016 Lukoh Nam
+Copyright 2015-2016 Lukoh Nam, goForer
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
